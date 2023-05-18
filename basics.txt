@@ -41,7 +41,7 @@ Time complexity----------->
       Time complexity = O(1)+O(n)*O(1)+O(1)
        Here only consider the largest One . that means O(n).as per input only O(n) will changes.with O(1) we cant calculate 
        growth.                          
-
+     
 3.constant time complexity ->o(1)
    eg:functin(arr){
        int k=arr[0]    O(1)
@@ -73,7 +73,9 @@ space Complexity --------->
     so it wont take another space .
     but if we put these  values in another array it will be O(n) space complexity.
     beacuase it will take new spaces for it for each time.
-  
+    
+
+    .when we are initializating an array its space and time complexity will be O(n).
 
 2. int[] arr= new int[10]
     Here the space complexity is O(n).because it will take 10 spaces in memmory.
