@@ -1,0 +1,93 @@
+Basic
+----------------------------
+
+1Algorithms
+
+   -->Algorithms means Step by step instructions.
+
+2.Complexity Analysis.
+
+   --> this means analyzing a solution.How much time and space will take to execute a program.
+
+3.the memmory when an application runs will store in RAM.
+
+4.In computer everything is representes as 0 1 0 1 (binary form)
+
+5.8 bits is one Byte. (0->one bit 1 ->one bit like this 8 bits together is one byte).
+
+6.to store an integer 4 bytes is needed.that means 32 bits.
+
+7.Array needs continuous positions in memmory.(Continuous memmory Allocation)
+
+8.non-contigious-memmory-allocation- it will not store continuous.one byte will be in one place and 
+  another will be in another place. like that (exmaple linkiedlist)
+
+-------------------------------
+Big -o -Notation
+-------------------------------
+
+
+1.Here actually it means the growth rate according to the input coming.
+
+Time complexity----------->
+
+2.linear time complexity ->o(n)
+  
+  eg:fucntin arr[]             
+      for(int i=0;i<n;i++){     O(n)
+        sum=sum+arr[i]          o(1)
+      }  
+      return sum;               o(1)
+      Time complexity = O(1)+O(n)*O(1)+O(1)
+       Here only consider the largest One . that means O(n).as per input only O(n) will changes.with O(1) we cant calculate 
+       growth.                          
+
+3.constant time complexity ->o(1)
+   eg:functin(arr){
+       int k=arr[0]    O(1)
+       return k;       O(1)
+   }
+   Here time complexity is O(1)+O(1) =O(2) .but O(2) will consider as O(1).because there wil be no growth rate according to 
+   input.
+   
+4.quadratic time complexity ->o(n)^2
+    eg:fucntin (arr1,arr2){
+        for(int i=0;i<n;i++){        O(n)
+            for(int j=0;j<n;j++){    O(n)
+                k=arr[j]+arr[i]      O(1)
+            }
+        }     
+        return k;                    O(1)
+    }
+    here TC is O(n)*O(n)*O(1)+O(1) =O(n)^2; here constants wil neglet.
+
+space Complexity --------->
+
+  functin(arr){
+    for(int i =0;i<n;i++){
+        temp=arr[i];
+    }
+  }
+    here the space complexity is O(1) .here in temp the values is replaces by another number.
+    (in the same space the value is replacing)
+    so it wont take another space .
+    but if we put these  values in another array it will be O(n) space complexity.
+    beacuase it will take new spaces for it for each time.
+  
+
+2. int[] arr= new int[10]
+    Here the space complexity is O(n).because it will take 10 spaces in memmory.
+    here in this case of arry initialization time complexity also O(n). 
+    to take and allocate memory it takes O(n).(system automatically do)
+
+Dynamic array------>
+
+  .we dont want to make size of array when it is declaring.automatically it will change size according to the input.
+  .in js and python already the is dynamic.
+  .but laguages like java and c have static array.by using Arryalist java making array dynamically.
+  .dynamic array means when create an array it will create double the size of array.
+  .in dynamic arry time complexity is O(1)T and space complexity is O(1)S.(becasue there is no need to create.just apply the value).
+  .But if that size also exceeds then it will create a new array double the size of newly creating array.
+  .in this case the time complexity becomes O(n) (because we have to copy to new arrya) and space complexity also O(n).
+   beacause it is creating extra spaces(for making the array double size)
+     
