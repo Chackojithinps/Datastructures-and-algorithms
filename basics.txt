@@ -92,4 +92,15 @@ Dynamic array------>
   .But if that size also exceeds then it will create a new array double the size of newly creating array.
   .in this case the time complexity becomes O(n) (because we have to copy to new arrya) and space complexity also O(n).
    beacause it is creating extra spaces(for making the array double size)
-     
+
+----------------------------------------------   
+linkiedlist
+----------------------------------------------
+
+.Array is backtoBack memmory space.
+.in linkedlist memmoryspace is not contigious
+.there is a value and a next variable for the adddress of next value.together these 
+ two are called a node.
+.in the case of set and get time complexity of a linekdlist is O(n) and space complexity is O(1).because it needs to traverse through
+ all to get and set the values.
+ .in the case of traverse also it is O(n).

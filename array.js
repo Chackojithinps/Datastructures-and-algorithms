@@ -56,58 +56,58 @@
 
 // 3.find a code that checks if there is a number in the array arr that occurs more than half of the total array length. 
 
-const arr=[];
-arr.push(55,50,7,70,7,34,55,55);
-var count=0;
-var max=0;
+// const arr=[];
+// arr.push(55,50,7,70,7,34,55,55);
+// var count=0;
+// var max=0;
 
-for(var i=0;i<arr.length;i++){
-   for(var j=i+1;j<arr.length;j++){
-    if(arr[j]!=0){
-        if(arr[i]==arr[j]){
-            arr[j]=0;
-            count++;
-            j--;
-        }
-    }
-}
+// for(var i=0;i<arr.length;i++){
+//    for(var j=i+1;j<arr.length;j++){
+//     if(arr[j]!=0){
+//         if(arr[i]==arr[j]){
+//             arr[j]=0;
+//             count++;
+//             j--;
+//         }
+//     }
+// }
 
-if(count>max){
-    max=count;
-}
+// if(count>max){
+//     max=count;
+// }
 
-}
-if(max>arr.length-1/2){
-    console.log("true")
-}else{
-    console.log("false")
-}
+// }
+// if(max>arr.length-1/2){
+//     console.log("true")
+// }else{
+//     console.log("false")
+// }
     
 
 
 
 // 3.find code if each element in arr1 has a corresponding square value in arr2
-// const arr1=[1,2,4,1,3]
-// const arr2=[1,4,7,9]
-// var flag=0;
-// for(var i=0;i<arr1.length;i++){
-//     flag=0;
-//     for(var j=0;j<arr2.length;j++){
-//         if(arr1[j]!=0){
-//             if(arr1[i]*arr1[i]==arr2[j]){
-//                   flag=1;
-//                   arr2[j]=0;
-//                   break;
-//             }
+const arr1=[1,2,4,1,3]
+const arr2=[1,4,7,9]
+var flag=0;
+for(var i=0;i<arr1.length;i++){
+    flag=0;
+    for(var j=0;j<arr2.length;j++){
+        if(arr1[j]!=0){
+            if(arr1[i]*arr1[i]==arr2[j]){
+                  flag=1;
+                  arr2[j]=0;
+                  break;
+            }
 
-//         }
-//     }
-//     if(flag==0){
-//         break;
-//     }
-// }
-// if(flag==0){
-//     console.log("false")
-// }else{
-//     console.log("true")
-// }
+        }
+    }
+    if(flag==0){
+        break;
+    }
+}
+if(flag==0){
+    console.log("false")
+}else{
+    console.log("true")
+}
