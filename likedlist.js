@@ -96,6 +96,30 @@ insertByindex=(data,index)=>{
    
     
 }
+// -------------------deleteByIndex--------------------
+deleteElementByIndex=(index)=>{
+     if(index==0){
+        this.head=this.head.next;
+     }
+     var currentNode=0;
+     var temp=this.head;
+     while(temp){
+        if(temp.next==this.tail){
+            this.tail=temp;
+            temp.next=temp.next.next;
+            return;
+        }
+
+        if(currentNode==index-1){
+            temp.next=temp.next.next;
+            return;
+
+        }
+        temp=temp.next;
+        currentNode++;
+     }
+}
+
 //---------------------Display ----------------------
     display=()=>{
         var temp=this.head;
@@ -111,7 +135,10 @@ linkedList.addElement(10)
 linkedList.addElement(20)
 linkedList.addElement(40)
 linkedList.addElement(60)
+linkedList.addElement(60)
+linkedList.addElement(70)
 // linkedList.deleteElement(40)
-linkedList.insertByindex(200,3)
+// linkedList.insertByindex(200,3)
 // linkedList.insertAfter(40,100)
+linkedList.deleteElementByIndex(0)
 linkedList.display()
