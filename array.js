@@ -87,27 +87,27 @@
 
 
 // 3.find code if each element in arr1 has a corresponding square value in arr2
-const arr1=[1,2,4,1,3]
-const arr2=[1,4,7,9]
-var flag=0;
-for(var i=0;i<arr1.length;i++){
-    flag=0;
-    for(var j=0;j<arr2.length;j++){
-        if(arr1[j]!=0){
-            if(arr1[i]*arr1[i]==arr2[j]){
-                  flag=1;
-                  arr2[j]=0;
-                  break;
-            }
+// const arr1=[1,2,4,1,3]
+// const arr2=[1,4,7,9]
+// var flag=0;
+// for(var i=0;i<arr1.length;i++){
+//     flag=0;
+//     for(var j=0;j<arr2.length;j++){
+//         if(arr1[j]!=0){
+//             if(arr1[i]*arr1[i]==arr2[j]){
+//                   flag=1;
+//                   arr2[j]=0;
+//                   break;
+//             }
 
-        }
-    }
-    if(flag==0){
-        break;
-    }
-}
-if(flag==0){
-    console.log("false")
-}else{
-    console.log("true")
-}
+//         }
+//     }
+//     if(flag==0){
+//         break;
+//     }
+// }
+// if(flag==0){
+//     console.log("false")
+// }else{
+//     console.log("true")
+// }
