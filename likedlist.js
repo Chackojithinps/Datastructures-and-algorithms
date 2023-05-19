@@ -68,7 +68,34 @@ class LinkedList{
      temp.next=newNode;
      return;
    }
+   
+//----------------insert by index-------------------
 
+insertByindex=(data,index)=>{
+    const newNode=new Node(data);
+    var temp=this.head
+    var currentNode=0;
+    if(index==0){
+        newNode.next=this.head;
+        this.head=newNode;
+        return;
+    }
+    while(temp){
+        if(currentNode==index-1){
+            newNode.next=temp.next;
+            temp.next=newNode;
+            if(temp==this.tail){
+                tail=newNode;
+            }
+            return
+        }
+        temp=temp.next;
+        currentNode++;
+        console.log("crrentNode",currentNode)
+    }
+   
+    
+}
 //---------------------Display ----------------------
     display=()=>{
         var temp=this.head;
@@ -85,6 +112,6 @@ linkedList.addElement(20)
 linkedList.addElement(40)
 linkedList.addElement(60)
 // linkedList.deleteElement(40)
-
-linkedList.insertAfter(40,100)
+linkedList.insertByindex(200,3)
+// linkedList.insertAfter(40,100)
 linkedList.display()
