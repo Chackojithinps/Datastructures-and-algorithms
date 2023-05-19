@@ -1,0 +1,1 @@
+.All the history that we are making is get stored in an another folder that git provides(that is known as git repository).it is .git(folder)
