@@ -103,4 +103,71 @@ linkiedlist
  two are called a node.
 .in the case of set and get time complexity of a linekdlist is O(n) and space complexity is O(1).because it needs to traverse through
  all to get and set the values.
- .in the case of traverse also it is O(n).
+.in the case of traverse also it is O(n).
+.which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers 
+
+
+.Why Linked List? 
+
+ .The size of the arrays is fixed
+ .insertion of a new element / Deletion of a existing element in an array of elements is expensive:
+  The room has to be created for the new elements and to create room existing elements have to be shifted but in Linked list if we have
+  the head node then we can traverse to any node through it and insert new node at the required position.
+
+.Advantages of Linked Lists over arrays:
+
+    .Dynamic Array.
+
+    .Ease of Insertion/Deletion.
+
+    .Insertion at the beginning is a constant time operation and takes O(1) time, as compared to arrays where inserting
+     an element at the beginning takes O(n) time,where n is the number of elements in the array.
+
+    .Memory Efficiency: Linked lists utilize memory efficiently. Unlike arrays, linked lists do not require a contiguous block of memory
+     to store elements. Each element in a linked list can be dynamically allocated, allowing for more efficient memory usage,
+     especially when dealing with large or varying-sized data.
+
+.Drawbacks of Linked Lists: 
+
+    .Random access is not allowed. We have to access elements sequentially starting from the first node(head node).
+    .Extra memory space for a pointer is required with each element of the list.  
+    .Inefficient Search: Searching for a specific element in a linked list has a time complexity of O(n) since sequential traversal is required.
+
+.Applications of Linked Lists
+ 
+    .Linked lists are often used to implement other data structures such as stacks, queues, and hash tables.
+     These data structures can be efficiently implemented using linked lists as they allow for easy insertion,
+     deletion, and rearrangement of elements.
+
+    .Dynamic Memory Allocation: Linked lists are useful for dynamic memory allocation, 
+
+.Difference between array and linkedlist.
+     
+     Implementation:
+
+        Array: An array is a contiguous block of memory where elements are stored sequentially. Elements in an array can be accessed
+        directly using their indices.
+
+        Linked List: A linked list consists of nodes where each node contains the data and a reference (or link) to the next node in
+        the list. The nodes can be scattered across the memory, and they are connected through these references.
+       
+     Memory Management:
+
+        Array: Arrays have a fixed size determined during their creation. If more elements need to be added beyond the array's capacity,
+         a new array with a larger size must be created, and the existing elements must be copied to the new array.
+
+        Linked List: Linked lists can grow or shrink dynamically as elements are added or removed. Each node in a linked list can be
+         allocated and deallocated independently.
+    
+    Insertion and Deletion:
+
+        Array: Insertion or deletion of elements within an array can be costly, especially in the middle or at the beginning, as it
+         requires shifting subsequent elements. Adding or removing elements at the end of the array is generally more efficient.
+        Linked List: Insertion or deletion of elements in a linked list can be done more efficiently, especially when performed at the
+         beginning or in the middle. It involves changing the references of a few nodes without shifting the entire list.
+    
+    Random Access:
+
+        Array: Arrays allow for constant-time random access to elements, as they can be accessed directly using their indices.
+        Linked List: Linked lists do not support direct access to elements by index. To access an element in a linked list,
+         you need to traverse the list from the beginning or end until you reach the desired position.
