@@ -162,79 +162,155 @@
 // Linkded list duplicates remove,middle of the linkedlist--------------------------------->
 
 
-class Node{
+// class Node{
     
+//     constructor(data){
+//         this.data=data;
+//         this.next=null
+//     }
+// }
+
+// class LinkdedList{
+//     head=null;
+//     tail=null;
+//     addNumber(data){
+//         const newNode=new Node(data)
+//         if(!this.head){
+//             this.head=newNode;
+//             this.tail=newNode
+//             return;
+//         }else{
+//             this.tail.next=newNode;
+//             this.tail=newNode;
+//             return;
+//         }
+//     }
+// // ------------------middle of linkedlist----------------------------
+// middleNode = ()=>{
+//     var slow=this.head;
+//     var fast=this.head;
+//     while(fast!=null && fast.next.next!=null){
+//         slow=slow.next;
+//         fast=fast.next.next;
+//     }
+//     return slow.data
+//     };
+
+// // ------------------remove duplicates----------------------------
+
+//     removeDuplicate=()=>{
+//         var temp=this.head;
+//         while(temp && temp.next){
+//             if(temp.data==temp.next.data){
+//                 if(temp.next==this.tail){
+//                     this.tail=temp;
+//                 }
+//                 temp.next=temp.next.next;
+//             }else{
+//                 temp=temp.next;
+
+//             }
+//         }
+       
+
+//         }
+
+
+    
+//     display=()=>{
+//                 var temp=this.head;
+//                 while(temp){
+//                     console.log(temp.data+"-->");
+//                     temp=temp.next;
+//                 }
+//             }
+           
+// }
+// const linkedList=new LinkdedList()
+// linkedList.addNumber(1)
+// linkedList.addNumber(5)
+// linkedList.addNumber(4)
+// linkedList.addNumber(2)
+// linkedList.addNumber(7)
+// linkedList.addNumber(6)
+// // linkedList.addNumber(3)
+// // linkedList.removeDuplicate()
+// const middle=linkedList.middleNode()
+// console.log(middle)
+// linkedList.display()
+
+
+
+
+
+
+
+
+
+// ---------------------------------------------Doubly LinkedList-----------------------------------------------
+
+class Node{
     constructor(data){
         this.data=data;
-        this.next=null
+        this.next=null;
+        this.prev=null
     }
 }
-
-class LinkdedList{
+class LinkedList{
     head=null;
     tail=null;
-    addNumber(data){
-        const newNode=new Node(data)
-        if(!this.head){
+    prev=null;
+    // -------------------------  addValue   ----------------------------------
+
+    addValue=(data)=>{
+        const newNode=new Node(data);
+        if(this.head==null){
             this.head=newNode;
-            this.tail=newNode
-            return;
-        }else{
-            this.tail.next=newNode;
             this.tail=newNode;
             return;
         }
+        this.tail.next=newNode;
+        newNode.prev=this.tail;
+        this.tail=newNode;
     }
-// ------------------middle of linkedlist----------------------------
-middleNode = ()=>{
-    var slow=this.head;
-    var fast=this.head;
-    while(fast!=null && fast.next.next!=null){
-        slow=slow.next;
-        fast=fast.next.next;
+    // --------------------addBefore the given value-----------------------
+    addBeforeValue=(data,val)=>{
+         var temp=this.head;
+         const newNode=new Node(data)
+         if(this.head==null){
+            this.head=newNode;
+            this.tail=newNode;
+            return
+         }
+         while(temp!=null){
+            if(temp.next.data==val){
+                newNode.next=temp.next;
+                newNode.prev=temp;
+                temp.next=newNode;
+                newNode.next.prev=newNode;
+                return
+                
+            }
+         temp=temp.next;
+
+
+         }
+
     }
-    return slow.data
-    };
 
-// ------------------remove duplicates----------------------------
-
-    removeDuplicate=()=>{
+    display(){
         var temp=this.head;
-        while(temp && temp.next){
-            if(temp.data==temp.next.data){
-                if(temp.next==this.tail){
-                    this.tail=temp;
-                }
-                temp.next=temp.next.next;
-            }else{
-                temp=temp.next;
-
-            }
+        while(temp){
+           console.log(temp.data);
+           temp=temp.next;
         }
-       
-
-        }
-
-
-    
-    display=()=>{
-                var temp=this.head;
-                while(temp){
-                    console.log(temp.data+"-->");
-                    temp=temp.next;
-                }
-            }
-           
+    }
 }
-const linkedList=new LinkdedList()
-linkedList.addNumber(1)
-linkedList.addNumber(5)
-linkedList.addNumber(4)
-linkedList.addNumber(2)
-linkedList.addNumber(7)
-linkedList.addNumber(6)
-// linkedList.addNumber(3)
-// linkedList.removeDuplicate()
-const middle=linkedList.middleNode()
-console.log(middle)
+const linkedList=new LinkedList()
+linkedList.addValue(10);
+linkedList.addValue(20);
+linkedList.addValue(30);
+linkedList.addValue(40);
+linkedList.addValue(50);
+linkedList.addBeforeValue(100,30)
 linkedList.display()
