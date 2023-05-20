@@ -1,3 +1,17 @@
-.All the history that we are making is get stored in an another folder that git provides(that is known as git repository)
- it is .git(folder)
-.git init - initializating an empty git repository.repository means a folder.
+. All the history that we are making is get stored in an another folder that git provides(that is known as git repository)
+  it is .git(folder)
+ 
+. git init - initializating an empty git repository.repository means a folder.(this will clean from our code also.)
+
+. git restore --staged github.txt or we can just simply give .(dot) --> this will restore if we did git add .that means it will remove that added 
+  things back to normal conditions.
+
+. git log - we can see entire history of the project.
+
+. git restore 4383743473430434(id)--> after doing this whatever we commited after this id will removed.
+
+. git stash-->git add . then git stash.-->if we dont want to commit and don't want to lose that data then this command can use
+
+. git stash pop-->git add ., git stash pop->To brings that back.
+
+. git stash -clear -->git add .,git stash ,git stash clear ->this will delete that stashed datas.
