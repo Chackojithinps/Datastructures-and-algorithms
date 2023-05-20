@@ -159,7 +159,7 @@
 
 
 
-// Linkded list duplicates remove--------------------------------->
+// Linkded list duplicates remove,middle of the linkedlist--------------------------------->
 
 
 class Node{
@@ -185,6 +185,18 @@ class LinkdedList{
             return;
         }
     }
+// ------------------middle of linkedlist----------------------------
+middleNode = ()=>{
+    var slow=this.head;
+    var fast=this.head;
+    while(fast!=null && fast.next.next!=null){
+        slow=slow.next;
+        fast=fast.next.next;
+    }
+    return slow.data
+    };
+
+// ------------------remove duplicates----------------------------
 
     removeDuplicate=()=>{
         var temp=this.head;
@@ -202,11 +214,13 @@ class LinkdedList{
        
 
         }
+
+
     
     display=()=>{
                 var temp=this.head;
                 while(temp){
-                    console.log(temp.data);
+                    console.log(temp.data+"-->");
                     temp=temp.next;
                 }
             }
@@ -214,11 +228,13 @@ class LinkdedList{
 }
 const linkedList=new LinkdedList()
 linkedList.addNumber(1)
-linkedList.addNumber(1)
-linkedList.addNumber(1)
+linkedList.addNumber(5)
+linkedList.addNumber(4)
 linkedList.addNumber(2)
-linkedList.addNumber(3)
-linkedList.addNumber(4)
-linkedList.addNumber(4)
-linkedList.removeDuplicate()
+linkedList.addNumber(7)
+linkedList.addNumber(6)
+// linkedList.addNumber(3)
+// linkedList.removeDuplicate()
+const middle=linkedList.middleNode()
+console.log(middle)
 linkedList.display()
