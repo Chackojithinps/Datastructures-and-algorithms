@@ -51,6 +51,8 @@
 
 // -----------------------------------------------
 
+// Given an array nums of integers, return how many of them contain an even number of digits.
+
 // var findNumbers = function(nums) {
 //     var countNum=0;
 //     for(var i=0;i<nums.length;i++){
