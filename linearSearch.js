@@ -32,18 +32,37 @@
 
 //using the js methods.
 
-const str="jithin"
-const str2=str.split("")
-console.log(str2)
-var target="k"
-var flag=0;
-for(var i=0;i<str.length;i++){
-    if(str[i]==target){
-       flag=1;
-    }
-}
-if(flag==1){
-    console.log("true")
-}else{
-    console.log("false")
-}
+// const str="jithin"
+// const str2=str.split("")
+// console.log(str2)
+// var target="k"
+// var flag=0;
+// for(var i=0;i<str.length;i++){
+//     if(str[i]==target){
+//        flag=1;
+//     }
+// }
+// if(flag==1){
+//     console.log("true")
+// }else{
+//     console.log("false")
+// }
+
+
+// -----------------------------------------------
+
+// var findNumbers = function(nums) {
+//     var countNum=0;
+//     for(var i=0;i<nums.length;i++){
+//         var num=nums[i];
+//         var count=0;
+//         while(num>0){
+//             num = Math.floor(num / 10);
+//             count++;
+//         }
+//         if(count%2==0){
+//             countNum++
+//         }
+//     }
+//     return countNum;
+// };
