@@ -171,3 +171,28 @@ linkiedlist
         Array: Arrays allow for constant-time random access to elements, as they can be accessed directly using their indices.
         Linked List: Linked lists do not support direct access to elements by index. To access an element in a linked list,
          you need to traverse the list from the beginning or end until you reach the desired position.
+
+
+----------------------------------------------------------
+Recursion
+----------------------------------------------------------
+
+. while the functin is not executing it will remains the stack.
+. When a functin finishing executing it will remove from the stack.and the flow of program restored to where that function was called.
+. A Recursion means a function that call iteself . 
+. in order to stop the Recursion we have to providet the base condition.
+. in Recursion since the same function is calling again and again ,the memmory is taking seperately.
+. As many times you call the functin.it will take seperate space;
+. SO if we dont give base condition stack will getting filled .so at one time memmory of computer get exceeds the limit(stack overflow error).
+
+why recursion?
+  . it helps us to solving bigger/complex problems in a simple way.
+  . space complexity is O(n)
+  . when you write a recursion in formula, then it is called reuccuracne relation.
+
+  Types of recurrance relation
+    .linear recurrance relation (finbonacci number(eg))
+    .divide and conquer recurrance relation. (binary search (eg))
+
+.what variables you need pass to future funciton call ,put inside the argumetns.
+.what all variabels that no need to future calls,pass it inside the body of that function.
