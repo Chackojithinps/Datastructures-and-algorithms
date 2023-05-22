@@ -104,6 +104,30 @@
 
 
 // 1716
-    
+
+
+// --------------------------------------------
+// var str="Hello jithin"
+// console.log(str)
+// var k=str.split(" ")
+// console.log(k)
+// k.reverse()
+// console.log(k)
+// var l=k.join(" ");
+// console.log(l)
+// ----------------------------------------------
+// var str="HEllo jithin"
+// var k=str.split(" ")
+// // console.log(k)
+// for(var i=0;i<k.length;i++){
+//    k[i]= k[i].split("").reverse().join("")
+// }
+// console.log(k)
+// const l=k.join(" ")
+// console.log(l)
+// "olleh nihtij " 
+
+
+
 
 
