@@ -105,6 +105,7 @@
 
 // 1716
 
+// String reversing----------------------------------------------------------
 
 // --------------------------------------------
 // var str="Hello jithin"
@@ -126,6 +127,20 @@
 // const l=k.join(" ")
 // console.log(l)
 // "olleh nihtij " 
+// ------------------------------------------------
+// var str = "Hello jithin";
+// console.log(str);
+
+// var reversedStr = "";
+// for (var i = str.length - 1; i >= 0; i--) {
+//   reversedStr += str[i];
+// }
+
+// console.log(reversedStr);
+
+// ------------------------------------------------------------------------------
+
+
 
 
 

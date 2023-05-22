@@ -249,68 +249,123 @@
 
 // ---------------------------------------------Doubly LinkedList-----------------------------------------------
 
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.next=null;
+//         this.prev=null
+//     }
+// }
+// class LinkedList{
+//     head=null;
+//     tail=null;
+//     prev=null;
+//     // -------------------------  addValue   ----------------------------------
+
+//     addValue=(data)=>{
+//         const newNode=new Node(data);
+//         if(this.head==null){
+//             this.head=newNode;
+//             this.tail=newNode;
+//             return;
+//         }
+//         this.tail.next=newNode;
+//         newNode.prev=this.tail;
+//         this.tail=newNode;
+//     }
+//     // --------------------addBefore the given value-----------------------
+//     addBeforeValue=(data,val)=>{
+//          var temp=this.head;
+//          const newNode=new Node(data)
+//          if(this.head==null){
+//             this.head=newNode;
+//             this.tail=newNode;
+//             return
+//          }
+//          while(temp!=null){
+//             if(temp.next.data==val){
+//                 newNode.next=temp.next;
+//                 newNode.prev=temp;
+//                 temp.next=newNode;
+//                 newNode.next.prev=newNode;
+//                 return
+                
+//             }
+//          temp=temp.next;
+
+
+//          }
+
+//     }
+
+//     display(){
+//         var temp=this.head;
+//         while(temp){
+//            console.log(temp.data);
+//            temp=temp.next;
+//         }
+//     }
+// }
+// const linkedList=new LinkedList()
+// linkedList.addValue(10);
+// linkedList.addValue(20);
+// linkedList.addValue(30);
+// linkedList.addValue(40);
+// linkedList.addValue(50);
+// linkedList.addBeforeValue(100,30)
+// linkedList.display()
+
+
+
+//reverse singly LinkedList
+
+
 class Node{
     constructor(data){
         this.data=data;
         this.next=null;
-        this.prev=null
+        this.prev=null;
     }
 }
 class LinkedList{
-    head=null;
-    tail=null;
-    prev=null;
-    // -------------------------  addValue   ----------------------------------
-
-    addValue=(data)=>{
+    constructor(){
+        var head=null;
+        var tail=null;
+        this.prev=null;
+    }
+    addNode(data){
         const newNode=new Node(data);
+        
         if(this.head==null){
             this.head=newNode;
             this.tail=newNode;
-            return;
         }
         this.tail.next=newNode;
-        newNode.prev=this.tail;
         this.tail=newNode;
     }
-    // --------------------addBefore the given value-----------------------
-    addBeforeValue=(data,val)=>{
-         var temp=this.head;
-         const newNode=new Node(data)
-         if(this.head==null){
-            this.head=newNode;
-            this.tail=newNode;
-            return
-         }
-         while(temp!=null){
-            if(temp.next.data==val){
-                newNode.next=temp.next;
-                newNode.prev=temp;
-                temp.next=newNode;
-                newNode.next.prev=newNode;
-                return
-                
-            }
-         temp=temp.next;
-
-
-         }
-
-    }
-
-    display(){
-        var temp=this.head;
-        while(temp){
-           console.log(temp.data);
-           temp=temp.next;
+    display(res){
+        var temp=res;
+        while(temp!=null){
+            console.log(temp.data);
+            temp=temp.next;
         }
+    }
+    reverseNode(){
+        var curr=this.head;
+        while(curr!=null){
+           var temp=curr.next;
+           curr.next=this.prev;
+           this.prev=curr;
+           curr=temp;
+        }
+        return this.prev;
     }
 }
 const linkedList=new LinkedList()
-linkedList.addValue(10);
-linkedList.addValue(20);
-linkedList.addValue(30);
-linkedList.addValue(40);
-linkedList.addValue(50);
-linkedList.addBeforeValue(100,30)
-linkedList.display()
+linkedList.addNode(10)
+linkedList.addNode(20)
+linkedList.addNode(30)
+linkedList.addNode(40)
+linkedList.addNode(50)
+const res=linkedList.reverseNode();
+linkedList.display(res);
