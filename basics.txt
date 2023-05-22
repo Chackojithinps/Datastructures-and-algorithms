@@ -196,3 +196,5 @@ why recursion?
 
 .what variables you need pass to future funciton call ,put inside the argumetns.
 .what all variabels that no need to future calls,pass it inside the body of that function.
+.Dynamic programming means if in the recursion calls two or more recursion calls are doing the same work dont compute it agian and again.
+.whenever you are calling a recursion call,make sure you are returning if there is returning type.

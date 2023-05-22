@@ -82,6 +82,28 @@
 // }else{
 //     console.log("false")
 // }
+// var sum=0;
+
+// var p=10;
+// var num=1;
+// sumOfdays=(p,num)=>{
+//     var c=7;
+//     for(var i=num;i<p;i++){
+//         if(i>c){
+//           var j=;
+//           var diff=p-c;
+//           while(j<=diff){
+//             sum=sum+
+//           }
+//         }
+//         sum=sum+i;
+//     }
+// }
+// sumOfdays(p,num)
+// console.log(sum)
+
+
+// 1716
     
 
 
