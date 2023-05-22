@@ -22,6 +22,30 @@ Basic
 8.non-contigious-memmory-allocation- it will not store continuous.one byte will be in one place and 
   another will be in another place. like that (exmaple linkiedlist)
 
+.9 Algorithm to find 1 - n numbers.
+
+    .tep 1: START
+
+    Step 2: 
+      - Set n = 10
+
+    Step 3: 
+      - Initialize a loop variable i with an initial value of 1
+
+    Step 4: 
+      - Check if i <= n (1 <= 10) - condition is true, continue to Step 5
+
+    Step 5: 
+      - Print the value of i using console.log(i)
+
+    Step 6: 
+      - Increment i by 1 (i++)
+
+    Step 7: 
+      - Repeat Steps 4-6 until the condition i <= n becomes false
+
+    Step 8: END
+
 -------------------------------
 Big -o -Notation
 -------------------------------
