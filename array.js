@@ -141,6 +141,131 @@
 // ------------------------------------------------------------------------------
 
 
+//unique number----------------------->
+
+// const arr=[4,5,2,5,6,3,2,3,8,9];
+// for(var i=0;i<arr.length;i++){
+//     var flag=0;
+//     if(arr[i]!=0){
+//         for(var j=i+1;j<arr.length;j++){
+//             if(arr[i]==arr[j]){
+//                 var flag=1;
+//                 arr[j]=0;
+//             }
+//         }
+//     }
+//     if(flag==0){
+//         if(arr[i]!=0){
+//             console.log(arr[i])
+
+//         }
+//     }
+    
+// }
+
+
+// find first repeated element in an array
+
+
+// const arr=[4,5,2,5,6,3,2,3,8,9];
+// var flag=0; var num=0;
+// for(var i=0;i<arr.length;i++){
+    
+//     for(var j=i+1;j<arr.length;j++){
+//         if(arr[i]==arr[j]){
+//             var flag=1;
+//             break;
+//         }
+//     }
+//     if(flag==1){
+//         num=arr[i]
+//        break;
+//     }
+// }
+// if(flag==1){
+//     console.log(num)
+// }
+
+
+// second repeated element-------------------------------
+
+// const arr=[4,5,2,5,6,3,2,3,8,9];
+// var flag=0; var num=0; var count=0;
+// for(var i=0;i<arr.length;i++){
+//     if(arr[j]!=0){
+//         for(var j=i+1;j<arr.length;j++){
+//             if(arr[i]==arr[j]){
+//                 var flag=1;
+//                 arr[j]=0;;
+//             }
+//         }
+//     }
+    
+//     if(flag==1){
+//        count++
+//        if(count==2){
+//         num=arr[i]
+//         break;
+
+//        }
+//     }
+// }
+// if(flag==1){
+//     console.log(num)
+// }
+
+// frequencey of each element------------------>
+
+// const arr=[4,5,2,5,6,3,2,3,8,9];
+// const arr2=[]
+// for(var i=0;i<arr.length;i++){
+//     var count=1;
+//     if(arr[i]!=0){
+//         for(var j=i+1;j<arr.length;j++){
+//             if(arr[i]==arr[j]){
+//                 count++;
+//                 arr[j]=0;
+//             }
+//         }
+//         // arr2.push(count)
+//         console.log(`${arr[i]} present ${count} times in array`)
+        
+//     }
+   
+// }
+// console.log(arr2)
+
+// unique number delete------------------------------>
+
+// const arr=[4,5,2,5,6,3,2,3,8,9];
+// var n=arr.length
+// for(var i=0;i<arr.length;i++){
+//     var flag=0;
+//     for(var j=0;j<arr.length;j++){
+//         if(i!=j && arr[i]==arr[j]){
+//             flag=1;
+//             break;
+//         }
+//     }
+//     if(flag==0){
+//         var k=i;
+//         while(k<arr.length && arr[k+1]!=null){
+//            arr[i]=arr[i+1];
+//            k++;
+//         }
+//         n--;
+//     }
+// }
+// console.log(arr+" ");
+
+// delete every number that are not unique
+
+
+
+
+
+
+
 
 
 
