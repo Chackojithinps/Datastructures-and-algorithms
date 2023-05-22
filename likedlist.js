@@ -343,6 +343,13 @@ class LinkedList{
         this.tail.next=newNode;
         this.tail=newNode;
     }
+    display(){
+        var temp=this.head;
+        while(temp!=null){
+            console.log(temp.data);
+            temp=temp.next;
+        }
+    }
     display(res){
         var temp=res;
         while(temp!=null){
@@ -360,12 +367,81 @@ class LinkedList{
         }
         return this.prev;
     }
+  
+
+    deleteDuplicates(){
+        var temp=this.head;
+        while(temp){
+            var curr=temp;
+            while(curr.next!=null){
+                if(temp.data==curr.next.data){
+                    curr.next=curr.next.next;
+                }else{
+                    curr=curr.next;
+                }
+            }
+            temp=temp.next;
+        }
+    }
+    
 }
+
 const linkedList=new LinkedList()
 linkedList.addNode(10)
-linkedList.addNode(20)
-linkedList.addNode(30)
 linkedList.addNode(40)
-linkedList.addNode(50)
-const res=linkedList.reverseNode();
-linkedList.display(res);
+linkedList.addNode(30)
+linkedList.addNode(70)
+linkedList.addNode(10)
+linkedList.addNode(20)
+linkedList.addNode(10)
+linkedList.addNode(10)
+linkedList.addNode(40)
+// const res=linkedList.reverseNode();
+// linkedList.display(res);
+
+linkedList.deleteDuplicates();
+linkedList.display();
+
+// ----------------------------------mergelinkedlist
+
+// var mergeTwoLists = function(list1, list2) {
+//     if (!list1) {
+//       return list2;
+//     }
+//     if (!list2) {
+//       return list1;
+//     }
+  
+//     var result;
+  
+//     if (list1.val <= list2.val) {
+//       result = list1;
+//       list1 = list1.next;
+//     } else {
+//       result = list2;
+//       list2 = list2.next;
+//     }
+  
+//     var current = result;
+  
+//     while (list1 && list2) {
+//       if (list1.val <= list2.val) {
+//         current.next = list1;
+//         list1 = list1.next;
+//       } else {
+//         current.next = list2;
+//         list2 = list2.next;
+//       }
+//       current = current.next;
+//     }
+  
+//     if (list1) {
+//       current.next = list1;
+//     }
+  
+//     if (list2) {
+//       current.next = list2;
+//     }
+  
+//     return result;
+//   };
