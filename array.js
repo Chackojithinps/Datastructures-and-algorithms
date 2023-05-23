@@ -340,6 +340,21 @@
 // console.log(k)
 
 
+//checking palindrome or not.
+
+// var str="ALAYALA";
+// var arr=str.split("").reverse().join("");
+// if(str==arr){
+//     console.log("the string you given is palindrome");
+    
+// }else{
+//     console.log("not a palidrome");
+// }
+
+
+
+
+
 
 
 

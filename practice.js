@@ -257,4 +257,74 @@
 // console.log(str3)
 
 
+// const arr=[4,2,5,6,7,8,5,3,6,7,5,4,6,6,4,2,6]
+// for(var i=0;i<arr.length;i++){
+//     // var k=0;
+//     var j=arr.length-1;
+//     if(arr[i]==6){
+      
+//         while(arr[j]==6){
+//             j--;
+//         }
+      
+//         var temp=arr[i];
+//         arr[i]=arr[j];
+//         arr[j]=temp;
+       
+//        j--;
+//     }
+// }
+// for(var i=0;i<arr.length-1;i++){
+//     console.log(arr[i])
+// }
 
+
+// const arr=[2,4,6,7,9,12,34,56,78,90,91,94,96,98,99]
+// var target=78;
+// var start=0;
+// var end=arr.length-1;
+// while(start<end){
+// var mid=Math.floor(start+(end-start)/2);
+// if(target==arr[mid]){
+//     console.log(`${target} exists at position ${mid}`)
+//     return;
+// }else if(target<arr[mid]){
+//      end=mid-1;
+// }else{
+//     start=mid+1;
+// }
+// }
+// if(start>end){
+//    console.log("no such value present in array")
+// }
+
+
+const arr=[2,4,6,7,9,12,34,56,78,90,91,94,96,98,99]
+var target=78;
+var start=0;
+var end=arr.length-1;
+var flat=0;
+const binarySearch=(start,end)=>{
+    while(start<end){
+
+        var mid=Math.floor(start+(end-start)/2);
+        if(arr[mid]==target){
+            return mid;
+        }else if(target<arr[mid]){
+            return binarySearch(start,mid-1)
+        }else{
+            return binarySearch(mid+1,end)
+        }
+    }
+    if(start>end){
+        var flat=1;
+        return
+    }
+}
+const val=binarySearch(start,end)
+if(flat==1){
+    console.log("NO value presetn")
+}else{
+    console.log(`${target} is present at ${val}`)
+
+}
