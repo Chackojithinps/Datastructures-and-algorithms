@@ -258,15 +258,94 @@
 // }
 // console.log(arr+" ");
 
-const str="jithin";
-var arr=str.split("");
-// console.log(arr)
-const lastval=arr.pop()
-// console.log(lastval)
-arr.unshift(lastval);
-// console.log(arr)
-var k=arr.join("")
-console.log(k)
+// const str="jithin";
+// var arr=str.split("");
+// // console.log(arr)
+// const lastval=arr.pop()
+// // console.log(lastval)
+// arr.unshift(lastval);
+// // console.log(arr)
+// var k=arr.join("")
+// console.log(k)
+
+// String check two string are equeal--------------->
+
+// var word1="name";
+// var word2="mane";
+
+// var arr1=word1.split("").sort();
+// var arr2=word2.split("").sort();
+// var arr3=arr1.join("")
+// var arr4=arr2.join("")
+// console.log(arr1);
+// console.log(arr2);
+
+// console.log(arr3);
+// console.log(arr4);
+// checkSame=(arr1,arr2)=>{
+//      if(arr1==arr2){
+//         return true
+//      }
+//      return false
+// }
+// const res=checkSame(arr3,arr4)
+// console.log(res)
+
+//interchange last and first in string
+
+// var str2="jithin";
+// var str=str2.split("")
+// var f=str.pop();
+// var k=str.shift();
+// str.unshift(f)
+// str.push(k)
+// var str3=str.join("")
+// console.log(str3)
+
+// Capitalize the first letter in string--------------->
+
+// var str2="jithin"
+// var arr=str2.split("");
+// var k=arr.shift();
+// var m=k.toUpperCase();
+// arr.unshift(m);
+// var newarr=arr.join("");
+// console.log(newarr)
+
+// Print "AABBBCCCC" to 2A3B4C---------------------->
+
+// const str="AABBBCCCCCC"
+// var arr=str.split("");
+// // var count=0;
+// var arr1=[]
+// var k=0;
+// for(var i=0;i<arr.length;i++){
+//     var count=1;
+//     if(arr[i]!=0){
+//         for(var j=0;j<arr.length;j++){
+//             if(arr[i]==arr[j] && i!=j){
+//                 arr[j]=0;
+//                 count++;
+//             }
+//         }
+    
+//     }
+//     if(arr[i]!=0){
+//         arr1[k]=count+arr[i];
+//         k++;
+//     }
+    
+// }
+// var k=arr1.join("")
+// console.log(k)
+
+
+
+
+
+
+
+
 
 
 
