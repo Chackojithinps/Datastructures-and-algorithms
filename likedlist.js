@@ -346,43 +346,54 @@ class LinkedList{
     display(){
         var temp=this.head;
         while(temp!=null){
-            console.log(temp.data);
+            console.log(temp.data+" ");
             temp=temp.next;
         }
     }
-    display(res){
-        var temp=res;
-        while(temp!=null){
-            console.log(temp.data);
-            temp=temp.next;
-        }
-    }
-    reverseNode(){
-        var curr=this.head;
-        while(curr!=null){
-           var temp=curr.next;
-           curr.next=this.prev;
-           this.prev=curr;
-           curr=temp;
-        }
-        return this.prev;
-    }
+    // display(res){
+    //     var temp=res;
+    //     while(temp!=null){
+    //         console.log(temp.data);
+    //         temp=temp.next;
+    //     }
+    // }
+    // reverseNode(){
+    //     var curr=this.head;
+    //     while(curr!=null){
+    //        var temp=curr.next;
+    //        curr.next=this.prev;
+    //        this.prev=curr;
+    //        curr=temp;
+    //     }
+    //     return this.prev;
+    // }
+
+    // updateAnyElement=(data,value)=>{
+    //     var temp=this.head;
+    //     while(temp){
+    //         if(temp.data==data){
+    //             temp.data=value;
+               
+    //         }
+    //         temp=temp.next
+    //     }
+    // }
   
 
-    deleteDuplicates(){
-        var temp=this.head;
-        while(temp){
-            var curr=temp;
-            while(curr.next!=null){
-                if(temp.data==curr.next.data){
-                    curr.next=curr.next.next;
-                }else{
-                    curr=curr.next;
-                }
-            }
-            temp=temp.next;
-        }
-    }
+    // deleteDuplicates(){
+    //     var temp=this.head;
+    //     while(temp){
+    //         var curr=temp;
+    //         while(curr.next!=null){
+    //             if(temp.data==curr.next.data){
+    //                 curr.next=curr.next.next;
+    //             }else{
+    //                 curr=curr.next;
+    //             }
+    //         }
+    //         temp=temp.next;
+    //     }
+    // }
     
 }
 
@@ -396,10 +407,13 @@ linkedList.addNode(20)
 linkedList.addNode(10)
 linkedList.addNode(10)
 linkedList.addNode(40)
+// linkedList.display();
+
+linkedList.updateAnyElement(10,100)
 // const res=linkedList.reverseNode();
 // linkedList.display(res);
 
-linkedList.deleteDuplicates();
+// linkedList.deleteDuplicates();
 linkedList.display();
 
 // ----------------------------------mergelinkedlist
