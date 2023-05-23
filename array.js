@@ -258,6 +258,19 @@
 // }
 // console.log(arr+" ");
 
+const str="jithin";
+var arr=str.split("");
+// console.log(arr)
+const lastval=arr.pop()
+// console.log(lastval)
+arr.unshift(lastval);
+// console.log(arr)
+var k=arr.join("")
+console.log(k)
+
+
+
+
 
 
 
