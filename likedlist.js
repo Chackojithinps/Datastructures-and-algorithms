@@ -343,6 +343,24 @@ class LinkedList{
         this.tail.next=newNode;
         this.tail=newNode;
     }
+    getDecimalValue() {
+        var temp = this.head;
+        var length = 0;
+        
+        while (temp) {
+            length++;
+            temp = temp.next;
+        }
+        // console.log(length)
+        var ans = 0;
+        for (var i = length - 1; i >= 0; i--) {
+            ans += this.head.data * Math.pow(2, i);
+            // console.log(ans)
+            this.head = this.head.next;
+        }
+        
+        return ans;
+    };
     display(){
         var temp=this.head;
         while(temp!=null){
@@ -398,23 +416,27 @@ class LinkedList{
 }
 
 const linkedList=new LinkedList()
-linkedList.addNode(10)
-linkedList.addNode(40)
-linkedList.addNode(30)
-linkedList.addNode(70)
-linkedList.addNode(10)
-linkedList.addNode(20)
-linkedList.addNode(10)
-linkedList.addNode(10)
-linkedList.addNode(40)
+linkedList.addNode(1)
+linkedList.addNode(0)
+linkedList.addNode(1)
+linkedList.addNode(1)
+linkedList.addNode(1)
+const res=linkedList.getDecimalValue();
+console.log(res)
+// linkedList.addNode(70)
+// linkedList.addNode(10)
+// linkedList.addNode(20)
+// linkedList.addNode(10)
+// linkedList.addNode(10)
+// linkedList.addNode(40)
 // linkedList.display();
 
-linkedList.updateAnyElement(10,100)
+// linkedList.updateAnyElement(10,100)
 // const res=linkedList.reverseNode();
 // linkedList.display(res);
 
 // linkedList.deleteDuplicates();
-linkedList.display();
+// linkedList.display();
 
 // ----------------------------------mergelinkedlist
 
