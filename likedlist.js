@@ -320,54 +320,54 @@
 //reverse singly LinkedList
 
 
-class Node{
-    constructor(data){
-        this.data=data;
-        this.next=null;
-        this.prev=null;
-    }
-}
-class LinkedList{
-    constructor(){
-        var head=null;
-        var tail=null;
-        this.prev=null;
-    }
-    addNode(data){
-        const newNode=new Node(data);
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.next=null;
+//         this.prev=null;
+//     }
+// }
+// class LinkedList{
+//     constructor(){
+//         var head=null;
+//         var tail=null;
+//         this.prev=null;
+//     }
+//     addNode(data){
+//         const newNode=new Node(data);
         
-        if(this.head==null){
-            this.head=newNode;
-            this.tail=newNode;
-        }
-        this.tail.next=newNode;
-        this.tail=newNode;
-    }
-    getDecimalValue() {
-        var temp = this.head;
-        var length = 0;
+//         if(this.head==null){
+//             this.head=newNode;
+//             this.tail=newNode;
+//         }
+//         this.tail.next=newNode;
+//         this.tail=newNode;
+//     }
+//     getDecimalValue() {
+//         var temp = this.head;
+//         var length = 0;
         
-        while (temp) {
-            length++;
-            temp = temp.next;
-        }
-        // console.log(length)
-        var ans = 0;
-        for (var i = length - 1; i >= 0; i--) {
-            ans += this.head.data * Math.pow(2, i);
-            // console.log(ans)
-            this.head = this.head.next;
-        }
+//         while (temp) {
+//             length++;
+//             temp = temp.next;
+//         }
+//         // console.log(length)
+//         var ans = 0;
+//         for (var i = length - 1; i >= 0; i--) {
+//             ans += this.head.data * Math.pow(2, i);
+//             // console.log(ans)
+//             this.head = this.head.next;
+//         }
         
-        return ans;
-    };
-    display(){
-        var temp=this.head;
-        while(temp!=null){
-            console.log(temp.data+" ");
-            temp=temp.next;
-        }
-    }
+//         return ans;
+//     };
+//     display(){
+//         var temp=this.head;
+//         while(temp!=null){
+//             console.log(temp.data+" ");
+//             temp=temp.next;
+//         }
+//     }
     // display(res){
     //     var temp=res;
     //     while(temp!=null){
@@ -413,16 +413,16 @@ class LinkedList{
     //     }
     // }
     
-}
+// }
 
-const linkedList=new LinkedList()
-linkedList.addNode(1)
-linkedList.addNode(0)
-linkedList.addNode(1)
-linkedList.addNode(1)
-linkedList.addNode(1)
-const res=linkedList.getDecimalValue();
-console.log(res)
+// const linkedList=new LinkedList()
+// linkedList.addNode(1)
+// linkedList.addNode(0)
+// linkedList.addNode(1)
+// linkedList.addNode(1)
+// linkedList.addNode(1)
+// const res=linkedList.getDecimalValue();
+// console.log(res)
 // linkedList.addNode(70)
 // linkedList.addNode(10)
 // linkedList.addNode(20)
@@ -704,3 +704,62 @@ console.log(res)
 // linkedList.deleteLast()
 // linkedList.deleteByValue(500)
 // linkedList.display();
+
+
+// ------------------------circular linkedlist
+
+// class Node{
+//     constructor(data){
+//            this.data=data;
+//            this.prev=null;
+//            this.next=null;
+//     }
+// }
+// class LinkdedList{
+//     constructor(){
+//         this.head=null;
+//         this.tail=null;
+        
+//     }
+//     addNode=(data)=>{
+//          const newNode=new Node(data) 
+//          if(this.head==null){
+//             this.head=newNode;
+//             this.tail=newNode;
+//             this.tail.next=this.head;
+          
+//          }else{
+//             // newNode.prev = this.tail;
+//       this.tail.next = newNode;
+//       this.tail = newNode;
+//     //   this.tail.next = this.head;
+//          }
+        
+//     }
+//     isCircular(){
+//         if(this.tail.next==this.head){
+//             console.log("This is a circular linkedlist")
+//         }else{
+//             console.log("this is not a circular linkedlist");
+//         }
+//     }
+//     display(){
+       
+//         var temp=this.head;
+
+//        do{
+//         console.log(temp.data)
+//         temp=temp.next;
+//        }while(temp!=this.head && temp!=null)
+    
+//     }
+
+// }
+// const linkedList=new LinkdedList()
+// linkedList.addNode(10)
+// linkedList.addNode(20)
+// linkedList.addNode(30)
+// linkedList.addNode(40)
+
+// linkedList.display()
+// linkedList.isCircular()
