@@ -196,7 +196,8 @@ linkiedlist
         Linked List: Linked lists do not support direct access to elements by index. To access an element in a linked list,
          you need to traverse the list from the beginning or end until you reach the desired position.
 
-
+  .what is Multi Linkded List?
+         . in a multi-linked list, each node can have N number of pointers to other nodes.
 ----------------------------------------------------------
 Recursion
 ----------------------------------------------------------
@@ -271,6 +272,8 @@ Memory allocation and Memory Leak
          them to free up memory.
         . causing outofMemory errors. 
         . The main objective of Garbage Collector is to free heap memory by destroying unreachable objects.
+. How Does Garbage Collection in Java works?
 
-
+        Java garbage collection is an automatic process. Automatic garbage collection is the process of looking at heap memory,
+        identifying which objects are in use and which are not, and deleting the unused objects.
 
