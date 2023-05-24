@@ -222,3 +222,55 @@ why recursion?
 .what all variabels that no need to future calls,pass it inside the body of that function.
 .Dynamic programming means if in the recursion calls two or more recursion calls are doing the same work dont compute it agian and again.
 .whenever you are calling a recursion call,make sure you are returning if there is returning type.
+
+-------------------------------------------------------------------------------------------------
+Memory allocation and Memory Leak
+-------------------------------------------------------------------------------------------------
+
+. js is a high level language so you no need to allocate memmory.memmory allocation and releasing happens automatically.
+
+. memory allocation is the process of allocating or deallocating memmory space for storing data in a computers memory.in
+  other words it is the process of reserving block of memmory for a program or an application.
+
+. There are two types of memmory allocation.
+
+        .static memmory allocation.
+            .The memory is allocated during compile time.
+        .dynamic memmory allocation.
+            .The memmory is allocated during run time.
+
+. Difference between static and dynamic memmory allocation.
+         
+        . Static Memory Allocation is done before program execution.
+        . It uses stack for managing the static allocation of memory.
+        . In Static Memory Allocation, there is no memory re-usability
+        . In static memory allocation, once the memory is allocated, the memory size can not change.
+        .	In this memory is allocated at compile time.
+        . Example: This static memory allocation is generally used for array.
+        . In this memory allocation scheme, execution is faster than dynamic memory allocation.
+
+
+        . Dynamic Memory Allocation is done during program execution.
+        . It uses heap for managing the dynamic allocation of memory.
+        . In Dynamic Memory Allocation, there is memory re-usability.
+        . In dynamic memory allocation, when memory is allocated the memory size can be changed.
+        . In this memory allocation scheme, execution is slower than static memory allocation.
+        . In this memory is allocated at run time.
+        . Example: This dynamic memory allocation is generally used for linked list.
+
+
+. Memory Leak
+        . Memory leak occurs when programmers create a memory in heap and forget to delete it. in other words  
+          we can say that a program or application uses memmory and fails to release it.
+        . The consequences of memory leak is that it reduces the performance of the computer by reducing the 
+          amount of available memory.
+
+. Garbage collection.
+        
+        . some objects will no longer be needed. The garbage collector finds these unused objects and deletes
+         them to free up memory.
+        . causing outofMemory errors. 
+        . The main objective of Garbage Collector is to free heap memory by destroying unreachable objects.
+
+
+
