@@ -351,8 +351,30 @@
 //     console.log("not a palidrome");
 // }
 
+// change abc to cde-------------------------->
 
+// var x="abc";
+// var y=""
 
+// for(var i=0;i<x.length;i++){
+//    var charcode=x.charCodeAt(i)
+//    console.log("charcode:",charcode)
+
+//    var newchar=charcode+2;
+//    console.log("newchar:",newchar)
+//    var y=y+String.fromCharCode(newchar)
+// }
+// console.log(y)
+
+// converting unicode to STring--------------------------->
+
+const arr=[97,98,99];
+
+var y="";
+for(var i=0;i<arr.length;i++){
+    y=y+String.fromCharCode(arr[i]);
+}
+console.log(y)
 
 
 

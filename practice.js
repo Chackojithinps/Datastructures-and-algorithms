@@ -299,32 +299,34 @@
 // }
 
 
-const arr=[2,4,6,7,9,12,34,56,78,90,91,94,96,98,99]
-var target=78;
-var start=0;
-var end=arr.length-1;
-var flat=0;
-const binarySearch=(start,end)=>{
-    while(start<end){
+// const arr=[2,4,6,7,9,12,34,56,78,90,91,94,96,98,99]
+// var target=78;
+// var start=0;
+// var end=arr.length-1;
+// var flat=0;
+// const binarySearch=(start,end)=>{
+//     while(start<end){
 
-        var mid=Math.floor(start+(end-start)/2);
-        if(arr[mid]==target){
-            return mid;
-        }else if(target<arr[mid]){
-            return binarySearch(start,mid-1)
-        }else{
-            return binarySearch(mid+1,end)
-        }
-    }
-    if(start>end){
-        var flat=1;
-        return
-    }
-}
-const val=binarySearch(start,end)
-if(flat==1){
-    console.log("NO value presetn")
-}else{
-    console.log(`${target} is present at ${val}`)
+//         var mid=Math.floor(start+(end-start)/2);
+//         if(arr[mid]==target){
+//             return mid;
+//         }else if(target<arr[mid]){
+//             return binarySearch(start,mid-1)
+//         }else{
+//             return binarySearch(mid+1,end)
+//         }
+//     }
+//     if(start>end){
+//         var flat=1;
+//         return
+//     }
+// }
+// const val=binarySearch(start,end)
+// if(flat==1){
+//     console.log("NO value presetn")
+// }else{
+//     console.log(`${target} is present at ${val}`)
 
-}
+// }
+
+
