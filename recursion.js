@@ -81,3 +81,18 @@
 //     return sum
 // }
 // console.log(sumnumbers(3));
+
+
+// var n=5;
+
+// const findSum=(num)=>{
+//    if(num==1){
+//     return 1;
+//    }
+//    var res=findSum(num-1);
+//    sum=res+num;
+//    return sum;
+// }
+
+// var res=findSum(n)
+// console.log(res)
