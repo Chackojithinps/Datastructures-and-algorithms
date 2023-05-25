@@ -130,6 +130,10 @@ linkiedlist
 .in the case of traverse also it is O(n).
 .which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers 
 
+.An array is a collection of items of same data type stored at contiguous memory locations.
+
+.an Array is a data structure that holds a collection of elements having the same data types,
+ while a String is a collection of characters.
 
 .Why Linked List? 
 
@@ -277,3 +281,5 @@ Memory allocation and Memory Leak
         Java garbage collection is an automatic process. Automatic garbage collection is the process of looking at heap memory,
         identifying which objects are in use and which are not, and deleting the unused objects.
 
+. If a programmer wants to store some data, they must first create an empty part of the heap that is called a “stack.”
+   Then, they can push and then pop values on the stack. 

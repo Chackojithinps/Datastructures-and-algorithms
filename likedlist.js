@@ -485,7 +485,7 @@
 
 
 
-// All linkedlist functions-------------------->
+// All linkedlist functions -------------------->
 
 
 // class Node{
@@ -766,3 +766,98 @@
 
 
 
+// remove all the given values in a singly linkelist
+
+class Node{
+    constructor(data){
+        this.data=data;
+        this.next=null;
+        this.prev=null
+    }
+}
+class LinkedList{
+    head=null;
+    tail=null;
+    prev=null;
+    // -------------------------  addValue   ----------------------------------
+
+    addValue=(data)=>{
+        const newNode=new Node(data);
+        if(this.head==null){
+            this.head=newNode;
+            this.tail=newNode;
+            return;
+        }
+        this.tail.next=newNode;
+        newNode.prev=this.tail;
+        this.tail=newNode;
+    }
+   
+    deleteValue(data){
+       var temp=this.head;
+     
+            while(temp){
+                if(this.head.data==data){
+                    this.head=this.head.next;
+                    temp=this.head;
+                  }else{
+                    if(temp.data==data){
+                        this.prev.next=temp.next;
+                        temp=temp.next;
+                      }else if(temp==this.tail && temp.data==data){
+                           this.tail=this.prev;
+                      }
+                       else{
+                       this.prev=temp
+                       temp=temp.next
+                      }
+                  }
+             
+              
+            }
+       
+    }
+    deleteDuplicates(){
+         var temp=this.head;
+         while(temp){
+            var curr=temp;
+            while(curr.next!=null){
+                if(temp.data==curr.next.data){
+                    curr.next=curr.next.next;
+                }else{
+                    curr=curr.next;
+
+                }
+            }
+            temp=temp.next;
+         }
+    }
+    reverse(){
+        var temp=this.head;
+        while(temp){
+            this.prev=temp;
+            temp=temp.next;
+            temp.next=prev;
+            
+        }
+    }
+    display(){
+        var temp=this.head;
+        while(temp){
+           console.log(temp.data);
+           temp=temp.next;
+        }
+    }
+}
+const linkedList=new LinkedList()
+linkedList.addValue(30);
+linkedList.addValue(30);
+linkedList.addValue(10);
+linkedList.addValue(70);
+linkedList.addValue(50);
+linkedList.addValue(30);
+linkedList.reverse()
+// linkedList.deleteValue(30);
+linkedList.deleteDuplicates()
+// linkedList.addBeforeValue(100,30)
+linkedList.display()

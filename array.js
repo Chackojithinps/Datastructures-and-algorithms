@@ -24,7 +24,7 @@
 
 
 
-// 2.find a code that performs an operation where it moves all occurrences of a specific number   to the end of the array
+// 2.find a code that performs an operation where it moves all occurrences of a specific number to the end of the array
 
 // const arr=[]
 // arr.push(10,6,6,8,0,5,7,7,9,3,6)
@@ -187,7 +187,7 @@
 // }
 
 
-// second repeated element-------------------------------
+// second repeated element------------------------------->
 
 // const arr=[4,5,2,5,6,3,2,3,8,9];
 // var flag=0; var num=0; var count=0;
@@ -238,7 +238,7 @@
 // unique number delete------------------------------>
 
 // const arr=[4,5,2,5,6,3,2,3,8,9];
-// var n=arr.length
+// var n=arr.length;
 // for(var i=0;i<arr.length;i++){
 //     var flag=0;
 //     for(var j=0;j<arr.length;j++){
@@ -368,35 +368,38 @@
 
 // converting unicode to STring--------------------------->
 
-const arr=[97,98,99];
+// const arr=[97,98,99];
 
-var y="";
-for(var i=0;i<arr.length;i++){
-    y=y+String.fromCharCode(arr[i]);
-}
-console.log(y)
-
-
+// var y="";
+// for(var i=0;i<arr.length;i++){
+//     y=y+String.fromCharCode(arr[i]);
+// }
+// console.log(y)
 
 
+// String to uppercase
+
+// let name="ajmallannut"
+// let lenth=name.length
+// console.log("length of the string")
+// console.log(lenth)
+
+// console.log("concert to uppercase")
+//  console.log(name.toUpperCase())
+
+// replace all the j to upperCase-------------------------->
+
+// let inputString = "jithnj";
+// let modifiedString = inputString.replace(/j/g,'J');
+
+// console.log(modifiedString); // Output: Jithn
 
 
+// only firstLetterCapital-------------------------->
 
 
+// let inputString = "jithnj";
 
+// let modifiedString = inputString.charAt(0).toUpperCase() + inputString.slice(1);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// console.log(modifiedString); // Output: Jithn
