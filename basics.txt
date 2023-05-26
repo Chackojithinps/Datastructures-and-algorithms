@@ -281,5 +281,5 @@ Memory allocation and Memory Leak
         Java garbage collection is an automatic process. Automatic garbage collection is the process of looking at heap memory,
         identifying which objects are in use and which are not, and deleting the unused objects.
 
-. If a programmer wants to store some data, they must first create an empty part of the heap that is called a “stack.”
+.  If a programmer wants to store some data, they must first create an empty part of the heap that is called a “stack.”
    Then, they can push and then pop values on the stack. 

@@ -793,54 +793,88 @@ class LinkedList{
         this.tail=newNode;
     }
    
-    deleteValue(data){
-       var temp=this.head;
+    // deleteValue(data){
+    //    var temp=this.head;
      
-            while(temp){
-                if(this.head.data==data){
-                    this.head=this.head.next;
-                    temp=this.head;
-                  }else{
-                    if(temp.data==data){
-                        this.prev.next=temp.next;
-                        temp=temp.next;
-                      }else if(temp==this.tail && temp.data==data){
-                           this.tail=this.prev;
-                      }
-                       else{
-                       this.prev=temp
-                       temp=temp.next
-                      }
-                  }
+    //         while(temp){
+    //             if(this.head.data==data){
+    //                 this.head=this.head.next;
+    //                 temp=this.head;
+    //               }else{
+    //                 if(temp.data==data){
+    //                     this.prev.next=temp.next;
+    //                     temp=temp.next;
+    //                   }else if(temp==this.tail && temp.data==data){
+    //                        this.tail=this.prev;
+    //                   }
+    //                    else{
+    //                    this.prev=temp
+    //                    temp=temp.next
+    //                   }
+    //               }
              
               
-            }
+    //         }
        
-    }
-    deleteDuplicates(){
-         var temp=this.head;
-         while(temp){
-            var curr=temp;
-            while(curr.next!=null){
-                if(temp.data==curr.next.data){
-                    curr.next=curr.next.next;
-                }else{
-                    curr=curr.next;
+    // }
+    // deleteDuplicates(){
+    //      var temp=this.head;
+    //      while(temp){
+    //         var curr=temp;
+    //         while(curr.next!=null){
+    //             if(temp.data==curr.next.data){
+    //                 curr.next=curr.next.next;
+    //             }else{
+    //                 curr=curr.next;
 
-                }
-            }
-            temp=temp.next;
-         }
-    }
-    reverse(){
+    //             }
+    //         }
+    //         temp=temp.next;
+    //      }
+    // }
+    // deleteValue(data){
+    //       var temp=this.head;
+    //       while(this.head.data==data){
+    //         this.head=this.head.next;
+    //       }
+    //         while(temp){
+    //             if(temp.data==data){
+    //                 this.prev.next=temp.next;
+
+    //             }
+    //             this.prev=temp;
+    //             temp=temp.next;
+    //         }
+    //       }
+    deleteDuplicates(){
         var temp=this.head;
         while(temp){
-            this.prev=temp;
-            temp=temp.next;
-            temp.next=prev;
-            
+            var curr=temp;
+            while(curr.next!=null){
+                if(curr.next==this.tail && temp.data==this.tail.data){
+                      this.tail=curr;
+                }
+                if(temp.data==curr.next.data){
+                    curr.next=curr.next.next;
+                    
+                }else{
+    
+                    curr=curr.next;
+                }
+            }
+            temp=temp.next
+
+           
         }
     }
+    // reverse(){
+    //     var temp=this.head;
+    //     while(temp){
+    //         this.prev=temp;
+    //         temp=temp.next;
+    //         temp.next=prev;
+    //     }
+    // }
     display(){
         var temp=this.head;
         while(temp){
@@ -848,16 +882,42 @@ class LinkedList{
            temp=temp.next;
         }
     }
+    deleteByIndex(index){
+        var temp=this.head;
+        var count=0;
+        while(temp){
+            if(index==0){
+                this.head=this.head.next;
+                return;
+            }
+            if(index==count && temp==this.tail){
+                 this.tail=this.prev;
+                 return;
+            }
+            if(index==count){
+               this.prev.next=temp.next;
+               return;
+            }
+            count++;
+            this.prev=temp;
+            temp=temp.next;
+            
+        }
+    }
 }
 const linkedList=new LinkedList()
-linkedList.addValue(30);
-linkedList.addValue(30);
-linkedList.addValue(10);
-linkedList.addValue(70);
-linkedList.addValue(50);
-linkedList.addValue(30);
-linkedList.reverse()
+// linkedList.addValue(30);
+// linkedList.addValue(30);
+linkedList.addValue(2);
+linkedList.addValue(4);
+linkedList.addValue(4);
+linkedList.addValue(8);
+linkedList.addValue(2);
+linkedList.addValue(3);
+linkedList.deleteByIndex(3)
+// linkedList.deleteDuplicates()
+// linkedList.deleteValue(30)
 // linkedList.deleteValue(30);
-linkedList.deleteDuplicates()
+// linkedList.deleteDuplicates()
 // linkedList.addBeforeValue(100,30)
 linkedList.display()
