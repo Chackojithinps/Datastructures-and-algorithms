@@ -377,3 +377,52 @@
 //     console.log(res[i])
 // }
 
+//merge sorting
+
+const mergeSort=(arr,lb,ub)=>{
+     if(lb<ub){
+        var mid=Math.floor((lb+ub)/2)
+        mergeSort(arr,lb,mid)
+        mergeSort(arr,mid+1,ub)
+        merge(arr,lb,mid,ub)
+     }
+}
+const merge=(arr,lb,mid,ub)=>{
+     let i=lb;
+     let j=mid+1;
+     let k=lb;
+     let b=[];
+     while(i<=mid && j<=ub){
+        if(arr[i]<arr[j]){
+            b[k]=arr[i];
+            i++;
+        }else{
+            b[k]=arr[j];
+            j++;   
+        }
+        k++;
+
+     }
+     while(i<=mid){
+        b[k]=arr[i];
+        i++;
+        k++;
+     }
+     while(j<=ub){
+        b[k]=arr[j];
+        j++;
+        k++;
+        
+     }
+     for(var x=lb;x<=ub;x++){
+        arr[x]=b[x]
+     }
+}
+const arr=[8,4,7,2,5,9,1,3,6]
+let lb=0;
+let ub=arr.length-1;
+mergeSort(arr,lb,ub)
+
+console.log(arr)
+
+

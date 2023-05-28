@@ -119,3 +119,58 @@
 // }
 
 
+
+function mergeSort(a,lb,ub){
+
+    if(lb<ub){
+        let mid=Math.floor((lb+ub)/2)
+        mergeSort(a,lb,mid)
+        mergeSort(a,mid+1,ub)
+        merge(a,lb,mid,ub)
+    }
+}
+
+function merge(a,lb,mid,ub){
+    
+    let i=lb
+    let j=mid+1
+    let k=lb
+    let b=[]
+
+    while(i<=mid&&j<=ub){
+        if(a[i]<a[j]){
+            b[k]=a[i]
+            i++
+        }
+        else{
+            b[k]=a[j]
+            j++
+        }
+        k++;
+    }
+    while(i<=mid){
+        b[k]=a[i]
+        i++
+        k++
+    }
+    while(j<=ub)
+    {
+        b[k]=a[j]
+        j++
+        k++
+    }
+
+    for(let x=lb;x<=ub;x++){
+        a[x]=b[x]
+    }
+}
+
+
+
+const array=[3,6,1,8,4,9,7,2]
+
+let lb=0
+let ub=array.length-1
+
+mergeSort(array,lb,ub)
+console.log(array);
