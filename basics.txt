@@ -209,7 +209,7 @@ Recursion
 . while the functin is not executing it will remains the stack.
 . When a functin finishing executing it will remove from the stack.and the flow of program restored to where that function was called.
 . A Recursion means a function that call iteself . 
-. in order to stop the Recursion we have to providet the base condition.
+. in order to stop the Recursion we have to provide the base condition.
 . in Recursion since the same function is calling again and again ,the memmory is taking seperately.
 . As many times you call the functin.it will take seperate space;
 . SO if we dont give base condition stack will getting filled .so at one time memmory of computer get exceeds the limit(stack overflow error).
@@ -283,3 +283,25 @@ Memory allocation and Memory Leak
 
 .  If a programmer wants to store some data, they must first create an empty part of the heap that is called a “stack.”
    Then, they can push and then pop values on the stack. 
+
+
+------------------------------------------------------------------
+Sorting
+------------------------------------------------------------------
+
+Bubble sort
+-----------
+
+   .traverse from left and compare adjacent elements and the higher one is placed at right side. 
+   .In this way, the largest element is moved to the rightmost end at first. 
+   .This process is then continued to find the second largest and place it and so on until the data is sorted.
+
+   .Time Complexity: O(N2)
+   .Auxiliary Space: O(1)
+
+   Advantages of Bubble Sort:
+      .Bubble sort is easy to understand and implement.
+      .It does not require any additional memory space.
+      .It is a stable sorting algorithm, meaning that elements with the same key value maintain their relative order in the sorted output.
+
+  

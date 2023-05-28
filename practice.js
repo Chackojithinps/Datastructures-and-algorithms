@@ -329,4 +329,51 @@
 
 // }
 
+// Bubble sort
+
+// const arr=[13,14,5,6,7,4,3];
+// const sortBubble=(arr)=>{
+//     var n=arr.length;
+//    for(var i=0;i<n;i++){
+//      for(var j=0;j<n-i;j++){
+//         if(arr[j]>arr[j+1]){
+//             var temp=arr[j];
+//             arr[j]=arr[j+1];
+//             arr[j+1]=temp;
+//         }
+//      }
+//    }
+//    return arr;
+// }
+// var res=sortBubble(arr)
+// for(var i=0;i<arr.length;i++){
+//     console.log(res[i])
+// }
+
+
+// Decending bubble sort
+
+// const arr=[16,15,6,4,3];
+// const sortBubble=(arr)=>{
+//     var n=arr.length;
+//    for(var i=0;i<n;i++){
+//     var sorted=false;
+//      for(var j=0;j<n;j++){
+//         if(arr[j]<arr[j+1]){
+//             var temp=arr[j];
+//             arr[j]=arr[j+1];
+//             arr[j+1]=temp;
+//             var sorted=true;
+//         }
+//      }
+//      if(!sorted){
+//         break;
+//      }
+//    }
+//    return arr;
+// }
+// var res=sortBubble(arr)
+// for(var i=0;i<arr.length;i++){
+//     console.log(res[i])
+// }
 
