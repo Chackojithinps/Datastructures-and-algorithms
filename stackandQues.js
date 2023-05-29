@@ -258,55 +258,168 @@
 // --------------------delete middle in stack------------------------
 
 
+// class Node{
+//         constructor(data) {
+//                 this.data=data
+//                 this.next=null
+//         }
+// }
+
+// class Stack{
+//         constructor() {
+//                 this.top=null
+//                 this.size=0
+//         }
+
+//         push(data){
+//                 const newNode=new Node(data)
+
+//                 if(!this.top){
+//                         this.top=newNode
+//                 }
+//                 else{
+//                         newNode.next=this.top
+//                         this.top=newNode
+//                 }
+//                 this.size++
+                
+//         }
+//         deletemiddle(){
+//                 let currentNode=this.top
+//                 let cout=0
+//                 let mid=Math.floor(this.size/2)
+//                 console.log(mid,"mid");
+//                 while(currentNode){
+//                         cout++
+//                         if(mid==cout){
+//                                 currentNode.next=currentNode.next.next
+//                         }
+//                         currentNode=currentNode.next
+
+//                 }
+//         }
+
+//         display(){
+//                 let currentNode=this.top
+//                 while(currentNode){
+//                         console.log(currentNode.data);
+
+//                         currentNode=currentNode.next
+//                 }
+//         }
+// }
+
+
+// const myStack=new Stack()
+
+// myStack.push(8)
+// myStack.push(10)
+// myStack.push(30)
+// myStack.push(40)
+// myStack.push(50)
+// // myStack.push(60)
+
+
+// myStack.display()
+// console.log("-------------------");
+// myStack.deletemiddle()
+// myStack.findLargest()
+// myStack.display()
+
+
+// ------------------------Largest,smallest,secLargest,secSmallest------------------------------
+
 class Node{
-        constructor(data) {
-                this.data=data
-                this.next=null
-        }
+    constructor(data) {
+            this.data=data
+            this.next=null
+    }
 }
 
 class Stack{
-        constructor() {
-                this.top=null
-                this.size=0
+    constructor() {
+            this.top=null
+            this.size=0
+    }
+
+    push(data){
+            const newNode=new Node(data)
+
+            if(!this.top){
+                    this.top=newNode
+            }
+            else{
+                    newNode.next=this.top
+                    this.top=newNode
+            }
+            this.size++
+            
+    }
+    findLargest=()=>{
+        var temp=this.top;
+        var max=0;
+        while(temp){
+            if(temp.data>max){
+                max=temp.data
+            }
+            temp=temp.next;
         }
-
-        push(data){
-                const newNode=new Node(data)
-
-                if(!this.top){
-                        this.top=newNode
-                }
-                else{
-                        newNode.next=this.top
-                        this.top=newNode
-                }
-                this.size++
-                
+        console.log(max+" max value")
+    }
+    findSec=()=>{
+        var temp=this.top;
+        var max=0;
+        var sec=0;
+        while(temp){
+            if(temp.data>max){
+                sec=max;
+                max=temp.data;
+            }
+            if(temp.data>sec && temp.data <max){
+                sec=temp.data;
+            }
+            temp=temp.next;
         }
-        deletemiddle(){
-                let currentNode=this.top
-                let cout=0
-                let mid=Math.floor(this.size/2)
-                console.log(mid,"mid");
-                while(currentNode){
-                        cout++
-                        if(mid==cout){
-                                currentNode.next=currentNode.next.next
-                        }
-                        currentNode=currentNode.next
+        console.log(sec+" sec largest")
+    }
 
-                }
+    findsecSmallest=()=>{
+        var temp=this.top;
+        var small=Number.MAX_VALUE;
+        var secSmall=Number.MAX_VALUE;
+        while(temp){
+            if(temp.data<small){
+                secSmall=small;
+                small=temp.data
+            }
+            if(temp.data<secSmall && temp.data>small){
+                secSmall=temp.data
+            }
+            temp=temp.next
         }
+        console.log(secSmall+" secSmall")
+    }
 
-        display(){
-                let currentNode=this.top
-                while(currentNode){
-                        console.log(currentNode.data);
-
-                        currentNode=currentNode.next
-                }
+    findsmaller=()=>{
+        var temp=this.top;
+        var sm=temp.data;
+        while(temp){
+            if(temp.data<sm){
+                sm=temp.data
+            }
+            temp=temp.next;
         }
+        console.log(sm+" min value")
+    }
+
+    display(){
+            let currentNode=this.top
+            while(currentNode){
+                    console.log(currentNode.data);
+
+                    currentNode=currentNode.next
+            }
+    }
 }
 
 
@@ -314,13 +427,17 @@ const myStack=new Stack()
 
 myStack.push(8)
 myStack.push(10)
-myStack.push(30)
-myStack.push(40)
 myStack.push(50)
+myStack.push(40)
+myStack.push(5)
 // myStack.push(60)
 
 
-myStack.display()
+// myStack.display()
 console.log("-------------------");
-myStack.deletemiddle()
-myStack.display()
+// myStack.deletemiddle()
+myStack.findLargest()
+myStack.findsmaller()
+myStack.findSec()
+myStack.findsecSmallest()
+// myStack.display()
