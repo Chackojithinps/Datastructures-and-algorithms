@@ -379,50 +379,101 @@
 
 //merge sorting
 
-const mergeSort=(arr,lb,ub)=>{
-     if(lb<ub){
-        var mid=Math.floor((lb+ub)/2)
-        mergeSort(arr,lb,mid)
-        mergeSort(arr,mid+1,ub)
-        merge(arr,lb,mid,ub)
-     }
-}
-const merge=(arr,lb,mid,ub)=>{
-     let i=lb;
-     let j=mid+1;
-     let k=lb;
-     let b=[];
-     while(i<=mid && j<=ub){
-        if(arr[i]<arr[j]){
-            b[k]=arr[i];
-            i++;
-        }else{
-            b[k]=arr[j];
-            j++;   
-        }
-        k++;
+// const mergeSort=(arr,lb,ub)=>{
+//      if(lb<ub){
+//         var mid=Math.floor((lb+ub)/2)
+//         mergeSort(arr,lb,mid)
+//         mergeSort(arr,mid+1,ub)
+//         merge(arr,lb,mid,ub)
+//      }
+// }
+// const merge=(arr,lb,mid,ub)=>{
+//      let i=lb;
+//      let j=mid+1;
+//      let k=lb;
+//      let b=[];
+//      while(i<=mid && j<=ub){
+//         if(arr[i]<arr[j]){
+//             b[k]=arr[i];
+//             i++;
+//         }else{
+//             b[k]=arr[j];
+//             j++;   
+//         }
+//         k++;
 
-     }
-     while(i<=mid){
-        b[k]=arr[i];
-        i++;
-        k++;
-     }
-     while(j<=ub){
-        b[k]=arr[j];
-        j++;
-        k++;
+//      }
+//      while(i<=mid){
+//         b[k]=arr[i];
+//         i++;
+//         k++;
+//      }
+//      while(j<=ub){
+//         b[k]=arr[j];
+//         j++;
+//         k++;
         
-     }
-     for(var x=lb;x<=ub;x++){
-        arr[x]=b[x]
-     }
+//      }
+//      for(var x=lb;x<=ub;x++){
+//         arr[x]=b[x]
+//      }
+// }
+// const arr=[8,4,7,2,5,9,1,3,6]
+// let lb=0;
+// let ub=arr.length-1;
+// mergeSort(arr,lb,ub)
+
+// console.log(arr)
+
+
+//string reverse in stack
+
+class Node{
+   constructor(data){
+      this.data=data;
+      this.next=null
+   }
 }
-const arr=[8,4,7,2,5,9,1,3,6]
-let lb=0;
-let ub=arr.length-1;
-mergeSort(arr,lb,ub)
+class Stack{
+   constructor(){
+      this.top=null;
+   }
+   push(data){
+      const newNode=new Node(data)
+      if(this.top==null){
+         this.top=newNode;
+         return;
+      }
+      newNode.next=this.top;
+      this.top=newNode;
+   }
+   pop=()=>{
+      if(this.top==null){
+         console.log("empty stack")
+         return;
+      }
+      var popData=this.top.data;
+      this.top=this.top.next;
+      return popData;
+   }
+   display(){
+      var temp=this.top;
+      while(temp){
+         console.log(temp.data);
+         temp=temp.next;
+      }
+   }
+}
+const str="jithin"
+const stack=new Stack()
+for(var i=0;i<str.length;i++){
+   stack.push(str[i])
+}
+stack.display()
 
-console.log(arr)
-
+let reversed=""
+for(var i=0;i<str.length;i++){
+   reversed=reversed+stack.pop()
+}
+console.log(reversed)
 
