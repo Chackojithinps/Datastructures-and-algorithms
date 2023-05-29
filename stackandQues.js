@@ -134,51 +134,103 @@
 
 //=======================================stack string=============================
 
-class Node{
-        constructor(data) {
-                this.data=data
-                this.next=null
-        }
-}
+// class Node{
+//         constructor(data) {
+//                 this.data=data
+//                 this.next=null
+//         }
+// }
+
+// class Stack{
+//         constructor() {
+//                 this.top=null
+//         }
+
+//         push(data){
+//                 const newNode=new Node(data)
+//                 if(!this.top){
+//                         this.top=newNode
+                        
+//                 }
+//                 else{
+//                         newNode.next=this.top
+//                         this.top=newNode
+//                 }
+//         }
+
+//         pop(){
+//                 if(!this.top){
+//                         console.log("underflow");
+//                 }
+//                 else{
+//                       let  poped=this.top.data
+//                         this.top=this.top.next
+//                         return poped
+                        
+//                 }
+//         }
+//         display(){
+//                 let currentNode=this.top
+//                 while(currentNode){
+//                         console.log(currentNode.data);
+//                         currentNode=currentNode.next
+//                 }
+//         }
+// }
+
+// const myStack=new Stack()
+
+// let str="KERALA"
+
+
+
+// for(let i=0;i<str.length;i++)
+// {
+//         myStack.push(str[i])
+// }
+
+// myStack.display()
+
+// console.log("===============================");
+
+// let reversed=""
+// for(i=0;i<str.length;i++){
+//         reversed+=myStack.pop()
+// }
+
+
+
+// console.log(reversed,"reversed name");
+
+
+
+
+// reverse the array in stack----------------------------------
+
 
 class Stack{
-        constructor() {
-                this.top=null
-        }
+    constructor() {
+        this.array=[]
+     }
 
-        push(data){
-                const newNode=new Node(data)
-                if(!this.top){
-                        this.top=newNode
-                        
-                }
-                else{
-                        newNode.next=this.top
-                        this.top=newNode
-                }
-        }
+    push(data){
+            this.array.push(data)
+    }
 
-        pop(){
-                if(!this.top){
-                        console.log("underflow");
-                }
-                else{
-                      let  poped=this.top.data
-                        this.top=this.top.next
-                        return poped
-                        
-                }
+    pop(){
+            
+       var k= this.array.pop()  
+       return k;  
+    }
+    display(){
+        for(var i=0;i<this.array.length;i++){
+            console.log(array[i])
         }
-        display(){
-                let currentNode=this.top
-                while(currentNode){
-                        console.log(currentNode.data);
-                        currentNode=currentNode.next
-                }
-        }
+    }
+ 
 }
 
-const myStack=new Stack()
+const myStack=new Stack();
 
 let str="KERALA"
 
@@ -186,7 +238,7 @@ let str="KERALA"
 
 for(let i=0;i<str.length;i++)
 {
-        myStack.push(str[i])
+    myStack.push(str[i])
 }
 
 myStack.display()
@@ -195,7 +247,7 @@ console.log("===============================");
 
 let reversed=""
 for(i=0;i<str.length;i++){
-        reversed+=myStack.pop()
+    reversed+=myStack.pop()
 }
 
 
