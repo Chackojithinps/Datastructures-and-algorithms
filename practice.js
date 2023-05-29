@@ -428,52 +428,139 @@
 
 //string reverse in stack
 
-class Node{
-   constructor(data){
-      this.data=data;
-      this.next=null
-   }
-}
-class Stack{
-   constructor(){
-      this.top=null;
-   }
-   push(data){
-      const newNode=new Node(data)
-      if(this.top==null){
-         this.top=newNode;
-         return;
-      }
-      newNode.next=this.top;
-      this.top=newNode;
-   }
-   pop=()=>{
-      if(this.top==null){
-         console.log("empty stack")
-         return;
-      }
-      var popData=this.top.data;
-      this.top=this.top.next;
-      return popData;
-   }
-   display(){
-      var temp=this.top;
-      while(temp){
-         console.log(temp.data);
-         temp=temp.next;
-      }
-   }
-}
-const str="jithin"
-const stack=new Stack()
-for(var i=0;i<str.length;i++){
-   stack.push(str[i])
-}
-stack.display()
+// class Node{
+//    constructor(data){
+//       this.data=data;
+//       this.next=null
+//    }
+// }
+// class Stack{
+//    constructor(){
+//       this.top=null;
+//    }
+//    push(data){
+//       const newNode=new Node(data)
+//       if(this.top==null){
+//          this.top=newNode;
+//          return;
+//       }
+//       newNode.next=this.top;
+//       this.top=newNode;
+//    }
+//    pop=()=>{
+//       if(this.top==null){
+//          console.log("empty stack")
+//          return;
+//       }
+//       var popData=this.top.data;
+//       this.top=this.top.next;
+//       return popData;
+//    }
+//    display(){
+//       var temp=this.top;
+//       while(temp){
+//          console.log(temp.data);
+//          temp=temp.next;
+//       }
+//    }
+// }
+// const str="jithin"
+// const stack=new Stack()
+// for(var i=0;i<str.length;i++){
+//    stack.push(str[i])
+// }
+// stack.display()
 
-let reversed=""
-for(var i=0;i<str.length;i++){
-   reversed=reversed+stack.pop()
-}
-console.log(reversed)
+// let reversed=""
+// for(var i=0;i<str.length;i++){
+//    reversed=reversed+stack.pop()
+// }
+// console.log(reversed)
 
+// class Node{
+//    constructor(data) {
+//            this.data=data
+//            this.next=null
+//    }
+// }
+
+
+
+//deleteMiddle---------------------------------->
+
+
+// class Stack{
+//    constructor() {
+//            this.top=null
+//            this.size=0
+//    }
+
+//    push(data){
+//            const newNode=new Node(data)
+
+//            if(!this.top){
+//                    this.top=newNode
+//            }
+//            else{
+//                    newNode.next=this.top
+//                    this.top=newNode
+//            }
+//            this.size++
+           
+//    }
+   // deletemiddle(){
+   //         let currentNode=this.top
+   //         let cout=0
+   //         let mid=Math.floor(this.size/2)
+   //         console.log(mid,"mid");
+   //         while(currentNode){
+   //                 cout++
+   //                 if(mid==cout){
+   //                         currentNode.next=currentNode.next.next
+   //                 }
+   //                 currentNode=currentNode.next
+
+   //         }
+   // }
+
+
+//    deletemiddle=()=>{
+//       let curr=this.top;
+//       let count=0;
+//       let mid=Math.floor(this.size/2)
+//       while(curr){
+//          count++;
+//             if(count==mid){
+//                curr.next=curr.next.next;
+//                return
+//              }
+//          curr=curr.next;
+         
+//       }
+   
+//    }
+//    display(){
+//            let currentNode=this.top
+//            while(currentNode){
+//                    console.log(currentNode.data);
+
+//                    currentNode=currentNode.next
+//            }
+//    }
+// }
+
+
+// const myStack=new Stack()
+
+// myStack.push(8)
+// myStack.push(10)
+// myStack.push(30)
+// myStack.push(40)
+// myStack.push(50)
+// // myStack.push(60)
+
+
+// myStack.display()
+// console.log("-------------------");
+// myStack.deletemiddle()
+// myStack.display()

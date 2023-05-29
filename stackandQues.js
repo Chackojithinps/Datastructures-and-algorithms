@@ -208,48 +208,119 @@
 // reverse the array in stack----------------------------------
 
 
-class Stack{
-    constructor() {
-        this.array=[]
-     }
+// class Stack{
+//     constructor() {
+//         this.array=[]
+//      }
 
-    push(data){
-            this.array.push(data)
-    }
+//     push(data){
+//             this.array.push(data)
+//     }
 
-    pop(){
+//     pop(){
             
-       var k= this.array.pop()  
-       return k;  
-    }
-    display(){
-        for(var i=0;i<this.array.length;i++){
-            console.log(array[i])
-        }
-    }
+//        var k= this.array.pop()  
+//        return k;  
+//     }
+//     display(){
+//         for(var i=0;i<this.array.length;i++){
+//             console.log(array[i])
+//         }
+//     }
  
+// }
+
+// const myStack=new Stack();
+
+// let str="KERALA"
+
+
+
+// for(let i=0;i<str.length;i++)
+// {
+//     myStack.push(str[i])
+// }
+
+// myStack.display()
+
+// console.log("===============================");
+
+// let reversed=""
+// for(i=0;i<str.length;i++){
+//     reversed+=myStack.pop()
+// }
+
+
+
+// console.log(reversed,"reversed name");
+
+
+// --------------------delete middle in stack------------------------
+
+
+class Node{
+        constructor(data) {
+                this.data=data
+                this.next=null
+        }
 }
 
-const myStack=new Stack();
+class Stack{
+        constructor() {
+                this.top=null
+                this.size=0
+        }
 
-let str="KERALA"
+        push(data){
+                const newNode=new Node(data)
 
+                if(!this.top){
+                        this.top=newNode
+                }
+                else{
+                        newNode.next=this.top
+                        this.top=newNode
+                }
+                this.size++
+                
+        }
+        deletemiddle(){
+                let currentNode=this.top
+                let cout=0
+                let mid=Math.floor(this.size/2)
+                console.log(mid,"mid");
+                while(currentNode){
+                        cout++
+                        if(mid==cout){
+                                currentNode.next=currentNode.next.next
+                        }
+                        currentNode=currentNode.next
 
+                }
+        }
 
-for(let i=0;i<str.length;i++)
-{
-    myStack.push(str[i])
+        display(){
+                let currentNode=this.top
+                while(currentNode){
+                        console.log(currentNode.data);
+
+                        currentNode=currentNode.next
+                }
+        }
 }
+
+
+const myStack=new Stack()
+
+myStack.push(8)
+myStack.push(10)
+myStack.push(30)
+myStack.push(40)
+myStack.push(50)
+// myStack.push(60)
+
 
 myStack.display()
-
-console.log("===============================");
-
-let reversed=""
-for(i=0;i<str.length;i++){
-    reversed+=myStack.pop()
-}
-
-
-
-console.log(reversed,"reversed name");
+console.log("-------------------");
+myStack.deletemiddle()
+myStack.display()
