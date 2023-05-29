@@ -1,3 +1,47 @@
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.next=null
+//     }
+// }
+// class Stack{
+//     constructor(){
+//         this.top=null;
+//     }
+//     pushValue=(data)=>{
+//         const newNode=new Node(data)
+//        if(this.top==null){
+//           this.top=newNode;
+//           return;
+//        }
+//        newNode.next=this.top;
+//        this.top=newNode;
+//     }
+//     popValue=()=>{
+//         if(this.top==null){
+//             console.log("stack underflow");
+//             return;
+//         }
+//         this.top=this.top.next;
+//     }
+//     display(){
+//         var temp=this.top;
+//         while(temp){
+//             console.log(temp.data);
+//             temp=temp.next;
+//         }
+//     }
+// }
+// const stack=new Stack()
+// stack.pushValue(1)
+// stack.pushValue(2)
+// stack.pushValue(3)
+// stack.display()
+// stack.popValue();
+// stack.display()
+
+
+
 class Node{
     constructor(data){
         this.data=data;
@@ -6,26 +50,30 @@ class Node{
 }
 class Stack{
     constructor(){
-        this.top=null;
+        this.first=null;
+        this.rear=null;
     }
-    pushValue=(data)=>{
-        const newNode=new Node(data)
-       if(this.top==null){
-          this.top=newNode;
+    enqueue=(data)=>{
+       const newNode=new Node(data)
+       if(this.first==null){
+          this.first=this.rear=newNode;
           return;
        }
-       newNode.next=this.top;
-       this.top=newNode;
+       this.rear.next=newNode;
+       this.rear=newNode;
     }
-    popValue=()=>{
-        if(this.top==null){
-            console.log("stack underflow");
+    dequeue=()=>{
+        if(this.first==null){
+            console.log("empty");
             return;
         }
-        this.top=this.top.next;
+        this.first=this.first.next;
+        if(this.first==null){
+            this.rear=null;
+        }
     }
     display(){
-        var temp=this.top;
+        var temp=this.first;
         while(temp){
             console.log(temp.data);
             temp=temp.next;
@@ -33,9 +81,9 @@ class Stack{
     }
 }
 const stack=new Stack()
-stack.pushValue(1)
-stack.pushValue(2)
-stack.pushValue(3)
-stack.display()
-stack.popValue();
-stack.display()
+stack.enqueue(1)
+stack.enqueue(2)
+stack.enqueue(3)
+stack.enqueue(4)
+stack.dequeue()
+stack.display();
