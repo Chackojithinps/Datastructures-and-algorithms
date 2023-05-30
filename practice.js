@@ -564,3 +564,12 @@
 // console.log("-------------------");
 // myStack.deletemiddle()
 // myStack.display()
+
+
+// const items = {};
+// items[0] = 10;
+// items[1] = 20;
+// console.log(items);
+
+
+//HashTable
