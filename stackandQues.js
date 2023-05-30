@@ -514,89 +514,139 @@
 
 
 
-class Node{
-        constructor(data) {
-                this.data=data
-                this.next=null
-        }
-}
-
-class Stack{
-        constructor() {
-                this.top=null
-                this.size=0;
-        }
-
-        push(data){
-                const newNode=new Node(data)
-                if(!this.top){
-                        this.top=newNode
-                        this.size++;
-                }
-                else{
-                        newNode.next=this.top
-                        this.top=newNode
-                        this.size++;
-                }
-        }
-
-        pop(){
-                if(!this.top){
-                        console.log("underflow");
-                }
-                else{
-                      let poped=this.top.data
-                        this.top=this.top.next
-                        this.size--;
-                         
-                        return poped
-                        
-                }
-        }
-        deleteMiddle(){
-               
-                var mid=Math.ceil(this.size/2)
-
-                const stack2=new Stack()
-
-                for(var i=0;i<mid;i++){
-                   stack2.push(myStack.pop())
-                }
-                var midVal=myStack.pop();
-                console.log(midVal,"middle value")
-                for(var i=0;i<mid;i++){
-                        myStack.push(stack2.pop())
-                }
-        }
-        display(){
-                let currentNode=this.top
-                while(currentNode){
-                        console.log(currentNode.data);
-                        currentNode=currentNode.next
-                }
-        }
-}
-
-const myStack=new Stack()
-const stack=new Stack()
-// const stack2=new Stack()
-let str="KERALA"
-
-
-
-for(let i=0;i<str.length;i++)
-{
-        myStack.push(str[i])
-}
-
-myStack.display()
-
-console.log("===============================");
-
-// for(i=0;i<str.length;i++){
-//        var reversed=myStack.pop();
-//         stack.push(reversed)
+// class Node{
+//         constructor(data) {
+//                 this.data=data
+//                 this.next=null
+//         }
 // }
-myStack.deleteMiddle();
-myStack.display()
-    
+
+// class Stack{
+//         constructor() {
+//                 this.top=null
+//                 this.size=0;
+//         }
+
+//         push(data){
+//                 const newNode=new Node(data)
+//                 if(!this.top){
+//                         this.top=newNode
+//                         this.size++;
+//                 }
+//                 else{
+//                         newNode.next=this.top
+//                         this.top=newNode
+//                         this.size++;
+//                 }
+//         }
+
+//         pop(){
+//                 if(!this.top){
+//                         console.log("underflow");
+//                 }
+//                 else{
+//                       let poped=this.top.data
+//                         this.top=this.top.next
+//                         this.size--;
+                         
+//                         return poped
+                        
+//                 }
+//         }
+//         deleteMiddle(){
+               
+//                 var mid=Math.floor(this.size/2)
+
+//                 const stack2=new Stack()
+
+//                 for(var i=0;i<mid;i++){
+//                    stack2.push(myStack.pop())
+//                 }
+//                 var midVal=myStack.pop();
+//                 console.log(midVal,"middle value")
+//                 for(var i=0;i<mid;i++){
+//                         myStack.push(stack2.pop())
+//                 }
+//         }
+//         display(){
+//                 let currentNode=this.top
+//                 while(currentNode){
+//                         console.log(currentNode.data);
+//                         currentNode=currentNode.next
+//                 }
+//         }
+// }
+
+// const myStack=new Stack()
+// const stack=new Stack()
+// // const stack2=new Stack()
+// let str="KERALA"
+
+
+
+// for(let i=0;i<str.length;i++)
+// {
+//         myStack.push(str[i])
+// }
+
+// myStack.display()
+
+// console.log("===============================");
+
+// // for(i=0;i<str.length;i++){
+// //        var reversed=myStack.pop();
+// //         stack.push(reversed)
+// // }
+// myStack.deleteMiddle();
+// myStack.display()
+
+
+class Node{
+        constructor(data){
+                this.data=data;
+                this.next=null;
+                
+        }
+}
+class Queue{
+        constructor(){
+                this.front=null;
+                this.rear=null;
+        }
+        pushData=(data)=>{
+           const newNode=new Node(data)
+             if(this.front==null){
+                this.front=this.rear=newNode;
+                return
+             }
+             this.rear.next=newNode;
+             this.rear=newNode
+        }
+        popData=()=>{
+             if(this.front==null){
+                console.log("queue is empty");
+                return;
+             }
+             var poppedData=this.front.data;
+             this.front=this.front.next;
+             console.log(poppedData,"poppedData")
+        }
+        display=()=>{
+            var temp=this.front;
+            while(temp){
+                console.log(temp.data);
+                temp=temp.next
+            }
+        }
+}
+const queue=new Queue()
+queue.pushData(10)
+queue.pushData(20)
+queue.pushData(30)
+queue.pushData(40)
+queue.pushData(50)
+
+queue.display()
+console.log("------------------------")
+queue.popData()
+queue.display()
