@@ -573,3 +573,38 @@
 
 
 //HashTable
+
+
+class HashTable{
+   constructor(size){
+      this.table=new Array(size)
+      this.size=size
+   }
+   hash(key){
+      var total=0;
+      for(var i=0;i<key.length;i++){
+         total+=key.charCodeAt(i)
+      }
+      // console.log(total)
+      var k=total%this.size;
+      // console.log(k)
+      return k
+   }
+   set(key,value){
+      let index=this.hash(key)
+      this.table[index]=value;
+   }
+   display(){
+      for(var i=0;i<this.table.length;i++){
+         if(this.table[i]){
+            console.log(i, this.table[i]);
+         }
+      }
+   }
+
+}
+const table=new HashTable(50)
+table.set("name","jithin")
+table.set("age",24)
+table.display()
+
