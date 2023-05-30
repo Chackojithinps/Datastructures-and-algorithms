@@ -329,115 +329,274 @@
 
 // ------------------------Largest,smallest,secLargest,secSmallest------------------------------
 
+// class Node{
+//     constructor(data) {
+//             this.data=data
+//             this.next=null
+//     }
+// }
+
+// class Stack{
+//     constructor() {
+//             this.top=null
+//             this.size=0
+//     }
+
+//     push(data){
+//             const newNode=new Node(data)
+
+//             if(!this.top){
+//                     this.top=newNode
+//             }
+//             else{
+//                     newNode.next=this.top
+//                     this.top=newNode
+//             }
+//             this.size++
+            
+//     }
+//     findLargest=()=>{
+//         var temp=this.top;
+//         var max=0;
+//         while(temp){
+//             if(temp.data>max){
+//                 max=temp.data
+//             }
+//             temp=temp.next;
+//         }
+//         console.log(max+" max value")
+//     }
+//     findSec=()=>{
+//         var temp=this.top;
+//         var max=0;
+//         var sec=0;
+//         while(temp){
+//             if(temp.data>max){
+//                 sec=max;
+//                 max=temp.data;
+//             }
+//             if(temp.data>sec && temp.data <max){
+//                 sec=temp.data;
+//             }
+//             temp=temp.next;
+//         }
+//         console.log(sec+" sec largest")
+//     }
+
+//     findsecSmallest=()=>{
+//         var temp=this.top;
+//         var small=Number.MAX_VALUE;
+//         var secSmall=Number.MAX_VALUE;
+//         while(temp){
+//             if(temp.data<small){
+//                 secSmall=small;
+//                 small=temp.data
+//             }
+//             if(temp.data<secSmall && temp.data>small){
+//                 secSmall=temp.data
+//             }
+//             temp=temp.next
+//         }
+//         console.log(secSmall+" secSmall")
+//     }
+
+//     findsmaller=()=>{
+//         var temp=this.top;
+//         var sm=temp.data;
+//         while(temp){
+//             if(temp.data<sm){
+//                 sm=temp.data
+//             }
+//             temp=temp.next;
+//         }
+//         console.log(sm+" min value")
+//     }
+
+//     display(){
+//             let currentNode=this.top
+//             while(currentNode){
+//                     console.log(currentNode.data);
+
+//                     currentNode=currentNode.next
+//             }
+//     }
+// }
+
+
+// const myStack=new Stack()
+
+// myStack.push(8)
+// myStack.push(10)
+// myStack.push(50)
+// myStack.push(40)
+// myStack.push(5)
+// // myStack.push(60)
+
+
+// // myStack.display()
+// console.log("-------------------");
+// // myStack.deletemiddle()
+// myStack.findLargest()
+// myStack.findsmaller()
+// myStack.findSec()
+// myStack.findsecSmallest()
+// myStack.display()
+
+
+// ------------------------------------------------------------------------------------------------
+// --------------------------------------reverese string in stack----------------------------------
+
+// class Node{
+//             constructor(data) {
+//                     this.data=data
+//                     this.next=null
+//             }
+//     }
+    
+//     class Stack{
+//             constructor() {
+//                     this.top=null
+//             }
+    
+//             push(data){
+//                     const newNode=new Node(data)
+//                     if(!this.top){
+//                             this.top=newNode
+                            
+//                     }
+//                     else{
+//                             newNode.next=this.top
+//                             this.top=newNode
+//                     }
+//             }
+    
+//             pop(){
+//                     if(!this.top){
+//                             console.log("underflow");
+//                     }
+//                     else{
+//                           let  poped=this.top.data
+//                             this.top=this.top.next
+//                             return poped
+                            
+//                     }
+//             }
+//             display(){
+//                     let currentNode=this.top
+//                     while(currentNode){
+//                             console.log(currentNode.data);
+//                             currentNode=currentNode.next
+//                     }
+//             }
+//     }
+    
+//     const myStack=new Stack()
+//     const stack=new Stack()
+//     let str="KERALA"
+    
+    
+    
+//     for(let i=0;i<str.length;i++)
+//     {
+//             myStack.push(str[i])
+//     }
+    
+//     myStack.display()
+    
+//     console.log("===============================");
+    
+//     // let reversed=""
+//     for(i=0;i<str.length;i++){
+//            var reversed=myStack.pop();
+//             stack.push(reversed)
+//     }
+//     stack.display()
+
+
+
 class Node{
-    constructor(data) {
-            this.data=data
-            this.next=null
-    }
+        constructor(data) {
+                this.data=data
+                this.next=null
+        }
 }
 
 class Stack{
-    constructor() {
-            this.top=null
-            this.size=0
-    }
-
-    push(data){
-            const newNode=new Node(data)
-
-            if(!this.top){
-                    this.top=newNode
-            }
-            else{
-                    newNode.next=this.top
-                    this.top=newNode
-            }
-            this.size++
-            
-    }
-    findLargest=()=>{
-        var temp=this.top;
-        var max=0;
-        while(temp){
-            if(temp.data>max){
-                max=temp.data
-            }
-            temp=temp.next;
+        constructor() {
+                this.top=null
+                this.size=0;
         }
-        console.log(max+" max value")
-    }
-    findSec=()=>{
-        var temp=this.top;
-        var max=0;
-        var sec=0;
-        while(temp){
-            if(temp.data>max){
-                sec=max;
-                max=temp.data;
-            }
-            if(temp.data>sec && temp.data <max){
-                sec=temp.data;
-            }
-            temp=temp.next;
+
+        push(data){
+                const newNode=new Node(data)
+                if(!this.top){
+                        this.top=newNode
+                        this.size++;
+                }
+                else{
+                        newNode.next=this.top
+                        this.top=newNode
+                        this.size++;
+                }
         }
-        console.log(sec+" sec largest")
-    }
 
-    findsecSmallest=()=>{
-        var temp=this.top;
-        var small=Number.MAX_VALUE;
-        var secSmall=Number.MAX_VALUE;
-        while(temp){
-            if(temp.data<small){
-                secSmall=small;
-                small=temp.data
-            }
-            if(temp.data<secSmall && temp.data>small){
-                secSmall=temp.data
-            }
-            temp=temp.next
+        pop(){
+                if(!this.top){
+                        console.log("underflow");
+                }
+                else{
+                      let poped=this.top.data
+                        this.top=this.top.next
+                        this.size--;
+                         
+                        return poped
+                        
+                }
         }
-        console.log(secSmall+" secSmall")
-    }
+        deleteMiddle(){
+               
+                var mid=Math.ceil(this.size/2)
 
-    findsmaller=()=>{
-        var temp=this.top;
-        var sm=temp.data;
-        while(temp){
-            if(temp.data<sm){
-                sm=temp.data
-            }
-            temp=temp.next;
+                const stack2=new Stack()
+
+                for(var i=0;i<mid;i++){
+                   stack2.push(myStack.pop())
+                }
+                var midVal=myStack.pop();
+                console.log(midVal,"middle value")
+                for(var i=0;i<mid;i++){
+                        myStack.push(stack2.pop())
+                }
         }
-        console.log(sm+" min value")
-    }
-
-    display(){
-            let currentNode=this.top
-            while(currentNode){
-                    console.log(currentNode.data);
-
-                    currentNode=currentNode.next
-            }
-    }
+        display(){
+                let currentNode=this.top
+                while(currentNode){
+                        console.log(currentNode.data);
+                        currentNode=currentNode.next
+                }
+        }
 }
 
-
 const myStack=new Stack()
-
-myStack.push(8)
-myStack.push(10)
-myStack.push(50)
-myStack.push(40)
-myStack.push(5)
-// myStack.push(60)
+const stack=new Stack()
+// const stack2=new Stack()
+let str="KERALA"
 
 
-// myStack.display()
-console.log("-------------------");
-// myStack.deletemiddle()
-myStack.findLargest()
-myStack.findsmaller()
-myStack.findSec()
-myStack.findsecSmallest()
-// myStack.display()
+
+for(let i=0;i<str.length;i++)
+{
+        myStack.push(str[i])
+}
+
+myStack.display()
+
+console.log("===============================");
+
+// for(i=0;i<str.length;i++){
+//        var reversed=myStack.pop();
+//         stack.push(reversed)
+// }
+myStack.deleteMiddle();
+myStack.display()
+    
