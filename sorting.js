@@ -120,105 +120,103 @@
 
 
 
-// function mergeSort(a,lb,ub){
+function mergeSort(a,lb,ub){
 
-//     if(lb<ub){
-//         let mid=Math.floor((lb+ub)/2)
-//         mergeSort(a,lb,mid)
-//         mergeSort(a,mid+1,ub)
-//         merge(a,lb,mid,ub)
-//     }
-// }
+    if(lb<ub){
+        let mid=Math.floor((lb+ub)/2)
+        mergeSort(a,lb,mid)
+        mergeSort(a,mid+1,ub)
+        merge(a,lb,mid,ub)
+    }
+}
 
-// function merge(a,lb,mid,ub){
-    
-//     let i=lb
-//     let j=mid+1
-//     let k=lb
-//     let b=[]
+function merge(a,lb,mid,ub){
+    let i=lb
+    let j=mid+1
+    let k=lb
+    let b=[]
 
-//     while(i<=mid&&j<=ub){
-//         if(a[i]<a[j]){
-//             b[k]=a[i]
+    while(i<=mid&&j<=ub){
+        if(a[i]<a[j]){
+            b[k]=a[i]
+            i++
+        }
+        else{
+            b[k]=a[j]
+            j++
+        }
+        k++;
+    }
+    while(i<=mid){
+        b[k]=a[i]
+        i++
+        k++
+    }
+    while(j<=ub)
+    {
+        b[k]=a[j]
+        j++
+        k++
+    }
+
+    for(let x=lb;x<=ub;x++){
+        a[x]=b[x]
+    }
+}
+
+
+
+const array=[3,6,1,8,4,9,7,2]
+
+let lb=0
+let ub=array.length-1
+
+mergeSort(array,lb,ub)
+console.log(array);
+
+
+// function partition(a,l,r){
+//     let pivot=a[l]
+//     let i=l+1
+//     let j=r
+
+//     while(i<=j){
+
+//         while(a[i]<pivot){
 //             i++
 //         }
-//         else{
-//             b[k]=a[j]
-//             j++
+//         while(a[j]>pivot){
+//             j--
 //         }
-//         k++;
-//     }
-//     while(i<=mid){
-//         b[k]=a[i]
-//         i++
-//         k++
-//     }
-//     while(j<=ub)
-//     {
-//         b[k]=a[j]
-//         j++
-//         k++
+
+//         if(i<=j){
+//         [a[j],a[i]]=[a[i],a[j]]
+            
+//             i++
+//             j--
+//         }
 //     }
 
-//     for(let x=lb;x<=ub;x++){
-//         a[x]=b[x]
+//     // temp=a[j]
+//     // a[j]=a[l]
+//     // a[l]=temp
+//     [a[j],a[l]]=[a[l],a[j]]
+// return j
+// }
+
+// function quicksort(a,l,r){
+//     if(l<r){
+//         let p=partition(a,l,r)
+
+//         quicksort(a,l,p-1)
+//         quicksort(a,p+1,r)
 //     }
 // }
 
+// const array=[10,3,27,5,12,19,2,11,200]
 
+// let l=0
+// let r=array.length-1
 
-// const array=[3,6,1,8,4,9,7,2]
-
-// let lb=0
-// let ub=array.length-1
-
-// mergeSort(array,lb,ub)
+// quicksort(array,l,r)
 // console.log(array);
-
-
-function partition(a,l,r){
-    let pivot=a[l]
-    let i=l+1
-    let j=r
-
-    while(i<=j){
-
-        while(a[i]<pivot){
-            i++
-        }
-        while(a[j]>pivot){
-            j--
-        }
-
-        if(i<=j){
-        [a[j],a[i]]=[a[i],a[j]]
-            
-            i++
-            j--
-        }
-    }
-
-    // temp=a[j]
-    // a[j]=a[l]
-    // a[l]=temp
-    [a[j],a[l]]=[a[l],a[j]]
-return j
-}
-
-function quicksort(a,l,r){
-    if(l<r){
-        let p=
-        partition(a,l,r)
-
-        quicksort(a,l,p-1)
-        quicksort(a,p+1,r)
-    }
-}
-
-const array=[10,3,27,5,12,19,2,11,200]
-
-let l=0
-let r=array.length-1
-
-quicksort(array,l,r)
-console.log(array);
