@@ -768,3 +768,62 @@
 
 
 // insertion sort------------------------------>
+
+// const arr=[2,7,3,6,10,8,9]
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+
+// const insertionSort=(arr)=>{
+//     var n=arr.length;
+//      for(var i=1;i<arr.length;i++){
+//         var j=i-1;
+//         var key=arr[i];
+//         while(j>=0 && arr[j]>key){
+//             arr[j+1]=arr[j]
+//             j=j-1;
+//         }
+//         arr[j+1]=key;
+//      }
+//      return arr
+// }
+// var res=insertionSort(arr)
+// for(var i=0;i<res.length;i++){
+//     console.log(res[i])
+// }
+
+
+// const arr=[2,7,113,6,10,8,9,10]
+
+// const insertionSort=(arr)=>{
+//      var n=arr.length;
+//      for(var i=1;i<n;i++){
+//        var key=arr[i];
+//        var j=i-1;
+//        while(j>=0 && arr[j]>key){
+//          arr[j+1]=arr[j];
+//           j=j-1;
+//        }
+//        arr[j+1]=key;
+//      }
+//      return arr;
+// }
+
+// const insertionSort=(arr)=>{
+//     for(var i=1;i<arr.length;i++){
+//        const key=arr[i];
+//        var j=i-1;
+//        while(j>=0 && arr[j]>key){
+//          arr[j+1]=arr[j];
+//        }
+//        arr[j+1]=key;
+//     }
+//     return arr
+// }
+
+
+// var res=insertionSort(arr)
+// console.log(res)
+
+
+//quick sort
+
+const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]

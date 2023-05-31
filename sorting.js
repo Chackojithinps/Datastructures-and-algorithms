@@ -191,23 +191,24 @@ function partition(a,l,r){
         }
 
         if(i<=j){
-            temp=a[i]
-            a[i]=a[j]
-            a[j]=temp
+        [a[j],a[i]]=[a[i],a[j]]
+            
             i++
             j--
         }
     }
 
-    temp=a[j]
-    a[j]=a[l]
-    a[l]=temp
+    // temp=a[j]
+    // a[j]=a[l]
+    // a[l]=temp
+    [a[j],a[l]]=[a[l],a[j]]
 return j
 }
 
 function quicksort(a,l,r){
     if(l<r){
-        let p=partition(a,l,r)
+        let p=
+        partition(a,l,r)
 
         quicksort(a,l,p-1)
         quicksort(a,p+1,r)
