@@ -618,71 +618,153 @@
 
 //HashTable with collision handling
 
-class HashTable{
-    constructor(size) {
-       this.table=new Array(size)
-       this.size=size;
-    }
+// class HashTable{
+//     constructor(size) {
+//        this.table=new Array(size)
+//        this.size=size;
+//     }
 
-    hash(key){
-       var total=0;
-       for(var i=0;i<key.length;i++){
-          total+=key.charCodeAt(i)
-       }
-       return total%this.size;
-    }
-    set(key,value){
-      var index=this.hash(key)
-      const bucket=this.table[index]
-      if(!bucket){
-         this.table[index]=[[key,value]]
-      }else{
-         const sameKeyItem=bucket.find(item=>item[0]===key)
-         if(sameKeyItem){
-            sameKeyItem[1]=value;
-         }else{
-            bucket.push([key,value])
-         }
-      }
-    }
-    get(key){
-      var index=this.hash(key)
-      const bucket=this.table[index];
-      if(bucket){
-         const sameKeyItem=bucket.find(item=>item[0]===key)
-         if(sameKeyItem){
-             return sameKeyItem[1]
-         }
-      }
-      return undefined;
-    }
-    remove(key){
-      var index=this.hash(key);
-      const bucket=this.table[index]
-      if(bucket){
-         const sameKeyItem=bucket.find(item=>item[0]==key)
-         if(sameKeyItem){
-            bucket.splice(bucket.indexOf(sameKeyItem),1)
-         }
-      }
-    }
-    display(){
-      for(let i=0;i<this.table.length;i++){
-         if(this.table[i]){
-             console.log(i, this.table[i])
-         }
-     }
-    }
-}
-const table=new HashTable(50)
-table.set("name","jithin")
-table.set("age",24)
-table.set("place","kannur")
-table.set("kiran",55)
-table.display()
-console.log("_________________")
-var res=table.get("kiran")
-console.log(res)
-console.log("__________________")
-table.remove("kiran");
-table.display()
+//     hash(key){
+//        var total=0;
+//        for(var i=0;i<key.length;i++){
+//           total+=key.charCodeAt(i)
+//        }
+//        return total%this.size;
+//     }
+//     set(key,value){
+//       var index=this.hash(key)
+//       const bucket=this.table[index]
+//       if(!bucket){
+//          this.table[index]=[[key,value]]
+//       }else{
+//          const sameKeyItem=bucket.find(item=>item[0]===key)
+//          if(sameKeyItem){
+//             sameKeyItem[1]=value;
+//          }else{
+//             bucket.push([key,value])
+//          }
+//       }
+//     }
+//     get(key){
+//       var index=this.hash(key)
+//       const bucket=this.table[index];
+//       if(bucket){
+//          const sameKeyItem=bucket.find(item=>item[0]===key)
+//          if(sameKeyItem){
+//              return sameKeyItem[1]
+//          }
+//       }
+//       return undefined;
+//     }
+//     remove(key){
+//       var index=this.hash(key);
+//       const bucket=this.table[index]
+//       if(bucket){
+//          const sameKeyItem=bucket.find(item=>item[0]==key)
+//          if(sameKeyItem){
+//             bucket.splice(bucket.indexOf(sameKeyItem),1)
+//          }
+//       }
+//     }
+//     display(){
+//       for(let i=0;i<this.table.length;i++){
+//          if(this.table[i]){
+//              console.log(i, this.table[i])
+//          }
+//      }
+//     }
+// }
+// const table=new HashTable(50)
+// table.set("name","jithin")
+// table.set("age",24)
+// table.set("place","kannur")
+// table.set("kiran",55)
+// table.display()
+// console.log("_________________")
+// var res=table.get("kiran")
+// console.log(res)
+// console.log("__________________")
+// table.remove("kiran");
+// table.display()
+
+
+//bubble sort
+
+
+// const arr=[5,6,9,3,1,4,5,9,10]
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+
+// const bubbleSort=(arr)=>{
+//    var n=arr.length
+//    var sorted=false;
+//     for(var i=0;i<n-1;i++){
+//       for(var j=0;j<n-1-i;j++){
+//          if(arr[j]>arr[j+1]){
+//             var temp=arr[j];
+//             arr[j]=arr[j+1];
+//             arr[j+1]=temp;
+//             sorted=true;
+//          }
+//       }
+//       if(sorted==false){
+//          break;
+//       }
+//     }
+//     for(var i=0;i<arr.length;i++){
+//       console.log(arr[i])
+//     }
+// }
+// bubbleSort(arr)
+
+
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+
+// var n=arr.length;
+// var sorted=false;
+// for(var i=0;i<arr.length;i++){
+//    for(var j=0;j<n-1-i;j++){
+//        if(arr[j]>arr[j+1]){
+//          var temp=arr[j];
+//                      arr[j]=arr[j+1];
+//                      arr[j+1]=temp;
+//                      sorted=true;
+//        }
+//    }
+//    if(!sorted){
+//       break;
+//    }
+// }
+// console.log(arr)
+
+// ------------------------selection sort
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+
+// for(var i=0;i<arr.length-1;i++){
+//    for(var j=i+1;j<arr.length;j++){
+//        if(arr[i]>arr[j]){
+//          var temp=arr[i];
+//          arr[i]=arr[j];
+//          arr[j]=temp;
+//        }
+//    }
+// }
+// console.log(arr)
+
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+// const selectionSort=(arr)=>{
+//    for(var i=0;i<arr.length-1;i++){
+//       for(var j=i+1;j<arr.length;j++){
+//          if(arr[i]>arr[j]){
+//             var temp=arr[i];
+//             arr[i]=arr[j];
+//             arr[j]=temp;
+//          }
+//       }
+//    }
+//    return arr
+// }
+// var res=selectionSort(arr)
+// console.log(arr)
+
+
+// insertion sort------------------------------>
