@@ -299,9 +299,22 @@ Bubble sort
    .Time Complexity: O(N2)
    .Auxiliary Space: O(1)
 
-   Advantages of Bubble Sort:
+-------------------------
+
+   .Advantages of Bubble Sort:
       .Bubble sort is easy to understand and implement.
       .It does not require any additional memory space.
-      .It is a stable sorting algorithm, meaning that elements with the same key value maintain their relative order in the sorted output.
+      .It is a stable sorting algorithm, meaning that elements with the same key value maintain their relative
+       order in the sorted output.
+     
+   stability in sorting algorithm means:
+       Stability in sorting algorithms means that if two elements have the same key value, their relative order will be
+       preserved after the sorting operation. In other words, if there are two elements with the same key and one
+       appearsbefore the other in the original unsorted array,the stablesorting algorithm will ensure that the element
+       that appeared first will still appear first in the sorted array.
 
-  
+   .Disadvantages of Bubble Sort:
+       .Bubble sort has a time complexity of O(N2) which makes it very slow for large data sets.
+
+          
+-------------------------
