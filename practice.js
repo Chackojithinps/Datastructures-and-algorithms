@@ -645,6 +645,27 @@ class HashTable{
          }
       }
     }
+    get(key){
+      var index=this.hash(key)
+      const bucket=this.table[index];
+      if(bucket){
+         const sameKeyItem=bucket.find(item=>item[0]===key)
+         if(sameKeyItem){
+             return sameKeyItem[1]
+         }
+      }
+      return undefined;
+    }
+    remove(key){
+      var index=this.hash(key);
+      const bucket=this.table[index]
+      if(bucket){
+         const sameKeyItem=bucket.find(item=>item[0]==key)
+         if(sameKeyItem){
+            bucket.splice(bucket.indexOf(sameKeyItem),1)
+         }
+      }
+    }
     display(){
       for(let i=0;i<this.table.length;i++){
          if(this.table[i]){
@@ -658,4 +679,10 @@ table.set("name","jithin")
 table.set("age",24)
 table.set("place","kannur")
 table.set("kiran",55)
+table.display()
+console.log("_________________")
+var res=table.get("kiran")
+console.log(res)
+console.log("__________________")
+table.remove("kiran");
 table.display()
