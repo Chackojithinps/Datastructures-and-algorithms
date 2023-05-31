@@ -899,3 +899,82 @@
 // quicksort(arr,lb,ub);
 // console.log(arr)
 
+
+// const mergeSort=(arr,lb,ub)=>{
+//    if(lb<ub){
+//       var mid=Math.floor((ub+lb)/2);
+//       mergeSort(arr,lb,mid)
+//       mergeSort(arr,mid+1,ub)
+//       merge(arr,lb,mid,ub)
+//    }
+// }
+// merge=(arr,lb,mid,ub)=>{
+//    var i=lb;
+//    var k=lb;
+//    var b=[];
+//    var j=mid+1;
+//    while(i<=mid && j<=ub){
+//       if(arr[i]<arr[j]){
+//          b[k]=arr[i];
+//          i++
+//       }else{
+//          b[k]=arr[j]
+//          j++
+//       }
+//       k++
+//    }
+//    while(i<=mid){
+//       b[k]=arr[i]
+//       i++;
+//       k++;
+//    }
+//    while(j<=ub){
+//       b[k]=arr[j]
+//       j++;
+//       k++;
+//    }
+//    for(var x=lb;x<=ub;x++){
+//       arr[x]=b[x]
+//    }
+// }
+
+
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+// let lb=0;
+// let ub=arr.length-1;
+// mergeSort(arr,lb,ub)
+// console.log(arr)
+const partition=(arr,lb,ub)=>{
+   var pivot=arr[lb];
+   i=lb+1;
+   j=ub;
+   while(i<=j){
+      while(arr[i]<pivot){
+          i++;
+      }
+      while(arr[j]>pivot){
+         j--;
+      }
+      if(i<=j){
+         [arr[j],arr[i]]=[arr[i],arr[j]]
+         i++;
+         j--;
+      }
+   }
+   [arr[j],arr[lb]]=[arr[lb],arr[j]]
+   return j
+}
+const quickSort=(arr,lb,ub)=>{
+   if(lb<ub){
+
+      var p=partition(arr,lb,ub)
+      quickSort(arr,lb,p-1)
+      quickSort(arr,p+1,ub)
+   }
+    
+}
+const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+let lb=0;
+let ub=arr.length-1;
+quickSort(arr,lb,ub)
+console.log(arr)
