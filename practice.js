@@ -575,43 +575,87 @@
 //HashTable
 
 
+// class HashTable{
+//    constructor(size){
+//       this.table=new Array(size)
+//       this.size=size
+//    }
+//    hash(key){
+//       var total=0;
+//       for(var i=0;i<key.length;i++){
+//          total+=key.charCodeAt(i)
+//       }
+//       // console.log(total)
+//       var k=total%this.size;
+//       // console.log(k)
+//       return k
+//    }
+//    set(key,value){
+//       let index=this.hash(key)
+//       this.table[index]=value;
+//    }
+//    get(key){
+//       let index=this.hash(key);
+//       return this.table[index]
+//    }
+//    display(){
+//       for(var i=0;i<this.table.length;i++){
+//          if(this.table[i]){
+//             console.log(i, this.table[i]);
+//          }
+//       }
+//    }
+
+// }
+// const table=new HashTable(50)
+// table.set("name","jithin")
+// table.set("age",24)
+// var res=table.get("age")
+// console.log(res)
+// console.log("-__________________")
+// table.display()
+
+
+//HashTable with collision handling
+
 class HashTable{
-   constructor(size){
-      this.table=new Array(size)
-      this.size=size
-   }
-   hash(key){
-      var total=0;
-      for(var i=0;i<key.length;i++){
-         total+=key.charCodeAt(i)
-      }
-      // console.log(total)
-      var k=total%this.size;
-      // console.log(k)
-      return k
-   }
-   set(key,value){
-      let index=this.hash(key)
-      this.table[index]=value;
-   }
-   get(key){
-      let index=this.hash(key);
-      return this.table[index]
-   }
-   display(){
-      for(var i=0;i<this.table.length;i++){
-         if(this.table[i]){
-            console.log(i, this.table[i]);
+    constructor(size) {
+       this.table=new Array(size)
+       this.size=size;
+    }
+
+    hash(key){
+       var total=0;
+       for(var i=0;i<key.length;i++){
+          total+=key.charCodeAt(i)
+       }
+       return total%this.size;
+    }
+    set(key,value){
+      var index=this.hash(key)
+      const bucket=this.table[index]
+      if(!bucket){
+         this.table[index]=[[key,value]]
+      }else{
+         const sameKeyItem=bucket.find(item=>item[0]===key)
+         if(sameKeyItem){
+            sameKeyItem[1]=value;
+         }else{
+            bucket.push([key,value])
          }
       }
-   }
-
+    }
+    display(){
+      for(let i=0;i<this.table.length;i++){
+         if(this.table[i]){
+             console.log(i, this.table[i])
+         }
+     }
+    }
 }
 const table=new HashTable(50)
 table.set("name","jithin")
 table.set("age",24)
-var res=table.get("age")
-console.log(res)
-console.log("-__________________")
+table.set("place","kannur")
+table.set("kiran",55)
 table.display()
-

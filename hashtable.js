@@ -61,6 +61,7 @@ class Hashtable{
         // this.table[index]=value;
         const bucket=this.table[index]
         if(!bucket){
+            
             this.table[index]=[[key,value]]
         }else{
             const sameKeyItem=bucket.find(item=>item[0]=== key)
