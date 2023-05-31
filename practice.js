@@ -594,6 +594,10 @@ class HashTable{
       let index=this.hash(key)
       this.table[index]=value;
    }
+   get(key){
+      let index=this.hash(key);
+      return this.table[index]
+   }
    display(){
       for(var i=0;i<this.table.length;i++){
          if(this.table[i]){
@@ -606,5 +610,8 @@ class HashTable{
 const table=new HashTable(50)
 table.set("name","jithin")
 table.set("age",24)
+var res=table.get("age")
+console.log(res)
+console.log("-__________________")
 table.display()
 
