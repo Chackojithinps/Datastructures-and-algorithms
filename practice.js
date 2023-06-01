@@ -1422,3 +1422,15 @@
 //  stack.display()
 
 
+// var str = "Hello world";
+// var newStr = "";
+
+// for (var i = 0; i < str.length; i++) {
+//   if (str[i] === " ") {
+//     newStr += "_";
+//   } else {
+//     newStr += str[i];
+//   }
+// }
+
+// console.log(newStr);
