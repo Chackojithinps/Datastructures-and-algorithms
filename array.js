@@ -403,3 +403,19 @@
 // let modifiedString = inputString.charAt(0).toUpperCase() + inputString.slice(1);
 
 // console.log(modifiedString); // Output: Jithn
+
+
+// string quiestion 
+
+var str = "Hello world";
+var newStr = "";
+
+for (var i = 0; i < str.length; i++) {
+  if (str[i] === " ") {
+    newStr += "_";
+  } else {
+    newStr += str[i];
+  }
+}
+
+console.log(newStr);
