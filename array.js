@@ -407,15 +407,26 @@
 
 // string quiestion 
 
-var str = "Hello world";
-var newStr = "";
+// var str = "Hello world";
+// var newStr = "";
 
-for (var i = 0; i < str.length; i++) {
-  if (str[i] === " ") {
-    newStr += "_";
-  } else {
-    newStr += str[i];
-  }
-}
+// for (var i = 0; i < str.length; i++) {
+//   if (str[i] === " ") {
+//     newStr += "_";
+//   } else {
+//     newStr += str[i];
+//   }
+// }
 
-console.log(newStr);
+// console.log(newStr);
+
+// var str="Hello world"
+// var k=str.split("")
+// // console.log(k)
+// for(var i=0;i<k.length;i++){
+//     if(k[i]==" "){
+//         k[i]="_"
+//     }
+// }
+// var l=k.join("")
+// console.log(l)
