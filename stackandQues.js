@@ -483,24 +483,24 @@
 // }
 
 
-// const myStack=new Stack()
+// const myStack=new Stack();
 
-// myStack.push(8)
-// myStack.push(10)
-// myStack.push(50)
-// myStack.push(40)
-// myStack.push(5)
-// // myStack.push(60)
+// myStack.push(8);
+// myStack.push(10);
+// myStack.push(50);
+// myStack.push(40);
+// myStack.push(5);
+// myStack.push(60);
 
 
-// // myStack.display()
+// // myStack.display();
 // console.log("-------------------");
-// // myStack.deletemiddle()
-// myStack.findLargest()
-// myStack.findsmaller()
-// myStack.findSec()
-// myStack.findsecSmallest()
-// myStack.display()
+// // myStack.deletemiddle();
+// myStack.findLargest();
+// myStack.findsmaller();
+// myStack.findSec();
+// myStack.findsecSmallest();
+// myStack.display();
 
 
 // ------------------------------------------------------------------------------------------------
@@ -705,8 +705,73 @@
 // queue.pushData(30)
 // queue.pushData(40)
 // queue.pushData(50)
-
 // queue.display()
 // console.log("------------------------")
 // queue.popData()
 // queue.display()
+
+
+
+// implementing queue using stack----------------->
+
+
+class Node{
+        constructor(data){
+              this.data=data;
+              this.next=null;
+            }
+        }
+        class Stack{
+            constructor(){
+                this.top=null;
+                this.size=0;
+            }
+            pushValue=(data)=>{
+                const newNode=new Node(data)
+               if(this.top==null){
+                  this.top=newNode;
+                  this.size++;
+                  return;
+               }
+               newNode.next=this.top;
+               this.top=newNode;
+               this.size++;
+
+            }
+            popValue=()=>{
+                if(this.top==null){
+                    console.log("stack underflow");
+                    return;
+                }
+                var popData=this.top.data;
+                this.top=this.top.next;
+                return popData;
+            }
+            queue=()=>{
+               for(var i=0;i<this.size;i++){
+                var k=stack.popValue()
+                   stack1.pushValue(k)
+                   console.log(k)
+               }
+               stack1.popValue()
+            }
+            display(){
+                var temp=this.top;
+                while(temp){
+                    console.log(temp.data);
+                    temp=temp.next;
+                }
+            }
+        }
+        const stack=new Stack()
+        const stack1=new Stack()
+        stack.pushValue(1);
+        stack.pushValue(2);
+        stack.pushValue(3);
+        stack.pushValue(4);
+        stack.pushValue(5);;
+        stack.queue();
+        stack.display();
+        console.log("_______________")
+        stack1.display()
+        // stack.popValue();

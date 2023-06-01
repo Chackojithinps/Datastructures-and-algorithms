@@ -1234,3 +1234,191 @@
 // queue.enqueue(30)
 // queue.dequeue()
 // queue.display()
+
+// class Node{
+//    constructor(data){
+//       this.data=data;
+//       this.next=null;
+//    }
+// }
+// class Stack{
+//    constructor(){
+//       this.top=null;
+//    }
+//    push(data){
+//       const newNode=new Node(data)
+//       if(this.top==null){
+//          this.top=newNode;
+//          return;
+//       }
+//       newNode.next=this.top;
+//       this.top=newNode;
+//    }
+//    pop(){
+//       if(this.top==null){
+//          console.log("empty");
+//          return;
+//       }
+//       var poppedData=this.top.data;
+//       this.top=this.top.next;
+//       return poppedData;
+//    }
+//    undo(){
+//       stack1.push(stack.pop());
+//    }
+//    redo(){
+//       stack.push(stack1.pop())
+//    }
+//    display(){
+//       var temp=this.top;
+//       while(temp){
+//          console.log(temp.data);
+//          temp=temp.next;
+//       }
+//    }
+// }
+// const stack=new Stack()
+// const stack1=new Stack();
+
+// stack.push(10)
+// stack.push(20)
+// stack.push(30)
+// stack.push(40)
+// stack.push(50)
+// // stack.display()
+// // console.log("_____________")
+// stack.undo();
+// stack.undo();
+// stack.undo();
+// // stack.display()
+// stack.redo();
+// stack.redo();
+// stack.display()
+
+
+// class Stack{
+//   constructor(){
+//    this.arr=[];
+//    this.arr2=[];
+//   }
+//   push(data){
+//      this.arr.push(data)
+//   }
+  
+//   undo(){
+    
+//      this.arr2.push(this.arr.pop())
+//   }
+//   redo(){
+//     this.arr.push(this.arr2.pop())
+//   }
+//   display(){
+//    console.log(this.arr)
+//   }
+// }
+// const stack=new Stack();
+// // const stack1=new Stack()
+// stack.push(10)
+// stack.push(20)
+// stack.push(30)
+// stack.push(40)
+// stack.push(50)
+// stack.undo()
+// stack.undo()
+// stack.redo()
+// stack.redo()
+// stack.display();
+
+
+
+// class Node{
+//    constructor(data){
+//       this.data=data;
+//       this.next=null;
+//    }
+// }
+// class Stack{
+//    constructor(){
+//       this.top=null;
+//       this.size=0;
+//    }
+//    push(data){
+//       const newNode=new Node(data)
+//       if(this.top==null){
+//          this.top=newNode;
+//          this.size++;
+//          return;
+//       }
+//       newNode.next=this.top;
+//       this.top=newNode;
+//       this.size++;
+//    }
+//    pop(){
+//       if(this.top==null){
+//          console.log("empty");
+//          return;
+//       }
+//       var poppedData=this.top.data;
+//       this.top=this.top.next;
+//       return poppedData;
+//    }
+//    deleteMiddle(){
+//       var mid=Math.floor(this.size/2)
+//       var count=0;
+//       for(var i=0;i<mid;i++){
+//          stack1.push(stack.pop())
+//       }
+//       stack.pop();
+//       for(var i=0;i<mid;i++){
+//          stack.push(stack1.pop())
+//       }
+//    }
+
+//    // reverse(){
+//    //    for(var i=0;i<this.size;i++){
+//    //          var k=stack.pop()
+//    //          stack1.push(k)
+//    //    }
+      
+//    // }
+
+//    display(){
+//       var temp=this.top;
+//       while(temp){
+//          console.log(temp.data);
+//          temp=temp.next;
+//       }
+//    }
+// }
+// const stack=new Stack()
+// const stack1=new Stack();
+
+// stack.push(10)
+// stack.push(20)
+// stack.push(30)
+// stack.push(40)
+// stack.push(50)
+// var str="Kerala"
+
+// for(var i=0;i<str.length;i++){
+//    stack.push(str[i]);
+// }
+// stack.reverse()
+
+// for(var i=0;i<str.length;i++){
+//    stack1.push(stack.pop())
+// }
+// var k=""
+// for(var i=0;i<str.length;i++){
+//    k+=stack1.pop()
+// }
+
+// stack.display()
+// console.log("________________")
+// stack.deleteMiddle()
+// stack.display()
+
+// console.log(k)
+//  stack.display()
+
+
