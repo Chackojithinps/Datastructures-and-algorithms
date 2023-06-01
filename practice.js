@@ -942,39 +942,295 @@
 // const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
 // let lb=0;
 // let ub=arr.length-1;
-// mergeSort(arr,lb,ub)
 // console.log(arr)
-const partition=(arr,lb,ub)=>{
-   var pivot=arr[lb];
-   i=lb+1;
-   j=ub;
-   while(i<=j){
-      while(arr[i]<pivot){
-          i++;
-      }
-      while(arr[j]>pivot){
-         j--;
-      }
-      if(i<=j){
-         [arr[j],arr[i]]=[arr[i],arr[j]]
-         i++;
-         j--;
-      }
-   }
-   [arr[j],arr[lb]]=[arr[lb],arr[j]]
-   return j
-}
-const quickSort=(arr,lb,ub)=>{
-   if(lb<ub){
+// const partition=(arr,lb,ub)=>{
+//    var pivot=arr[lb];
+//    i=lb+1;
+//    j=ub;
+//    while(i<=j){
+//       while(arr[i]<pivot){
+//           i++;
+//       }
+//       while(arr[j]>pivot){
+//          j--;
+//       }
+//       if(i<=j){
+//          [arr[j],arr[i]]=[arr[i],arr[j]]
+//          i++;
+//          j--;
+//       }
+//    }
+//    [arr[j],arr[lb]]=[arr[lb],arr[j]]
+//    return j
+// }
+// const quickSort=(arr,lb,ub)=>{
+//    if(lb<ub){
 
-      var p=partition(arr,lb,ub)
-      quickSort(arr,lb,p-1)
-      quickSort(arr,p+1,ub)
-   }
+//       var p=partition(arr,lb,ub)
+//       quickSort(arr,lb,p-1)
+//       quickSort(arr,p+1,ub)
+//    }
     
-}
-const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
-let lb=0;
-let ub=arr.length-1;
-quickSort(arr,lb,ub)
-console.log(arr)
+// }
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+// let lb=0;
+// let ub=arr.length-1;
+// quickSort(arr,lb,ub)
+// console.log(arr)
+
+// const partition=(arr,lb,ub)=>{
+//    var pivot=arr[lb];
+//    var i=lb+1;
+//    var j=ub;
+//    while(i<=j){
+//        while(arr[i]<pivot){
+//          i++;
+//        }
+//        while(arr[j]>pivot){
+//          j--;
+//        }
+//        if(i<=j){
+//          [arr[i],arr[j]] = [arr[j],arr[i]]
+//          i++;
+//          j--;
+//        }
+//    }
+//    [arr[lb],arr[j]]=[arr[j],arr[lb]]
+//    return j;
+// }
+// const quickSort=(arr,lb,ub)=>{
+
+//       if(lb<ub){
+//          var p=partition(arr,lb,ub);
+//          quickSort(arr,lb,p-1)
+//          quickSort(arr,p+1,ub)
+//       }
+   
+// }
+
+
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+// let lb=0;
+// let ub=arr.length-1;
+// quickSort(arr,lb,ub)
+// console.log(arr)
+
+
+// mergesort--------------------------------------->
+
+// const merge=(arr,lb,mid,ub)=>{
+   
+//    var i=lb;
+//    var k=lb;
+//    const b=[];
+//    var j=mid+1;
+
+//    while(i<=mid && j<=ub){
+//       if(arr[i]<arr[j]){
+//          b[k]=arr[i]
+//          i++;
+//       }else{
+//          b[k]=arr[j]
+//          j++;
+//       }
+//       k++;
+    
+//    }
+//    while(i<=mid){
+//       b[k]=arr[i];
+//       i++;
+//       k++;
+//    }
+//    while(j<=ub){
+//       b[k]=arr[j];
+//       j++;
+//       k++;
+//    }
+
+//    for(var x=lb;x<=ub;x++){
+//       arr[x]=b[x]
+//    }
+
+// }
+// const mergeSort=(arr,lb,ub)=>{
+//     if(lb<ub){
+//       var mid=Math.floor((lb+ub)/2);
+//       mergeSort(arr,lb,mid);
+//       mergeSort(arr,mid+1,ub);
+//       merge(arr,lb,mid,ub)
+//     }
+// }
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+// let lb=0;
+// let ub=arr.length-1;
+// mergeSort(arr,lb,ub);
+// console.log(arr)
+
+
+
+
+// const insertionSort=(arr)=>{
+//      var n=arr.length;
+//      for(var i=1;i<n;i++){
+//        var j=i-1;
+//        var key=arr[i];
+//        while(j>=0 && arr[j]>key){
+//            arr[j+1]=arr[j];
+//            j=j-1;
+//        }
+//        arr[j+1]=key;
+//      }
+// }
+// const arr=[5,7,9,52,48,65,78,1,68,59,24,25,35,78]
+// insertionSort(arr);
+// console.log(arr)
+
+
+// class Node{
+//    constructor(data){
+//       this.data=data;
+//       this.next=null;
+//    }
+// }
+// class Stack{
+//    constructor(){
+//       this.top=null;
+//    }
+//    push(data){
+//       const newNode=new Node(data)
+//       if(this.top==null){
+//          this.top=newNode;
+//          return;
+//       }
+//       newNode.next=this.top;
+//       this.top=newNode;
+//    }
+//    pop(){
+//       if(this.top==null){
+//          console.log("empty");
+//          return;
+//       }
+//       var poppedData=this.top.data;
+//       this.top=this.top.next;
+      
+//    }
+//    display(){
+//       var temp=this.top;
+//       while(temp){
+//          console.log(temp.data);
+//          temp=temp.next;
+//       }
+//    }
+// }
+// const stack=new Stack()
+// stack.push(10)
+// stack.push(20)
+// stack.push(30)
+// stack.push(40)
+// stack.push(50)
+// stack.display()
+// console.log("_____________")
+// stack.pop();
+// stack.display()
+
+
+
+// class Stack{
+//    constructor(){
+//       this.arr=[];
+//    }
+//    pushData=(data)=>{
+//       this.arr.push(data)
+//    }
+//    popData=()=>{
+//       this.arr.pop()
+//    }
+//    display(){
+//      for(var i=this.arr.length-1;i>=0;i--){
+//       console.log(this.arr[i])
+//      }
+//    }
+// }
+// const stack=new Stack();
+// stack.pushData(10)
+// stack.pushData(20)
+// stack.pushData(30)
+// stack.pushData(40)
+// stack.pushData(50)
+// stack.pushData(60)
+// stack.display();
+// stack.popData();
+// console.log("____________________");
+// stack.display()
+
+// class Node{
+//    constructor(data){
+//       this.data=data;
+//       this.next=null;
+//    }
+// }
+// class Queue{
+//    constructor(){
+//       this.first=null;
+//       this.rear=null;
+//    }
+//    push(data){
+//       const newNode=new Node(data)
+//       if(this.first==null){
+//            this.first=this.rear=newNode;
+//            return;
+//       }
+//       this.rear.next=newNode;
+//       this.rear=newNode;
+//    }
+//    pop(){
+//       if(this.first==null){
+//          console.log("empty queue")
+//          return;
+//       }
+//       this.first=this.first.next;
+
+
+//    }
+//    display(){
+//       var temp=this.first;
+//       while(temp){
+//          console.log(temp.data);
+//          temp=temp.next;
+//       }
+//    }
+   
+// }
+// const queue=new Queue();
+// queue.push(10)
+// queue.push(20)
+// queue.push(30)
+// queue.push(40)
+// queue.push(50)
+// queue.push(60)
+// queue.display()
+// console.log("______________")
+// queue.pop();
+// queue.display()
+
+
+// class Queue{
+//    constructor(){
+//       this.arr=[];
+//    }
+//    enqueue=(data)=>{
+//       this.arr.push(data)
+//    }
+//    dequeue=()=>{
+//       this.arr.shift()
+//    }
+//    display(){
+//       console.log(this.arr)
+//    }
+// }
+// const queue=new Queue();
+// queue.enqueue(10)
+// queue.enqueue(20)
+// queue.enqueue(30)
+// queue.dequeue()
+// queue.display()

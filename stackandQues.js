@@ -41,6 +41,41 @@
 // stack.display()
 
 
+// stack using array-------------------------------------
+
+// class Node{
+//         constructor(data) {
+//            this.data=data;
+//            this.next=null;
+//         }
+//      }
+//      class Stack{
+//         constructor(){
+//            this.arr=[];
+//         }
+//         pushData=(data)=>{
+//            this.arr.push(data)
+//         }
+//         popData=()=>{
+//            this.arr.pop()
+//         }
+//         display(){
+//           for(var i=this.arr.length-1;i>=0;i--){
+//            console.log(this.arr[i])
+//           }
+//         }
+//      }
+//      const stack=new Stack();
+//      stack.pushData(10)
+//      stack.pushData(20)
+//      stack.pushData(30)
+//      stack.pushData(40)
+//      stack.pushData(50)
+//      stack.pushData(60)
+//      stack.display();
+//      stack.popData();
+//      console.log("____________________");
+//      stack.display()
 
 // // class Node{
 // //     constructor(data){
@@ -87,6 +122,31 @@
 // // stack.enqueue(4)
 // // stack.dequeue()
 // // stack.display();
+
+
+// queue using array-------------------------->
+
+// class Queue{
+//    constructor(){
+//       this.arr=[];
+//    }
+//    enqueue=(data)=>{
+//       this.arr.push(data)
+//    }
+//    dequeue=()=>{
+//       this.arr.shift()
+//    }
+//    display(){
+//       console.log(this.arr)
+//    }
+// }
+// const queue=new Queue();
+// queue.enqueue(10)
+// queue.enqueue(20)
+// queue.enqueue(30)
+// queue.dequeue()
+// queue.display()
+
 
 // ---------------------------------------undo redo---------------------------------
 
@@ -601,52 +661,52 @@
 // myStack.display()
 
 
-class Node{
-        constructor(data){
-                this.data=data;
-                this.next=null;
+// class Node{
+//         constructor(data){
+//                 this.data=data;
+//                 this.next=null;
                 
-        }
-}
-class Queue{
-        constructor(){
-                this.front=null;
-                this.rear=null;
-        }
-        pushData=(data)=>{
-           const newNode=new Node(data)
-             if(this.front==null){
-                this.front=this.rear=newNode;
-                return
-             }
-             this.rear.next=newNode;
-             this.rear=newNode
-        }
-        popData=()=>{
-             if(this.front==null){
-                console.log("queue is empty");
-                return;
-             }
-             var poppedData=this.front.data;
-             this.front=this.front.next;
-             console.log(poppedData,"poppedData")
-        }
-        display=()=>{
-            var temp=this.front;
-            while(temp){
-                console.log(temp.data);
-                temp=temp.next
-            }
-        }
-}
-const queue=new Queue()
-queue.pushData(10)
-queue.pushData(20)
-queue.pushData(30)
-queue.pushData(40)
-queue.pushData(50)
+//         }
+// }
+// class Queue{
+//         constructor(){
+//                 this.front=null;
+//                 this.rear=null;
+//         }
+//         pushData=(data)=>{
+//            const newNode=new Node(data)
+//              if(this.front==null){
+//                 this.front=this.rear=newNode;
+//                 return
+//              }
+//              this.rear.next=newNode;
+//              this.rear=newNode
+//         }
+//         popData=()=>{
+//              if(this.front==null){
+//                 console.log("queue is empty");
+//                 return;
+//              }
+//              var poppedData=this.front.data;
+//              this.front=this.front.next;
+//              console.log(poppedData,"poppedData")
+//         }
+//         display=()=>{
+//             var temp=this.front;
+//             while(temp){
+//                 console.log(temp.data);
+//                 temp=temp.next
+//             }
+//         }
+// }
+// const queue=new Queue()
+// queue.pushData(10)
+// queue.pushData(20)
+// queue.pushData(30)
+// queue.pushData(40)
+// queue.pushData(50)
 
-queue.display()
-console.log("------------------------")
-queue.popData()
-queue.display()
+// queue.display()
+// console.log("------------------------")
+// queue.popData()
+// queue.display()
