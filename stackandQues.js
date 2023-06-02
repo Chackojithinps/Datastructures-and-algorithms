@@ -715,63 +715,63 @@
 // implementing queue using stack----------------->
 
 
-class Node{
-        constructor(data){
-              this.data=data;
-              this.next=null;
-            }
-        }
-        class Stack{
-            constructor(){
-                this.top=null;
-                this.size=0;
-            }
-            pushValue=(data)=>{
-                const newNode=new Node(data)
-               if(this.top==null){
-                  this.top=newNode;
-                  this.size++;
-                  return;
-               }
-               newNode.next=this.top;
-               this.top=newNode;
-               this.size++;
+// class Node{
+//         constructor(data){
+//               this.data=data;
+//               this.next=null;
+//             }
+//         }
+//         class Stack{
+//             constructor(){
+//                 this.top=null;
+//                 this.size=0;
+//             }
+//             pushValue=(data)=>{
+//                 const newNode=new Node(data)
+//                if(this.top==null){
+//                   this.top=newNode;
+//                   this.size++;
+//                   return;
+//                }
+//                newNode.next=this.top;
+//                this.top=newNode;
+//                this.size++;
 
-            }
-            popValue=()=>{
-                if(this.top==null){
-                    console.log("stack underflow");
-                    return;
-                }
-                var popData=this.top.data;
-                this.top=this.top.next;
-                return popData;
-            }
-            queue=()=>{
-               for(var i=0;i<this.size;i++){
-                var k=stack.popValue()
-                   stack1.pushValue(k)
-                   console.log(k)
-               }
-               stack1.popValue()
-            }
-            display(){
-                var temp=this.top;
-                while(temp){
-                    console.log(temp.data);
-                    temp=temp.next;
-                }
-            }
-        }
-        const stack=new Stack()
-        const stack1=new Stack()
-        stack.pushValue(1);
-        stack.pushValue(2);
-        stack.pushValue(3);
-        stack.pushValue(4);
-        stack.pushValue(5);;
-        stack.queue();
-        stack.display();
-        console.log("_______________")
-        stack1.display()
+//             }
+//             popValue=()=>{
+//                 if(this.top==null){
+//                     console.log("stack underflow");
+//                     return;
+//                 }
+//                 var popData=this.top.data;
+//                 this.top=this.top.next;
+//                 return popData;
+//             }
+//             queue=()=>{
+//                for(var i=0;i<this.size;i++){
+//                 var k=stack.popValue()
+//                    stack1.pushValue(k)
+//                    console.log(k)
+//                }
+//                stack1.popValue()
+//             }
+//             display(){
+//                 var temp=this.top;
+//                 while(temp){
+//                     console.log(temp.data);
+//                     temp=temp.next;
+//                 }
+//             }
+//         }
+//         const stack=new Stack()
+//         const stack1=new Stack()
+//         stack.pushValue(1);
+//         stack.pushValue(2);
+//         stack.pushValue(3);
+//         stack.pushValue(4);
+//         stack.pushValue(5);;
+//         stack.queue();
+//         stack.display();
+//         console.log("_______________")
+//         stack1.display()
         // stack.popValue();
