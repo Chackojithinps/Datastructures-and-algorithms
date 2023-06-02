@@ -1434,3 +1434,243 @@
 // }
 
 // console.log(newStr);
+// const partition=(arr,lb,ub)=>{
+//    var s=lb;
+//    var e=ub;
+//    var pivot=arr[3];
+//    while(s<=e){
+//       while(arr[s]<pivot){
+//          s++;
+//       }
+//       while(arr[e]>pivot){
+//          e--;
+//       }
+//       if(s<=e){
+//          var temp=arr[s];
+//          arr[s]=arr[e];
+//          arr[e]=temp
+//          s++;
+//          e--;
+//       }
+//    }
+//    [pivot,arr[e]]=[arr[e],pivot]
+//    return e;
+// }
+// const quickSort=(arr,lb,ub)=>{
+//   if(lb<ub){
+//      var p=partition(arr,lb,ub)
+//      quickSort(arr,lb,p-1);
+//      quickSort(arr,p+1,ub)
+//   }
+// }
+// const arr=[5,6,2,6,2,7,82,34,67]
+// const lb=0;
+// const ub=arr.length-1;
+// quickSort(arr,lb,ub);
+// console.log(arr)
+
+
+// function partition(a,l,r){
+//     let pivot=a[l]
+//     let i=l+1
+//     let j=r
+
+//     while(i<=j){
+
+//         while(a[i]<pivot){
+//             i++
+//         }
+//         while(a[j]>pivot){
+//             j--
+//         }
+
+//         if(i<=j){
+//         [a[j],a[i]]=[a[i],a[j]]
+            
+//             i++
+//             j--
+//         }
+//     }
+
+//     // temp=a[j]
+//     // a[j]=a[l]
+//     // a[l]=temp
+//     [a[j],a[l]]=[a[l],a[j]]
+// return j
+// }
+
+// function quicksort(a,l,r){
+//     if(l<r){
+//         let p=partition(a,l,r)
+
+//         quicksort(a,l,p-1)
+//         quicksort(a,p+1,r)
+//     }
+// }
+
+// const array=[10,3,27,5,12,19,2,11,200]
+
+// let l=0
+// let r=array.length-1
+
+// quicksort(array,l,r)
+// console.log(array);
+
+
+// class Node{
+//    constructor(data){
+//       this.data=data;
+//       this.next=null;
+//    }
+// }
+// class Queue{
+//     constructor() {
+//       this.first=null;
+//       this.rear=null;
+//       this.size=0;
+//     }
+//     enqueue(data){
+//       const newNode=new Node(data)
+//         if(this.first==null){
+//           this.first=this.rear=newNode
+//           this.size++;
+//           return;
+//         }
+//         this.rear.next=newNode;
+//         this.rear=newNode;
+//         this.size++;
+
+//     }
+//     dequeue(){
+//       if(this.first==null){
+//          this.rear=null;
+//          console.log("empty");
+//          return;
+//       }
+//       this.first=this.first.next;
+//     }
+//     display(){
+//       var temp=this.first;
+//       while(temp){
+//          console.log(temp.data);
+//          temp=temp.next;
+//       }
+//     }
+// }
+// const queue=new Queue()
+// queue.enqueue(10)
+// queue.enqueue(20)
+// queue.enqueue(30)
+// queue.enqueue(40)
+// queue.enqueue(50)
+// // queue.dequeue()
+// queue.display()
+// const partition=(arr,lb,ub)=>{
+//    var s=lb;
+//    var e=ub;
+//    var pivot=arr[3]
+//    [arr[lb],arr[3]]=[arr[3],arr[lb]]
+//    var pivot=arr[lb];
+//    while(s<=e){
+//       while(arr[s]<pivot){
+//          s++;
+//       }
+//       while(arr[e]>pivot){
+//          e--;
+//       }
+//       if(s<=e){
+//          [arr[s],arr[e]]=[arr[e],arr[s]]
+//          s++;
+//          e--;
+//       }
+//    }
+//    [arr[lb],arr[e]]=[arr[e],arr[lb]]
+//    return e;
+// }
+// const quicSort=(arr,lb,ub)=>{
+//    if(lb<ub){
+//      var p= partition(arr,lb,ub)
+//      quicSort(arr,lb,p);
+//      quicSort(arr,p+1,ub)
+//    }
+// }
+//  const arr=[5,3,6,8,9,2,10,7]
+//  var lb=0;
+//  var ub=arr.length-1;
+//  quicSort(arr,lb,ub);
+//  console.log(arr)
+// const merge=(arr,lb,mid,ub)=>{
+//      var i=lb;
+//      var j=mid+1;
+//      var b=[];
+//      var k=lb;
+//      while(i<=mid && j<=ub){
+//        if(arr[i]<arr[j]){
+//          b[k]=arr[i];
+//          i++;
+//        }else{
+//          b[k]=arr[j];
+//          j++
+//        }
+//        k++;
+//      }
+//      while(i<=mid){
+//       b[k]=arr[i];
+//       i++;
+//       k++;
+//      }
+//      while(j<=ub){
+//       b[k]=arr[j];
+//       j++;
+//       k++
+//      }
+//      for(var x=lb;x<=ub;x++){
+//         arr[x]=b[x]
+//      }
+// }
+// const mergeSort=(arr,lb,ub)=>{
+//    if(lb<ub){
+//       var mid=Math.floor((lb+ub)/2);
+//       mergeSort(arr,lb,mid)
+//       mergeSort(arr,mid+1,ub);
+//       merge(arr,lb,mid,ub)
+//    }
+// }
+//  const arr=[5,3,6,8,9,2,10,7]
+
+//  var lb=0;
+//  var ub=arr.length-1;
+//  mergeSort(arr,lb,ub);
+//  console.log(arr)
+
+// const insertionSort=(arr)=>{
+//     for(var i=1;i<arr.length;i++){
+//       var j=i-1;
+//       var key=arr[i];
+//       while(j>=0 && arr[j]>key){
+//          arr[j+1]=arr[j];
+//          j=j-1;
+//       }
+//       arr[j+1]=key;
+//     }
+// }
+// const arr=[5,3,6,8,9,2,10,7]
+// insertionSort(arr)
+// console.log(arr)
+
+
+
+function bubbleSort(arr){
+   for(var i=0;i<arr.length;i++){
+      for(var j=0;j<arr.length-1-i;j++){
+         if(arr[j]>arr[j+1]){
+            [arr[j],arr[j+1]]=[arr[j+1],arr[j]]
+         }
+      }
+   }
+}
+
+
+const arr=[5,3,6,8,9,2,10,7]
+bubbleSort(arr)
+console.log(arr)

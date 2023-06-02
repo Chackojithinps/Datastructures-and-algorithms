@@ -323,3 +323,10 @@ Bubble sort
 
           
 -------------------------
+
+quick sort
+----------
+
+    .in quick sort if the pivot element will be the smallest or largest number then it will be worst case.
+    .the worst case is O(n2) and the best case is O(nlogn)
+    .quick sort is not stable.
