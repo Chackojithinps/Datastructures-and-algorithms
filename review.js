@@ -43,3 +43,65 @@
 // } 
 // var res=factorial(5)
 // console.log(res)
+
+
+//middle 
+
+class Node{
+    constructor(data){
+        this.data=data;
+        this.next=null
+    }
+}
+class Stack{
+    constructor(){
+        this.top=null;
+        this.size=0;
+    }
+    push(data){
+        const newNode=new Node(data);
+        if(this.top==null){
+            this.top=newNode;
+            this.size++;
+            return;
+        }
+        this.top.next=newNode;
+        this.top=newNode;
+        this.size++;
+    }
+    pop(){
+        if(this.top==null){
+            console.log("empty")
+            return
+        }
+        const poppedData=this.top.data;
+        this.top=this.top.next;
+        return poppedData;
+    }
+    deleteMiddle(){
+        const mid=this.size/2;
+        for(var i=0;i<mid;i++){
+            stack1.push(stack.pop())
+        }
+        stack1.pop();
+        for(var i=0;i<mid;i++){
+            stack.push(stack1.pop())
+        }
+    }
+    display(){
+        var temp=this.top;
+        while(temp){
+            console.log(temp.data)
+            temp=temp.next;
+        }
+    }
+}
+const stack=new Stack();
+const stack1=new Stack();
+stack.push(10)
+stack.push(20)
+stack.push(30)
+stack.push(40)
+stack.push(50)
+// stack.deleteMiddle()
+stack.display()
