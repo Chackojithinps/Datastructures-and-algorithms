@@ -133,6 +133,36 @@ class binarySearchTree{
     }
     return this.max(root.right)
    }
+
+
+   delete(value){
+    this.root=this.deleteNode(this.root,value)
+   }
+
+
+   deleteNode(root,value){
+    if(root==null){
+        return root;
+    }
+    if(value<root.data){
+        root.left=this.deleteNode(root.left,value)
+    }else if(value>root.data){
+        root.right=this.deleteNode(root.right,value)
+    }
+    else{
+        if(!root.left && !root.right){
+            return null;
+        }
+        if(!root.left){
+            return root.right;
+        }else if(!root.right){
+            return root.left
+        }
+        rootVal=this.min(root.right)
+        root.right=this.deleteNode(root.right,root.data)
+    }
+    return root;
+   }
 }
 const bst=new binarySearchTree()
 bst.insert(10)
@@ -154,5 +184,8 @@ bst.Bfs(bst.root)
 console.log("_____________")
 console.log("min value is "+bst.min(bst.root))
 console.log("max value is "+bst.max(bst.root))
+bst.delete(5)
+bst.preOrder(bst.root)
+
 
 
