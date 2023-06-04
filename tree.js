@@ -120,6 +120,19 @@ class binarySearchTree{
         }
       }
    }
+   min(root){
+     if(!root.left){
+        return root.data
+     }
+     return this.min(root.left)
+
+   }
+   max(root){
+    if(!root.right){
+        return root.data
+    }
+    return this.max(root.right)
+   }
 }
 const bst=new binarySearchTree()
 bst.insert(10)
@@ -138,5 +151,8 @@ console.log("_____________")
 bst.postOrder(bst.root)
 console.log("_____________")
 bst.Bfs(bst.root)
+console.log("_____________")
+console.log("min value is "+bst.min(bst.root))
+console.log("max value is "+bst.max(bst.root))
 
 
