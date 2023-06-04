@@ -81,12 +81,36 @@ class binarySearchTree{
            return this.search(root.right,value)
         }
     }
+    preOrder(root){
+        // if(this.isEmpty()){
+        //     return false;
+        // }
+        if(root){
+            console.log(root.data)
+            this.preOrder(root.left)
+            this.preOrder(root.right)
+        }
+   }
+   inOrder(root){
+    if(root){
+
+        this.inOrder(root.left)
+        console.log(root.data)
+        this.inOrder(root.right)
+    }
+   }
 }
 const bst=new binarySearchTree()
 bst.insert(10)
-bst.insert(20)
-bst.insert(30)
-bst.insert(40)
+bst.insert(15)
+bst.insert(3)
+bst.insert(7)
+bst.insert(5)
+
 console.log(bst.search(bst.root,20))
 console.log('isBinarySearchtree is null ?',bst.isEmpty())
+
+bst.preOrder(bst.root)
+console.log("_____________")
+bst.inOrder(bst.root)
 
