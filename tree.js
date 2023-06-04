@@ -99,6 +99,13 @@ class binarySearchTree{
         this.inOrder(root.right)
     }
    }
+   postOrder(root){
+    if(root){
+        this.postOrder(root.left)
+        this.postOrder(root.right);
+        console.log(root.data)
+    }
+   }
 }
 const bst=new binarySearchTree()
 bst.insert(10)
@@ -113,4 +120,7 @@ console.log('isBinarySearchtree is null ?',bst.isEmpty())
 bst.preOrder(bst.root)
 console.log("_____________")
 bst.inOrder(bst.root)
+console.log("_____________")
+bst.postOrder(bst.root)
+
 
