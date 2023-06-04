@@ -106,6 +106,20 @@ class binarySearchTree{
         console.log(root.data)
     }
    }
+   Bfs(root){
+      const queue=[];
+      queue.push(root)
+      while(queue.length){
+        var curr=queue.shift()
+        console.log(curr.data)
+        if(curr.left){
+            queue.push(curr.left)
+        }
+        if(curr.right){
+            queue.push(curr.right)
+        }
+      }
+   }
 }
 const bst=new binarySearchTree()
 bst.insert(10)
@@ -122,5 +136,7 @@ console.log("_____________")
 bst.inOrder(bst.root)
 console.log("_____________")
 bst.postOrder(bst.root)
+console.log("_____________")
+bst.Bfs(bst.root)
 
 
