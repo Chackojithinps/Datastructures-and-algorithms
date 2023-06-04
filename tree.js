@@ -158,11 +158,40 @@ class binarySearchTree{
         }else if(!root.right){
             return root.left
         }
-        rootVal=this.min(root.right)
+        var k=this.min(root.right)
+        root.data=k;
         root.right=this.deleteNode(root.right,root.data)
+        console.log(k+" vaue ")
     }
     return root;
    }
+
+//    delete(value){
+//      this.root=this.deleteNode(this.root,value)
+//    }
+//    deleteNode(root,value){
+//      if(root==null){
+//         return root
+//      }
+//      if(value<root.data){
+//         root.left=this.deleteNode(root.left,value)
+//      }else if(value>root.data){
+//         root.right=this.deleteNode(root.right,value)
+//      }else{
+//         if(!root.right && !root.left){
+//             return null;
+//         }
+//         if(!root.right){
+//             return root.left
+//         }
+//         else if(!root.left){
+//             return root.right
+//         }
+//         root.value=this.min(root.right)
+//         root.right=this.deleteNode(root.right,root.value);
+//      }
+//      return root;
+//    }
 }
 const bst=new binarySearchTree()
 bst.insert(10)
@@ -170,6 +199,8 @@ bst.insert(15)
 bst.insert(3)
 bst.insert(7)
 bst.insert(5)
+bst.insert(13)
+bst.insert(18)
 
 console.log(bst.search(bst.root,20))
 console.log('isBinarySearchtree is null ?',bst.isEmpty())
@@ -184,7 +215,7 @@ bst.Bfs(bst.root)
 console.log("_____________")
 console.log("min value is "+bst.min(bst.root))
 console.log("max value is "+bst.max(bst.root))
-bst.delete(5)
+bst.delete(15)
 bst.preOrder(bst.root)
 
 
