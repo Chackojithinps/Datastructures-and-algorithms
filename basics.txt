@@ -330,3 +330,19 @@ quick sort
     .in quick sort if the pivot element will be the smallest or largest number then it will be worst case.
     .the worst case is O(n2) and the best case is O(nlogn)
     .quick sort is not stable.
+
+
+
+
+--------------------------
+Binary search 
+--------------------------
+
+.how in binary search tree the values added to left and right without using pointer.?
+  
+  In the provided code, the connection between the left child and the root node 
+  (as well as the right child and the root node) is established through object references in JavaScript.
+  When a new Node is created,it has properties left and right initialized as null, indicating that it currently
+  has no children.
+
+
