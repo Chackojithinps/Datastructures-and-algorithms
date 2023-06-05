@@ -1891,18 +1891,157 @@
 // quickSort(arr,lb,ub)
 // console.log(arr)
 
-const insertionSort=(arr)=>{
-   for(var i=1;i<arr.length;i++){
-      var key=arr[i];
-      var j=i-1;
+// const insertionSort=(arr)=>{
+//    for(var i=1;i<arr.length;i++){
+//       var key=arr[i];
+//       var j=i-1;
       
-      while(j>=0 && arr[j]>key){
-         arr[j+1]=arr[j]
-         j=j-1;
-      }
-      arr[j+1]=key;
+//       while(j>=0 && arr[j]>key){
+//          arr[j+1]=arr[j]
+//          j=j-1;
+//       }
+//       arr[j+1]=key;
+//    }
+// }
+// const arr=[3,7,2,1,6,9,80];
+// insertionSort(arr)
+// console.log(arr)
+
+
+// Binary search Tree
+
+class Node{
+   constructor(data){
+      this.data=data;
+      this.left=null;
+      this.right=null;
    }
 }
-const arr=[3,7,2,1,6,9,80];
-insertionSort(arr)
-console.log(arr)
+class Binarytree{
+   constructor(){
+      this.root=null;
+   }
+   isEmpty(){
+      return this.root===null;
+  }
+   insert(data){
+      const newNode=new Node(data)
+       if(this.isEmpty()){
+         this.root=newNode;
+         
+       }else{
+         this.insertNode(this.root,newNode)
+
+       }
+   }
+
+   insertNode = (root,newNode) => {
+      if (newNode.data < root.data) {
+        if (root.left == null) {
+          root.left = newNode;
+        } else {
+          this.insertNode(root.left, newNode);
+        }
+      } else {
+        if (root.right == null) {
+          root.right = newNode;
+        } else {
+          this.insertNode(root.right, newNode);
+        }
+      }
+    };
+
+    search(root,data){
+      if(!root){
+         return false;
+      }
+      if(root.data===data){
+         return true;
+      }else if(data<root.data){
+         return this.search(root.left,data)
+      }else{
+        return this.search(root.right,data)
+      }
+    }
+    min(root){
+      if(!root){
+         return null;
+      }
+      if(!root.left && !root.right){
+         console.log("smalleset one is "+root.data)
+      }else{
+         this.min(root.left)
+      }
+      
+    }
+    max(root){
+      if(!root){
+         return null;
+      }
+      if(!root.right){
+         console.log("max number is:"+root.data)
+      }else{
+         this.max(root.right)
+      }
+    }
+   preOrder(root){
+      // if(this.isEmpty()){
+      //     return false;
+      // }
+      if(root){
+          console.log(root.data)
+          this.preOrder(root.left)
+          this.preOrder(root.right)
+      }
+ }
+ postOrder(root){
+   if(root){
+       this.postOrder(root.left)
+       this.postOrder(root.right);
+       console.log(root.data)
+   }
+  }
+ delete(value){
+   this.root=this.deleteNode(this.root,value)
+ }
+ deleteNode=(root,data)=>{
+   if(root==null){
+      return root;
+   }
+   if(data<root.data){
+      root.left=this.deleteNode(root.left,data)
+   }else if(data>root.data){
+      root.right=this.deleteNode(root.right,data)
+   }else{
+      if(!root.right && !root.left){
+         return null;
+      }else if(!root.right){
+         return root.left
+      }else if(!root.left){
+         return root.right;
+      }
+         root.data=this.min(root.right);
+         root.right=this.deleteNode(root.right,root.data)
+      
+   }
+   return root;
+ }
+}
+const Bst=new Binarytree()
+Bst.insert(10)
+Bst.insert(7)
+Bst.insert(3)
+Bst.insert(15)
+Bst.insert(11)
+Bst.insert(8)
+Bst.postOrder(Bst.root)
+console.log("________________")
+// var k=search(Bst.root,15)
+// console.log(k)
+Bst.min(Bst.root)
+Bst.max(Bst.root)
+Bst.delete(15)
+Bst.postOrder(Bst.root)
+
+console.log("value present in the tree?"+Bst.search(Bst.root,111))
+
