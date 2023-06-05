@@ -1968,7 +1968,7 @@ class Binarytree{
          return null;
       }
       if(!root.left && !root.right){
-         console.log("smalleset one is "+root.data)
+        return root.data;
       }else{
          this.min(root.left)
       }
@@ -2004,28 +2004,31 @@ class Binarytree{
  delete(value){
    this.root=this.deleteNode(this.root,value)
  }
- deleteNode=(root,data)=>{
-   if(root==null){
-      return root;
+
+ deleteNode(root, value) {
+   if (root == null) {
+     return root;
    }
-   if(data<root.data){
-      root.left=this.deleteNode(root.left,data)
-   }else if(data>root.data){
-      root.right=this.deleteNode(root.right,data)
-   }else{
-      if(!root.right && !root.left){
-         return null;
-      }else if(!root.right){
-         return root.left
-      }else if(!root.left){
-         return root.right;
-      }
-         root.data=this.min(root.right);
-         root.right=this.deleteNode(root.right,root.data)
-      
+   if (value < root.data) {
+     root.left = this.deleteNode(root.left, value);
+   } else if (value > root.data) {
+     root.right = this.deleteNode(root.right, value);
+   } else {
+     if (!root.right && !root.left) {
+       return null;
+     } else if (!root.right) {
+       return root.left;
+     } else if (!root.left) {
+       return root.right;
+     }
+     var k = this.min(root.right);
+     console.log(k)
+     root.data=k;
+     root.right = this.deleteNode(root.right, root.data);
    }
    return root;
  }
+ 
 }
 const Bst=new Binarytree()
 Bst.insert(10)
@@ -2038,10 +2041,10 @@ Bst.postOrder(Bst.root)
 console.log("________________")
 // var k=search(Bst.root,15)
 // console.log(k)
-Bst.min(Bst.root)
-Bst.max(Bst.root)
-Bst.delete(15)
+// Bst.min(Bst.root)
+// Bst.max(Bst.root)
+Bst.delete(7)
 Bst.postOrder(Bst.root)
 
-console.log("value present in the tree?"+Bst.search(Bst.root,111))
+// console.log("value present in the tree?"+Bst.search(Bst.root,111))
 
