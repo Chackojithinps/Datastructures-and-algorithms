@@ -1910,158 +1910,235 @@
 
 // Binary search Tree
 
-class Node{
-   constructor(data){
-      this.data=data;
-      this.left=null;
-      this.right=null;
-   }
-}
-class Binarytree{
-   constructor(){
-      this.root=null;
-   }
-   isEmpty(){
-      return this.root===null;
-  }
-   insert(data){
-      const newNode=new Node(data)
-       if(this.isEmpty()){
-         this.root=newNode;
+// class Node{
+//    constructor(data){
+//       this.data=data;
+//       this.left=null;
+//       this.right=null;
+//    }
+// }
+// class Binarytree{
+//    constructor(){
+//       this.root=null;
+//    }
+//    isEmpty(){
+//       return this.root===null;
+//   }
+//    insert(data){
+//       const newNode=new Node(data)
+//        if(this.isEmpty()){
+//          this.root=newNode;
          
-       }else{
-         this.insertNode(this.root,newNode)
+//        }else{
+//          this.insertNode(this.root,newNode)
 
-       }
-   }
+//        }
+//    }
 
-   insertNode = (root,newNode) => {
-      if (newNode.data < root.data) {
-        if (root.left == null) {
-          root.left = newNode;
-        } else {
-          this.insertNode(root.left, newNode);
-        }
-      } else {
-        if (root.right == null) {
-          root.right = newNode;
-        } else {
-          this.insertNode(root.right, newNode);
-        }
-      }
-    };
+//    insertNode = (root,newNode) => {
+//       if (newNode.data < root.data) {
+//         if (root.left == null) {
+//           root.left = newNode;
+//         } else {
+//           this.insertNode(root.left, newNode);
+//         }
+//       } else {
+//         if (root.right == null) {
+//           root.right = newNode;
+//         } else {
+//           this.insertNode(root.right, newNode);
+//         }
+//       }
+//     };
 
-    search(root,data){
-      if(!root){
-         return false;
-      }
-      if(root.data===data){
-         return true;
-      }else if(data<root.data){
-         return this.search(root.left,data)
-      }else{
-        return this.search(root.right,data)
-      }
-    }
-    min(root){
-      if(!root){
-         return null;
-      }
-      if(!root.left && !root.right){
-        return root.data;
-      }else{
-         this.min(root.left)
-      }
+//     search(root,data){
+//       if(!root){
+//          return false;
+//       }
+//       if(root.data===data){
+//          return true;
+//       }else if(data<root.data){
+//          return this.search(root.left,data)
+//       }else{
+//         return this.search(root.right,data)
+//       }
+//     }
+//     min(root){
+//       if(!root){
+//          return null;
+//       }
+//       if(!root.left && !root.right){
+//         return root.data;
+//       }else{
+//          this.min(root.left)
+//       }
       
-    }
-    max(root){
-      if(!root){
-         return null;
-      }
-      if(!root.right){
-         console.log("max number is:"+root.data)
-      }else{
-         this.max(root.right)
-      }
-    }
-   preOrder(root){
-      // if(this.isEmpty()){
-      //     return false;
-      // }
-      if(root){
-          console.log(root.data)
-          this.preOrder(root.left)
-          this.preOrder(root.right)
-      }
- }
- postOrder(root){
-   if(root){
-       this.postOrder(root.left)
-       this.postOrder(root.right);
-       console.log(root.data)
-   }
-  }
- delete(value){
-   this.root=this.deleteNode(this.root,value)
- }
+//     }
+//     max(root){
+//       if(!root){
+//          return null;
+//       }
+//       if(!root.right){
+//          console.log("max number is:"+root.data)
+//       }else{
+//          this.max(root.right)
+//       }
+//     }
+//    preOrder(root){
+//       // if(this.isEmpty()){
+//       //     return false;
+//       // }
+//       if(root){
+//           console.log(root.data)
+//           this.preOrder(root.left)
+//           this.preOrder(root.right)
+//       }
+//  }
+//  postOrder(root){
+//    if(root){
+//        this.postOrder(root.left)
+//        this.postOrder(root.right);
+//        console.log(root.data)
+//    }
+//   }
+//  delete(value){
+//    this.root=this.deleteNode(this.root,value)
+//  }
 
- deleteNode(root, value) {
-   if (root == null) {
-     return root;
-   }
-   if (value < root.data) {
-     root.left = this.deleteNode(root.left, value);
-   } else if (value > root.data) {
-     root.right = this.deleteNode(root.right, value);
-   } else {
-     if (!root.right && !root.left) {
-       return null;
-     } else if (!root.right) {
-       return root.left;
-     } else if (!root.left) {
-       return root.right;
-     }
-     var k = this.min(root.right);
-     console.log(k)
-     root.data=k;
-     root.right = this.deleteNode(root.right, root.data);
-   }
-   return root;
- }
- isBst(){
-   return this.isBstHelper(this.root,0,Infinity)
+//  deleteNode(root, value) {
+//    if (root == null) {
+//      return root;
+//    }
+//    if (value < root.data) {
+//      root.left = this.deleteNode(root.left, value);
+//    } else if (value > root.data) {
+//      root.right = this.deleteNode(root.right, value);
+//    } else {
+//      if (!root.right && !root.left) {
+//        return null;
+//      } else if (!root.right) {
+//        return root.left;
+//      } else if (!root.left) {
+//        return root.right;
+//      }
+//      var k = this.min(root.right);
+//      console.log(k)
+//      root.data=k;
+//      root.right = this.deleteNode(root.right, root.data);
+//    }
+//    return root;
+//  }
+//  isBst(){
+//    return this.isBstHelper(this.root,0,Infinity)
 
-}
-isBstHelper(node,min,max){
-   if(!node){
-           return true
-   }
-   if(node.data<min||node.data>max)
-           return false
-   return (
-           (this.isBstHelper(node.left, min, node.data - 1)) &&
-           (this.isBstHelper(node.right, node.data + 1, max))
-       );
+// }
+// isBstHelper(node,min,max){
+//    if(!node){
+//            return true
+//    }
+//    if(node.data<min||node.data>max)
+//            return false
+//    return (
+//            (this.isBstHelper(node.left, min, node.data - 1)) &&
+//            (this.isBstHelper(node.right, node.data + 1, max))
+//        );
                    
-}
+// }
  
-}
-const Bst=new Binarytree()
-Bst.insert(3)
-Bst.insert(7)
-Bst.insert(3)
-Bst.insert(15)
-Bst.insert(11)
-Bst.insert(8)
-Bst.postOrder(Bst.root)
-console.log("________________")
-// var k=search(Bst.root,15)
-// console.log(k)
-// Bst.min(Bst.root)
-// Bst.max(Bst.root)
-Bst.delete(7)
-Bst.postOrder(Bst.root)
-var res=Bst.isBst()
-console.log(res)
+// }
+// const Bst=new Binarytree()
+// Bst.insert(3)
+// Bst.insert(7)
+// Bst.insert(3)
+// Bst.insert(15)
+// Bst.insert(11)
+// Bst.insert(8)
+// Bst.postOrder(Bst.root)
+// console.log("________________")
+// // var k=search(Bst.root,15)
+// // console.log(k)
+// // Bst.min(Bst.root)
+// // Bst.max(Bst.root)
+// Bst.delete(7)
+// Bst.postOrder(Bst.root)
+// var res=Bst.isBst()
+// console.log(res)
 // console.log("value present in the tree?"+Bst.search(Bst.root,111))
 
+class MaxHeap{
+  constructor(){
+     this.heap=[]
+  }
+  findParentIndex=(index)=>{
+      var parentIndex=Math.floor((index-1)/2)
+      return parentIndex
+  }
+  swap=(index1,index2)=>{
+     [this.heap[index1],this.heap[index2]]=[this.heap[index2],this.heap[index1]]
+  }
+  heapifyUp=(index)=>{
+     var parentIndex=this.findParentIndex(index)
+     if(parentIndex>=0 && this.heap[parentIndex]<this.heap[index]){
+       this.swap(parentIndex,index)
+       this.heapifyUp(parentIndex)
+     }
+  } 
+  
+  insert(value){
+      this.heap.push(value);
+      var index=this.heap.length-1;
+      this.heapifyUp(index)
+  }
+  findLeftIndex=(index)=>{
+     return 2*index+1
+  }
+  findRigthIndex=(index)=>{
+     return 2*index+2
+  }
+  heapifyDown=(index)=>{
+    var largestIndex=index;
+    var rightIndex=2*index+2
+    var leftIndex=2*index+1;
+
+    if(leftIndex<this.heap.length && this.heap[leftIndex]>this.heap[largestIndex]){
+      largestIndex=leftIndex
+    }
+    if(rightIndex<this.heap.length && this.heap[rightIndex]>this.heap[largestIndex]){
+      largestIndex=rightIndex;
+    }
+
+    if(largestIndex!=index){
+       this.swap(largestIndex,index)
+       this.heapifyDown(largestIndex)
+    }
+  }
+  removeMax=()=>{
+    if(this.heap.length===0){
+      return null;
+    }
+    if(this.heap.length===1){
+      return this.heap.pop()
+    }
+    var maxValue=this.heap[0];
+    this.heap[0]=this.heap.pop()
+    this.heapifyDown(0)
+  }
+
+  printHeap() {
+  var heap =` ${this.heap[0]} `
+  for(var i = 1; i<this.heap.length;i++) {
+    heap += ` ${this.heap[i]} `;
+  }
+  console.log(heap);
+}
+}
+const heap=new MaxHeap()
+heap.insert(10)
+heap.insert(5)
+heap.insert(15)
+heap.insert(2)
+heap.insert(20)
+
+const res=heap.removeMax()
+console.log("The removed value is "+res)
+heap.printHeap()
