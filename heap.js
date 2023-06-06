@@ -21,6 +21,12 @@ class MaxHeap{
         var index=this.heap.length-1;
         this.heapifyUp(index)
     }
+    findLeftIndex=(index)=>{
+       return 2*index+1
+    }
+    findRigthIndex=(index)=>{
+       return 2*index+2
+    }
     heapifyDown=(index)=>{
         var largestIndex=index;
         var leftIndex=this.findLeftIndex(index)
