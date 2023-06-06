@@ -53,6 +53,7 @@ class MaxHeap{
         var maxValue=this.heap[0];
         this.heap[0]=this.heap.pop()
         this.heapifyDown(0)
+        return maxValue
     }
     printHeap() {
 		var heap =` ${this.heap[0]} `
@@ -69,5 +70,6 @@ heap.insert(15)
 heap.insert(2)
 heap.insert(20)
 
-// heap.removeMax()
+const res=heap.removeMax()
+console.log("The removed value is "+res)
 heap.printHeap()
