@@ -166,6 +166,55 @@ class binarySearchTree{
     return root;
    }
 
+   isBst(){
+    return this.isBstHelper(this.root,0,Infinity)
+
+}
+isBstHelper(node,min,max){
+    if(!node){
+            return true
+    }
+    if(node.data<min||node.data>max)
+            return false
+    return (
+            (this.isBstHelper(node.left, min, node.data)) &&
+            (this.isBstHelper(node.right, node.data, max))
+        );
+                    
+} 
+
+// identical=(root1,root2)=>{
+//    if(!root1 && !root2){
+//       return true
+//    }
+//    if(!root1 || !root2){
+//      return false
+//    }
+//    if(root1.data!=root2.data){
+//     return false;
+//    }
+//    return this.identical(root1.left,root2.left) && this.identical(root1.right,root2.right)
+// }
+
+areIdentical(bst2) {
+    return this.areIdenticalHelper(this.root, bst2.root);
+  }
+areIdenticalHelper(node1, node2) {
+    if (!node1 && !node2) {
+      return true;
+    }
+    if (!node1 || !node2) {
+      return false;
+    }
+    if (node1.data !== node2.data) {
+      return false;
+    }
+    return (
+      this.areIdenticalHelper(node1.left, node2.left) &&
+      this.areIdenticalHelper(node1.right, node2.right)
+    );
+  }
+
 //    delete(value){
 //      this.root=this.deleteNode(this.root,value)
 //    }
@@ -192,20 +241,37 @@ class binarySearchTree{
 //      }
 //      return root;
 //    }
+
+
 }
 const bst=new binarySearchTree()
-bst.insert(10)
-bst.insert(7)
-bst.insert(3)
-bst.insert(15)
-// bst.insert(5)
-bst.insert(11)
+const bst2=new binarySearchTree()
 bst.insert(8)
+bst.insert(5)
+bst.insert(4)
+bst.insert(6)
+// bst.insert(5)
+bst.insert(12)
+bst.insert(9)
+bst.insert(16)
 
-console.log(bst.search(bst.root,20))
-console.log('isBinarySearchtree is null ?',bst.isEmpty())
+bst2.insert(8)
+bst2.insert(5)
+bst2.insert(4)
+bst2.insert(6)
+// bst2.insert(5)
+bst2.insert(12)
+bst2.insert(9)
+bst2.insert(6)
 
-// bst.preOrder(bst.root)
+// console.log(bst.search(bst.root,20))
+// console.log('isBinarySearchtree is null ?',bst.isEmpty())
+
+bst.preOrder(bst.root)
+console.log("_______________")
+bst2.preOrder(bst2.root)
+
+
 // console.log("_____________")
 // bst.inOrder(bst.root)
 // console.log("_____________")
@@ -215,8 +281,11 @@ console.log('isBinarySearchtree is null ?',bst.isEmpty())
 // console.log("_____________")
 // console.log("min value is "+bst.min(bst.root))
 // console.log("max value is "+bst.max(bst.root))
-bst.delete(7)
-bst.postOrder(bst.root)
+// bst.delete(7)
+// bst.postOrder(bst.root)
+
+console.log("is valid"+bst.isBst())
+console.log("Are BSTs identical? ", bst.areIdentical(bst2));
 
 
 

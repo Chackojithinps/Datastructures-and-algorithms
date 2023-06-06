@@ -2028,10 +2028,26 @@ class Binarytree{
    }
    return root;
  }
+ isBst(){
+   return this.isBstHelper(this.root,0,Infinity)
+
+}
+isBstHelper(node,min,max){
+   if(!node){
+           return true
+   }
+   if(node.data<min||node.data>max)
+           return false
+   return (
+           (this.isBstHelper(node.left, min, node.data - 1)) &&
+           (this.isBstHelper(node.right, node.data + 1, max))
+       );
+                   
+}
  
 }
 const Bst=new Binarytree()
-Bst.insert(10)
+Bst.insert(3)
 Bst.insert(7)
 Bst.insert(3)
 Bst.insert(15)
@@ -2045,6 +2061,7 @@ console.log("________________")
 // Bst.max(Bst.root)
 Bst.delete(7)
 Bst.postOrder(Bst.root)
-
+var res=Bst.isBst()
+console.log(res)
 // console.log("value present in the tree?"+Bst.search(Bst.root,111))
 
