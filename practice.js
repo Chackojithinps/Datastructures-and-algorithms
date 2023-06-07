@@ -2133,7 +2133,7 @@ class MaxHeap{
 }
 }
 const heap=new MaxHeap()
-heap.insert(10)
+heap.insert(10);
 heap.insert(5)
 heap.insert(15)
 heap.insert(2)
