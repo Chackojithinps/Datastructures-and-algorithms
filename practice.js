@@ -2069,59 +2069,53 @@ class MaxHeap{
   constructor(){
      this.heap=[]
   }
-  findParentIndex=(index)=>{
+  findParentIndex(index){
       var parentIndex=Math.floor((index-1)/2)
       return parentIndex
   }
-  swap=(index1,index2)=>{
-     [this.heap[index1],this.heap[index2]]=[this.heap[index2],this.heap[index1]]
+  swap(index1,index2){
+    [this.heap[index1],this.heap[index2]]=[this.heap[index2],this.heap[index1]]
   }
   heapifyUp=(index)=>{
-     var parentIndex=this.findParentIndex(index)
-     if(parentIndex>=0 && this.heap[parentIndex]<this.heap[index]){
-       this.swap(parentIndex,index)
-       this.heapifyUp(parentIndex)
-     }
-  } 
+    var parentIndex=this.findParentIndex(index)
+    if(parentIndex>=0 && this.heap[parentIndex]<this.heap[index]){
+      this.swap(parentIndex,index)
+      this.heapifyUp(parentIndex)
+    }
+  }
   
   insert(value){
-      this.heap.push(value);
-      var index=this.heap.length-1;
-      this.heapifyUp(index)
+    this.heap.push(value)
+    var index=this.heap.length-1
+    this.heapifyUp(index)
   }
-  findLeftIndex=(index)=>{
-     return 2*index+1
+  
+  heapifyDown(index){
+     var leftIndex=2*index+1;
+     var rightIndex=2*index+2;
+     var largeIndex=index;
+     
+     if(leftIndex < this.heap.length && this.heap[leftIndex]>this.heap[largeIndex]){
+       largeIndex=leftIndex
+     }
+     if(rightIndex < this.heap.length && this.heap[rightIndex]>this.heap[rightIndex]){
+        largeIndex=rightIndex
+     }
+     if(largeIndex!=index){
+       this.swap(largeIndex,index)
+       this.heapifyDown(largeIndex)
+     }
   }
-  findRigthIndex=(index)=>{
-     return 2*index+2
-  }
-  heapifyDown=(index)=>{
-    var largestIndex=index;
-    var rightIndex=2*index+2
-    var leftIndex=2*index+1;
-
-    if(leftIndex<this.heap.length && this.heap[leftIndex]>this.heap[largestIndex]){
-      largestIndex=leftIndex
-    }
-    if(rightIndex<this.heap.length && this.heap[rightIndex]>this.heap[largestIndex]){
-      largestIndex=rightIndex;
-    }
-
-    if(largestIndex!=index){
-       this.swap(largestIndex,index)
-       this.heapifyDown(largestIndex)
-    }
-  }
+  
   removeMax=()=>{
-    if(this.heap.length===0){
-      return null;
-    }
-    if(this.heap.length===1){
-      return this.heap.pop()
-    }
-    var maxValue=this.heap[0];
-    this.heap[0]=this.heap.pop()
-    this.heapifyDown(0)
+     if(this.heap.length===0){
+      return null
+     }
+     if(this.heap.length==1){
+        return this.heap.pop()
+     }
+     this.heap[0]=this.heap.pop();
+     this.heapifyDown(0)
   }
 
   printHeap() {
@@ -2134,11 +2128,11 @@ class MaxHeap{
 }
 const heap=new MaxHeap()
 heap.insert(10);
-heap.insert(5)
-heap.insert(15)
-heap.insert(2)
-heap.insert(20)
+heap.insert(5);
+heap.insert(15);
+heap.insert(2);
+heap.insert(20);
 
-const res=heap.removeMax()
-console.log("The removed value is "+res)
+heap.removeMax()
+// console.log("The removed value is "+res)
 heap.printHeap()

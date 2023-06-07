@@ -70,6 +70,6 @@ heap.insert(15)
 heap.insert(2)
 heap.insert(20)
 
-const res=heap.removeMax()
-console.log("The removed value is "+res)
+// const res=heap.removeMax()
+// console.log("The removed value is "+res)
 heap.printHeap()
