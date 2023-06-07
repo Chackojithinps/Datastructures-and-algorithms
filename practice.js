@@ -2065,74 +2065,220 @@
 // console.log(res)
 // console.log("value present in the tree?"+Bst.search(Bst.root,111))
 
-class MaxHeap{
-  constructor(){
-     this.heap=[]
+
+// class MaxHeap{
+//   constructor(){
+//      this.heap=[]
+//   }
+//   findParentIndex(index){
+//       var parentIndex=Math.floor((index-1)/2)
+//       return parentIndex
+//   }
+//   swap(index1,index2){
+//     [this.heap[index1],this.heap[index2]]=[this.heap[index2],this.heap[index1]]
+//   }
+//   heapifyUp=(index)=>{
+//     var parentIndex=this.findParentIndex(index)
+//     if(parentIndex>=0 && this.heap[parentIndex]<this.heap[index]){
+//       this.swap(parentIndex,index)
+//       this.heapifyUp(parentIndex)
+//     }
+//   }
+  
+//   insert(value){
+//     this.heap.push(value)
+//     var index=this.heap.length-1
+//     this.heapifyUp(index)
+//   }
+  
+//   heapifyDown(index){
+//      var leftIndex=2*index+1;
+//      var rightIndex=2*index+2;
+//      var largeIndex=index;
+     
+//      if(leftIndex < this.heap.length && this.heap[leftIndex]>this.heap[largeIndex]){
+//        largeIndex=leftIndex
+//      }
+//      if(rightIndex < this.heap.length && this.heap[rightIndex]>this.heap[rightIndex]){
+//         largeIndex=rightIndex
+//      }
+//      if(largeIndex!=index){
+//        this.swap(largeIndex,index)
+//        this.heapifyDown(largeIndex)
+//      }
+//   }
+  
+//   removeMax=()=>{
+//      if(this.heap.length===0){
+//       return null
+//      }
+//      if(this.heap.length==1){
+//         return this.heap.pop()
+//      }
+//      this.heap[0]=this.heap.pop();
+//      this.heapifyDown(0)
+//   }
+
+//   printHeap() {
+//   var heap =` ${this.heap[0]} `
+//   for(var i = 1; i<this.heap.length;i++) {
+//     heap += ` ${this.heap[i]} `;
+//   }
+//   console.log(heap);
+// }
+// }
+// const heap=new MaxHeap()
+// heap.insert(10);
+// heap.insert(5);
+// heap.insert(15)
+// heap.insert(2)
+// heap.insert(20)
+
+// heap.removeMax()
+// // console.log("The removed value is "+res)
+// heap.printHeap()
+
+
+// class MaxHeap{
+//   constructor(){
+//      this.heap=[]
+//   }
+//   findParentIndex(index){
+//       var parentIndex=Math.floor((index-1)/2)
+//       return parentIndex
+//   }
+//   swap(index1,index2){
+//     [this.heap[index1],this.heap[index2]]=[this.heap[index2],this.heap[index1]]
+//   }
+
+  
+//   insert(value){
+//     this.heap.push(value)
+ 
+//   }
+  
+//   heapifyDown(index){
+//      var leftIndex=2*index+1;
+//      var rightIndex=2*index+2;
+//      var largeIndex=index;
+     
+//      if(leftIndex < this.heap.length && this.heap[leftIndex]>this.heap[largeIndex]){
+//        largeIndex=leftIndex
+//      }
+//      if(rightIndex < this.heap.length && this.heap[rightIndex]>this.heap[rightIndex]){
+//         largeIndex=rightIndex
+//      }
+//      if(largeIndex!=index){
+//        this.swap(largeIndex,index)
+//        this.heapifyDown(largeIndex)
+//      }
+//   }
+  
+//   removeMax=()=>{
+//      if(this.heap.length===0){
+//       return null
+//      }
+//      if(this.heap.length==1){
+//         return this.heap.pop()
+//      }
+//      this.heap[0]=this.heap.pop();
+//      this.heapifyDown(0)
+//   }
+
+//   printHeap() {
+//   var heap =` ${this.heap[0]} `
+//   for(var i = 1; i<this.heap.length;i++) {
+//     heap += ` ${this.heap[i]} `;
+//   }
+//   console.log(heap);
+//  }
+// }
+// const heap=new MaxHeap();
+// heap.insert(10);
+// heap.insert(5);
+// heap.insert(15);
+// heap.insert(2);
+// heap.insert(20)
+// heap.printHeap();
+
+
+class MaxHeap {
+  constructor() {
+    this.heap = [];
   }
-  findParentIndex(index){
-      var parentIndex=Math.floor((index-1)/2)
-      return parentIndex
+
+  getParentIndex(index) {
+    return Math.floor((index - 1) / 2);
   }
-  swap(index1,index2){
-    [this.heap[index1],this.heap[index2]]=[this.heap[index2],this.heap[index1]]
+
+  getLeftChildIndex(index) {
+    return 2 * index + 1;
   }
-  heapifyUp=(index)=>{
-    var parentIndex=this.findParentIndex(index)
-    if(parentIndex>=0 && this.heap[parentIndex]<this.heap[index]){
-      this.swap(parentIndex,index)
-      this.heapifyUp(parentIndex)
+
+  getRightChildIndex(index) { 
+    return 2 * index + 2;
+  }
+
+  swap(index1, index2) {
+    [this.heap[index1], this.heap[index2]] = [
+      this.heap[index2],
+      this.heap[index1],
+    ];
+  }
+  heapifyDown(index) {
+    const leftChildIndex = this.getLeftChildIndex(index);
+    const rightChildIndex = this.getRightChildIndex(index);
+    let largestIndex = index;
+
+    if (
+      leftChildIndex < this.heap.length &&
+      this.heap[leftChildIndex] > this.heap[largestIndex]
+    ) {
+      largestIndex = leftChildIndex;
+    }
+
+    if (
+      rightChildIndex < this.heap.length &&
+      this.heap[rightChildIndex] > this.heap[largestIndex]
+    ) {
+      largestIndex = rightChildIndex;
+    }
+
+    if (largestIndex !== index) {
+      this.swap(index, largestIndex);
+      this.heapifyDown(largestIndex);
     }
   }
+   heapSort(arr) {
+    const n = arr.length;
+    this.heap=arr;
+    // Build max heap
+    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+      this.heapifyDown(i);
+    }
   
-  insert(value){
-    this.heap.push(value)
-    var index=this.heap.length-1
-    this.heapifyUp(index)
-  }
+    // Extract elements one by one
+    for (let i = n - 1; i > 0; i--) {
+      [arr[0], arr[i]] = [arr[i], arr[0]];
+      this.heapifyDown(i);
+    }
   
-  heapifyDown(index){
-     var leftIndex=2*index+1;
-     var rightIndex=2*index+2;
-     var largeIndex=index;
-     
-     if(leftIndex < this.heap.length && this.heap[leftIndex]>this.heap[largeIndex]){
-       largeIndex=leftIndex
-     }
-     if(rightIndex < this.heap.length && this.heap[rightIndex]>this.heap[rightIndex]){
-        largeIndex=rightIndex
-     }
-     if(largeIndex!=index){
-       this.swap(largeIndex,index)
-       this.heapifyDown(largeIndex)
-     }
+    return this.heap;
   }
   
-  removeMax=()=>{
-     if(this.heap.length===0){
-      return null
-     }
-     if(this.heap.length==1){
-        return this.heap.pop()
-     }
-     this.heap[0]=this.heap.pop();
-     this.heapifyDown(0)
-  }
-
-  printHeap() {
-  var heap =` ${this.heap[0]} `
-  for(var i = 1; i<this.heap.length;i++) {
-    heap += ` ${this.heap[i]} `;
-  }
-  console.log(heap);
+  
+  // heapify(arr){
+  //   this.heap=arr;
+  //   const startIdx = Math.floor((arr.length/2) -1);
+  //   for(var i=startIdx;i>=0;i--){
+  //       this.heapifyDown(i)
+  //   }
+  //   return this.heap
+  // }
+ 
 }
-}
-const heap=new MaxHeap()
-heap.insert(10);
-heap.insert(5);
-heap.insert(15);
-heap.insert(2);
-heap.insert(20);
+const heap=new MaxHeap();
+const arr=[33,24,8,7,9,1,2]
+const res=heap.heapSort(arr)
+console.log(res);
 
-heap.removeMax()
-// console.log("The removed value is "+res)
-heap.printHeap()
