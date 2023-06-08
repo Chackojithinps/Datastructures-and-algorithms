@@ -2202,83 +2202,178 @@
 // heap.printHeap();
 
 
-class MaxHeap {
+// class MaxHeap {
+//   constructor() {
+//     this.heap = [];
+//   }
+
+//   getParentIndex(index) {
+//     return Math.floor((index - 1) / 2);
+//   }
+
+//   getLeftChildIndex(index) {
+//     return 2 * index + 1;
+//   }
+
+//   getRightChildIndex(index) { 
+//     return 2 * index + 2;
+//   }
+
+//   swap(index1, index2) {
+//     [this.heap[index1], this.heap[index2]] = [
+//       this.heap[index2],
+//       this.heap[index1],
+//     ];
+//   }
+//   heapifyDown(index) {
+//     const leftChildIndex = this.getLeftChildIndex(index);
+//     const rightChildIndex = this.getRightChildIndex(index);
+//     let largestIndex = index;
+
+//     if (
+//       leftChildIndex < this.heap.length &&
+//       this.heap[leftChildIndex] > this.heap[largestIndex]
+//     ) {
+//       largestIndex = leftChildIndex;
+//     }
+
+//     if (
+//       rightChildIndex < this.heap.length &&
+//       this.heap[rightChildIndex] > this.heap[largestIndex]
+//     ) {
+//       largestIndex = rightChildIndex;
+//     }
+
+//     if (largestIndex !== index) {
+//       this.swap(index, largestIndex);
+//       this.heapifyDown(largestIndex);
+//     }
+//   }
+//    heapSort(arr) {
+//     const n = arr.length;
+//     this.heap=arr;
+//     // Build max heap
+//     for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
+//       this.heapifyDown(i);
+//     }
+  
+//     // Extract elements one by one
+//     for (let i = n - 1; i > 0; i--) {
+//       [arr[0], arr[i]] = [arr[i], arr[0]];
+//       this.heapifyDown(i);
+//     }
+  
+//     return this.heap;
+//   }
+  
+  
+//   // heapify(arr){
+//   //   this.heap=arr;
+//   //   const startIdx = Math.floor((arr.length/2) -1);
+//   //   for(var i=startIdx;i>=0;i--){
+//   //       this.heapifyDown(i)
+//   //   }
+//   //   return this.heap
+//   // }
+ 
+// }
+// const heap=new MaxHeap();
+// const arr=[33,24,8,7,9,1,2]
+// const res=heap.heapSort(arr)
+// console.log(res);
+
+
+// --------------------------------------
+// class TrieNode{
+//   constructor(){
+//     this.children=new Map();
+//     this.isEndofWord=false;
+//   }
+// }
+// class Trie{
+//   constructor(){
+//      this.root=new TrieNode()
+//   }
+//   insert(word){
+//     var curr=this.root;
+//     for(var i=0;i<word.length;i++){
+//       var char=word[i];
+//       if(!curr.children.has(char)){
+//         curr.children.set(char,new TrieNode())
+//       }
+//       curr=curr.children.get(char)
+//     }
+//     curr.isEndOfWord = true;
+//   }
+// }
+// const trie=new Trie()
+// trie.insert("jithin")
+// trie.insert("kiran")
+
+
+// class TrieNode {
+//   constructor() {
+//     this.childNode = new Map();
+//     this.isEndOfWord = false;
+//   }
+// }
+
+// class Trie {
+//   constructor() {
+//      this.root = new TrieNode();
+//   }
+  
+//   insert(word) {
+//     var current = this.root;
+//     for (var i = 0; i < word.length; i++) {
+//       var char = word[i];
+//       if (!current.childNode.has(char)) {
+//         current.childNode.set(char, new TrieNode());
+//       }
+//       current = current.childNode.get(char);
+//     }
+//     current.isEndOfWord = true;
+//   }
+// }
+
+// const trie = new Trie();
+// trie.insert("jithin");
+// trie.insert("kiran");
+
+class TrieNode{
   constructor() {
-    this.heap = [];
+    this.children=new Map()
+    this.isEndofWord=false;
   }
-
-  getParentIndex(index) {
-    return Math.floor((index - 1) / 2);
+}
+class Trie{
+  constructor(){
+    this.root=new TrieNode()
   }
-
-  getLeftChildIndex(index) {
-    return 2 * index + 1;
-  }
-
-  getRightChildIndex(index) { 
-    return 2 * index + 2;
-  }
-
-  swap(index1, index2) {
-    [this.heap[index1], this.heap[index2]] = [
-      this.heap[index2],
-      this.heap[index1],
-    ];
-  }
-  heapifyDown(index) {
-    const leftChildIndex = this.getLeftChildIndex(index);
-    const rightChildIndex = this.getRightChildIndex(index);
-    let largestIndex = index;
-
-    if (
-      leftChildIndex < this.heap.length &&
-      this.heap[leftChildIndex] > this.heap[largestIndex]
-    ) {
-      largestIndex = leftChildIndex;
+  insert(word){
+    var curr=this.root;
+    for(var i=0;i<word.length;i++){
+      var char=word[i];
+      if(!curr.children.has(char)){
+        curr.children.set(char,new TrieNode())
+      }
+      curr=curr.children.get(char)
     }
-
-    if (
-      rightChildIndex < this.heap.length &&
-      this.heap[rightChildIndex] > this.heap[largestIndex]
-    ) {
-      largestIndex = rightChildIndex;
-    }
-
-    if (largestIndex !== index) {
-      this.swap(index, largestIndex);
-      this.heapifyDown(largestIndex);
-    }
+    curr.isEndOfWord=true;
   }
-   heapSort(arr) {
-    const n = arr.length;
-    this.heap=arr;
-    // Build max heap
-    for (let i = Math.floor(n / 2) - 1; i >= 0; i--) {
-      this.heapifyDown(i);
+  search(word) {
+    let current = this.root;
+    for (let i = 0; i < word.length; i++) {
+      const char = word[i];
+      if (!current.children.has(char)) {
+        return false;
+      }
+      current = current.children.get(char);
     }
-  
-    // Extract elements one by one
-    for (let i = n - 1; i > 0; i--) {
-      [arr[0], arr[i]] = [arr[i], arr[0]];
-      this.heapifyDown(i);
-    }
-  
-    return this.heap;
+    return current.isEndOfWord;
   }
-  
-  
-  // heapify(arr){
-  //   this.heap=arr;
-  //   const startIdx = Math.floor((arr.length/2) -1);
-  //   for(var i=startIdx;i>=0;i--){
-  //       this.heapifyDown(i)
-  //   }
-  //   return this.heap
-  // }
  
 }
-const heap=new MaxHeap();
-const arr=[33,24,8,7,9,1,2]
-const res=heap.heapSort(arr)
-console.log(res);
-
+const trie=new Trie()
+trie.insert("helo")
+console.log(trie.search("helo"))

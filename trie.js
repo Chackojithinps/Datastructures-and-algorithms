@@ -46,7 +46,7 @@ class TrieNode {
       return true;
     }
   }
-  const trie = new Trie();
+const trie = new Trie();
 trie.insert("apple");
 trie.insert("banana");
 trie.insert("orange");
