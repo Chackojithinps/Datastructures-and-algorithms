@@ -2372,8 +2372,19 @@ class Trie{
     }
     return current.isEndOfWord;
   }
- 
+  startsWith(word) {
+    let current = this.root;
+    for (let i = 0; i < word.length; i++) {
+      const char = word[i];
+      if (!current.children.has(char)) {
+        return false;
+      }
+      current = current.children.get(char);
+    }
+    return true;
+  }
 }
-const trie=new Trie()
-trie.insert("helo")
-console.log(trie.search("helo"))
+const trie=new Trie();
+trie.insert("helo");
+// console.log(trie.search("hel"))
+console.log(trie.startsWith("hel"));
