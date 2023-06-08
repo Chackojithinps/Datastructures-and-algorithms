@@ -35,8 +35,8 @@ class Graph{
     // }
     deleteVertex(target) {
         this.map.delete(target)
-        for (let [node, edges] of this.map) {
-            this.map.set(node, edges.filter(edge => edge !== target))
+        for (let [vertex, edges] of this.map) {
+            this.map.set(vertex, edges.filter(edge => edge !== target))
         }
     }
     // hasEdge(vertex1, vertex2) {
