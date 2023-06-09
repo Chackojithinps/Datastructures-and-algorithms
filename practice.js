@@ -2391,41 +2391,41 @@
 
 
 // Binary SEarch tree-------------------------------------->
-class Node{
-  constructor(data) {
-      this.data=data;
-      this.left=null;
-      this.right=null;
-  }
-}
-class binarySearchTree{
-  constructor(){
-    this.root=null;
-  }
-  insert(data){
-    const newNode=new Node(data)
-    if(this.root==null){
-      this.root=newNode
-      return;
-    }
-    this.insertNode(this.root,newNode)
-  }
-  insertNode(root,newNode){
-    if(newNode.data<root.data){
-      if(root.left==null){
-        root.left=newNode;
-      }else{
-        this.insertNode(root.left,newNode)
-      }
-    }
-    else{
-      if(root.right==null){
-        root.right=newNode
-      }else{
-        this.insertNode(root.right,newNode);
-      }
-    }
-  }
+// class Node{
+//   constructor(data) {
+//       this.data=data;
+//       this.left=null;
+//       this.right=null;
+//   }
+// }
+// class binarySearchTree{
+//   constructor(){
+//     this.root=null;
+//   }
+//   insert(data){
+//     const newNode=new Node(data)
+//     if(this.root==null){
+//       this.root=newNode
+//       return;
+//     }
+//     this.insertNode(this.root,newNode)
+//   }
+//   insertNode(root,newNode){
+//     if(newNode.data<root.data){
+//       if(root.left==null){
+//         root.left=newNode;
+//       }else{
+//         this.insertNode(root.left,newNode)
+//       }
+//     }
+//     else{
+//       if(root.right==null){
+//         root.right=newNode
+//       }else{
+//         this.insertNode(root.right,newNode);
+//       }
+//     }
+//   }
 
   // search(root,data){
   //   if(!root){
@@ -2440,160 +2440,275 @@ class binarySearchTree{
   //    return this.search(root.right,data)
   //   }
   // }
-  search(root,value){
-    if(!root){
-        return false;
-    }
-    if(value==root.data){
-       return true;
-    }
-    else if(value<root.data){
-       return this.search(root.left,value)
-    }
-    else {
+  // search(root,value){
+  //   if(!root){
+  //       return false;
+  //   }
+  //   if(value==root.data){
+  //      return true;
+  //   }
+  //   else if(value<root.data){
+  //      return this.search(root.left,value)
+  //   }
+  //   else {
        
-       return this.search(root.right,value)
+  //      return this.search(root.right,value)
+  //   }
+  // }
+  // min(root){
+  //   if(!root.left){
+  //      return root.data;
+  //   }
+  //   return this.min(root.left)
+  // }
+  // max(root){
+  //   if(!root.right){
+  //     return root.data
+  //   }
+//     return this.max(root.right)
+//   }
+//   // deleteNode(data){
+//   //   this.root =this.delete(this.root,data)
+//   // }
+//   // delete(root,data){
+//   //   if(!root){
+//   //     return null
+//   //   } 
+//   //   if(data<root.data){
+//   //     root.left=this.delete(root.left,data)
+//   //   }
+//   //   else if(data>root.data){
+//   //     root.right=this.delete(root.right,data)
+//   //   }else{
+//   //     if(!root.right && !root.left){
+//   //       return null;
+//   //     }
+//   //     else if(!root.right){
+//   //       return root.left
+//   //     }else if(!root.left){
+//   //       return root.right;
+//   //     }
+//   //     var minValue=this.min(root.right);
+//   //     root.data=minValue;
+//   //     root.right=this.delete(root.right,root.data);
+//   //   }
+//   //   return root
+//   // }
+//   deleteNode(data){
+//     this.root=this.delete(this.root,data);
+//   }
+//   delete(root,data){
+//     if(!root){
+//       return null;
+//     }
+//     if(data<root.data){
+//       root.left=this.delete(root.left,data)
+//     }
+//     else if(data>root.data){
+//       root.right=this.delete(root.right,data)
+//     }else{
+//       if(!root.right && root.left){
+//         return null;
+//       }else if(!root.left){
+//         return root.right
+//       }else if(!root.right){
+//         return root.left
+//       }
+//       var minValue=this.min(root.right);
+//       root.data=minValue;
+//       root.right=this.delete(root.right);
+
+//     }
+//     return root;
+
+//   }
+//   isBst(){
+//     return this.checkBst(this.root,0,1)
+//   }
+//    checkBst=(root,min,max)=>{
+//        if(!root){
+//         return true;
+//        }
+//        if(root.data<min || root.data >max){
+//          return false;
+//        }
+//        return (
+//              (this.checkBst(root.left,min,root.data)) &&
+//               (this.checkBst(root.right,root.data,max))
+//             );
+//    }
+//    identical=(root1,root2)=>{
+//       if(!root1 && !root2){
+//         return true;
+//       }
+//       if(!root1|| !root2){
+//           return false;
+//       }
+//       if(root1.data!=root2.data){
+//         return false;
+//       }
+//       return this.identical(root1.left,root2.left) && this.identical(root1.right,root2.right);
+//    }
+// //    isBstHelper(node,min,max){
+// //     if(!node){
+// //             return true
+// //     }
+// //     if(node.data<min||node.data>max)
+// //             return false;
+// //     return (
+// //             (this.isBstHelper(node.left, min, node.data)) &&
+// //             (this.isBstHelper(node.right, node.data, max))
+// //         );
+                    
+// // } 
+//   postOrder=(root)=>{
+//       if(root){
+//         this.postOrder(root.left)
+//         this.postOrder(root.right)
+//         console.log(root.data)
+//       }
+//   }
+
+// }
+// const bst=new binarySearchTree();
+// const bst2=new binarySearchTree();
+// bst.insert(1);
+// bst.insert(5);
+// bst.insert(20);
+// bst.insert(30);
+// bst.insert(12);
+// bst.insert(1);
+// bst.insert(7);
+
+
+// bst2.insert(1);
+// bst2.insert(5);
+// bst2.insert(20);
+// bst2.insert(30);
+// bst2.insert(12);
+// bst2.insert(1);
+// // bst2.insert(17);
+// // bst.postOrder(bst.root)
+// // console.log(bst.search(bst.root,78))
+// // console.log(bst.min(bst.root))
+// // console.log(bst.max(bst.root))
+// // bst.deleteNode(20);
+// // var res=bst.isBst();
+// // console.log(res)
+// console.log(bst.identical(bst.root,bst2.root))
+// bst.postOrder(bst.root)
+
+class Node{
+  constructor(data){
+    this.data=data;
+    this.left=null;
+    this.right=null;
+  }
+  
+}
+
+class Bst{
+  constructor(){
+    this.root=null;
+  }
+  insert=(data)=>{
+    const newNode=new Node(data)
+    if(this.root==null){
+      this.root=newNode
+    }else{
+      this.insertNode(this.root,newNode)
     }
   }
+
+  insertNode(root,newNode){
+    if(newNode.data<root.data){
+      if(!root.left){
+        root.left=newNode
+      }else{
+        this.insertNode(root.left,newNode)
+      }
+    }else{
+      if(!root.right){
+        root.right=newNode;
+
+      }else{
+        this.insertNode(root.right,newNode)
+      }
+    }
+  }
+ 
   min(root){
     if(!root.left){
-       return root.data;
+      return root.data
     }
     return this.min(root.left)
   }
+
   max(root){
     if(!root.right){
       return root.data
     }
     return this.max(root.right)
   }
-  // deleteNode(data){
-  //   this.root =this.delete(this.root,data)
-  // }
-  // delete(root,data){
-  //   if(!root){
-  //     return null
-  //   } 
-  //   if(data<root.data){
-  //     root.left=this.delete(root.left,data)
-  //   }
-  //   else if(data>root.data){
-  //     root.right=this.delete(root.right,data)
-  //   }else{
-  //     if(!root.right && !root.left){
-  //       return null;
-  //     }
-  //     else if(!root.right){
-  //       return root.left
-  //     }else if(!root.left){
-  //       return root.right;
-  //     }
-  //     var minValue=this.min(root.right);
-  //     root.data=minValue;
-  //     root.right=this.delete(root.right,root.data);
-  //   }
-  //   return root
-  // }
-  deleteNode(data){
-    this.root=this.delete(this.root,data);
-  }
-  delete(root,data){
+  search(root,data){
     if(!root){
-      return null;
+      return false;
+    }
+    if(root.data==data){
+      return true;
     }
     if(data<root.data){
-      root.left=this.delete(root.left,data)
+      return this.search(root.left,data)
+    }else 
+      return this.search(root.right,data)
     }
-    else if(data>root.data){
-      root.right=this.delete(root.right,data)
-    }else{
-      if(!root.right && root.left){
-        return null;
-      }else if(!root.left){
-        return root.right
+  delete(value){
+    this.root=this.deleteNode(this.root,value)
+  }
+  deleteNode(root,data){
+    if(root==null){
+      return root;
+    }
+    if(data<root.data){
+      root.left=this.deleteNode(root.left,data)
+    }else if(data>root.data){
+     root.right= this.deleteNode(root.right,data)
+    }
+    else {
+      if(!root.right && !root.left){
+        return null
       }else if(!root.right){
         return root.left
+      }else if(!root.left){
+        return root.right
       }
       var minValue=this.min(root.right);
       root.data=minValue;
-      root.right=this.delete(root.right);
-
+      root.right=this.deleteNode(root.right,root.data);
     }
     return root;
-
   }
-  isBst(){
-    return this.checkBst(this.root,0,1)
-  }
-   checkBst=(root,min,max)=>{
-       if(!root){
-        return true;
-       }
-       if(root.data<min || root.data >max){
-         return false;
-       }
-       return (
-             (this.checkBst(root.left,min,root.data)) &&
-              (this.checkBst(root.right,root.data,max))
-            );
-   }
-   identical=(root1,root2)=>{
-      if(!root1 && !root2){
-        return true;
-      }
-      if(!root1|| !root2){
-          return false;
-      }
-      if(root1.data!=root2.data){
-        return false;
-      }
-      return this.identical(root1.left,root2.left) && this.identical(root1.right,root2.right);
-   }
-//    isBstHelper(node,min,max){
-//     if(!node){
-//             return true
-//     }
-//     if(node.data<min||node.data>max)
-//             return false;
-//     return (
-//             (this.isBstHelper(node.left, min, node.data)) &&
-//             (this.isBstHelper(node.right, node.data, max))
-//         );
-                    
-// } 
   postOrder=(root)=>{
-      if(root){
-        this.postOrder(root.left)
-        this.postOrder(root.right)
-        console.log(root.data)
-      }
+    if(root){
+      this.postOrder(root.left);
+      this.postOrder(root.right)
+      console.log(root.data)
+    }
   }
-
 }
-const bst=new binarySearchTree();
-const bst2=new binarySearchTree();
-bst.insert(1);
-bst.insert(5);
-bst.insert(20);
-bst.insert(30);
-bst.insert(12);
-bst.insert(1);
-bst.insert(7);
 
-
-bst2.insert(1);
-bst2.insert(5);
-bst2.insert(20);
-bst2.insert(30);
-bst2.insert(12);
-bst2.insert(1);
-// bst2.insert(17);
-// bst.postOrder(bst.root)
-// console.log(bst.search(bst.root,78))
-// console.log(bst.min(bst.root))
-// console.log(bst.max(bst.root))
-// bst.deleteNode(20);
-// var res=bst.isBst();
+const bst=new Bst();
+bst.insert(5)
+bst.insert(15)
+bst.insert(35)
+bst.insert(254)
+bst.insert(6)
+bst.insert(8)
+bst.insert(80);
+bst.delete(254)
+bst.postOrder(bst.root);
+console.log("+++++++++++++++++++")
+// var res=bst.min(bst.root)
 // console.log(res)
-console.log(bst.identical(bst.root,bst2.root))
-// bst.postOrder(bst.root)
+
+console.log(bst.search(bst.root,254))
