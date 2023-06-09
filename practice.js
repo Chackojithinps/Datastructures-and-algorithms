@@ -2537,6 +2537,18 @@ class binarySearchTree{
               (this.checkBst(root.right,root.data,max))
             );
    }
+   identical=(root1,root2)=>{
+      if(!root1 && !root2){
+        return true;
+      }
+      if(!root1|| !root2){
+          return false;
+      }
+      if(root1.data!=root2.data){
+        return false;
+      }
+      return this.identical(root1.left,root2.left) && this.identical(root1.right,root2.right);
+   }
 //    isBstHelper(node,min,max){
 //     if(!node){
 //             return true
@@ -2559,6 +2571,7 @@ class binarySearchTree{
 
 }
 const bst=new binarySearchTree();
+const bst2=new binarySearchTree()
 bst.insert(1);
 bst.insert(5);
 bst.insert(20);
@@ -2566,11 +2579,21 @@ bst.insert(30);
 bst.insert(12);
 bst.insert(1);
 bst.insert(7);
+
+
+bst2.insert(1);
+bst2.insert(5);
+bst2.insert(20);
+bst2.insert(30);
+bst2.insert(12);
+bst2.insert(1);
+// bst2.insert(17);
 // bst.postOrder(bst.root)
 // console.log(bst.search(bst.root,78))
 // console.log(bst.min(bst.root))
 // console.log(bst.max(bst.root))
 // bst.deleteNode(20);
-var res=bst.isBst();
-console.log(res)
+// var res=bst.isBst();
+// console.log(res)
+console.log(bst.identical(bst.root,bst2.root))
 // bst.postOrder(bst.root)
