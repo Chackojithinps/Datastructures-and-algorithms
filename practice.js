@@ -2571,7 +2571,7 @@ class binarySearchTree{
 
 }
 const bst=new binarySearchTree();
-const bst2=new binarySearchTree()
+const bst2=new binarySearchTree();
 bst.insert(1);
 bst.insert(5);
 bst.insert(20);
