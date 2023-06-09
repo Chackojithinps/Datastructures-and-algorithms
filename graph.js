@@ -35,7 +35,52 @@ class Graph{
         }
         return false;
       }
+    // Disconnected dont get in this method-----------------------------------
+
+    // bfs(startVertex) {
+    //     const visited = new Set();
+    //     const queue = [];
+    
+    //     visited.add(startVertex);
+    //     queue.push(startVertex);
+    
+    //     while (queue.length !== 0) {
+    //       const vertex = queue.shift();
+    //       console.log(vertex);
+    
+    //       const edges = this.map.get(vertex);
+    //       for (let edge of edges) {
+    //         if (!visited.has(edge)) {
+    //           visited.add(edge);
+    //           queue.push(edge);
+    //         }
+    //       }
+    //     }
+    //   }
+
+    bfs() {
+        const visited = new Set();
       
+        for (let vertex of this.map.keys()) {
+          if (!visited.has(vertex)) {
+            visited.add(vertex);
+            const queue = [vertex];
+      
+            while (queue.length !== 0) {
+              const currentVertex = queue.shift();
+              console.log(currentVertex);
+      
+              const edges = this.map.get(currentVertex);
+              for (let edge of edges) {
+                if (!visited.has(edge)) {
+                  visited.add(edge);
+                  queue.push(edge);
+                }
+              }
+            }
+          }
+        }
+      }
       
     display() {
         for (let vertex of this.map.keys()) {
@@ -44,11 +89,11 @@ class Graph{
         }
     }
 }
-const graph=new Graph()
-graph.insert("A",1)
-graph.insert("B",2)
+const graph=new Graph();
+graph.insert("A",1);
+graph.insert("B",2);
 graph.insert("c",1,true)
-graph.display()
+// graph.display()
 console.log("__________________")
 // graph.deleteVertex(1)
 // graph.display()
@@ -56,5 +101,9 @@ console.log("__________________")
 // graph.removeEdge("A",1)
 // graph.display()
 // graph.deleteVertex(1)
-const res=graph.hasEdge(1,"2")
-console.log(res)
+// const res=graph.hasEdge(1,"2")
+// graph.bfsTraversal("A")
+// console.log(res)
+graph.bfs()
+// graph.display()
+// console.log(res)
