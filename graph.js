@@ -82,6 +82,44 @@ class Graph{
         }
       }
       
+    //   depthFirstSearch(node1) {
+    //     const visited = new Set()
+    //     let res = []
+
+    //     const dfs = node => {
+    //         if (!node || visited.has(node)) return
+    //         res.push(node)
+    //         visited.add(node)
+    //         for (let neighbor of this.map.get(node))
+    //             dfs(neighbor)
+    //     }
+    //     dfs(node1)
+    //     return res
+    // }
+
+    dfs() {
+        const visited = new Set();
+      
+        for (let vertex of this.map.keys()) {
+          if (!visited.has(vertex)) {
+            this.dfsTraversal(vertex, visited);
+          }
+        }
+      }
+      
+      dfsTraversal(vertex, visited) {
+        visited.add(vertex);
+        console.log(vertex);
+      
+        const edges = this.map.get(vertex);
+        for (let edge of edges) {
+          if (!visited.has(edge)) {
+            this.dfsTraversal(edge, visited);
+          }
+        }
+      }
+      
+
     display() {
         for (let vertex of this.map.keys()) {
             let temp = this.map.get(vertex);
@@ -104,6 +142,7 @@ console.log("__________________")
 // const res=graph.hasEdge(1,"2")
 // graph.bfsTraversal("A")
 // console.log(res)
-graph.bfs()
+// graph.bfs()
+graph.dfs()
 // graph.display()
 // console.log(res)
