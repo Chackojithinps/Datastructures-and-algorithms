@@ -106,20 +106,20 @@ class binarySearchTree{
         console.log(root.data)
     }
    }
-   Bfs(root){
-      const queue=[];
-      queue.push(root)
-      while(queue.length){
-        var curr=queue.shift()
-        console.log(curr.data)
-        if(curr.left){
-            queue.push(curr.left)
-        }
-        if(curr.right){
-            queue.push(curr.right)
-        }
-      }
-   }
+//    Bfs(root){
+//       const queue=[];
+//       queue.push(root)
+//       while(queue.length){
+//         var curr=queue.shift()
+//         console.log(curr.data)
+//         if(curr.left){
+//             queue.push(curr.left)
+//         }
+//         if(curr.right){
+//             queue.push(curr.right)
+//         }
+//       }
+//    }
    min(root){
      if(!root.left){
         return root.data
@@ -175,7 +175,7 @@ isBstHelper(node,min,max){
             return true
     }
     if(node.data<min||node.data>max)
-            return false
+            return false;
     return (
             (this.isBstHelper(node.left, min, node.data)) &&
             (this.isBstHelper(node.right, node.data, max))
@@ -255,21 +255,21 @@ bst.insert(12)
 bst.insert(9)
 bst.insert(16)
 
-bst2.insert(8)
-bst2.insert(5)
-bst2.insert(4)
-bst2.insert(6)
+// bst2.insert(8)
 // bst2.insert(5)
-bst2.insert(12)
-bst2.insert(9)
-bst2.insert(6)
+// bst2.insert(4)
+// bst2.insert(6)
+// // bst2.insert(5)
+// bst2.insert(12)
+// bst2.insert(9)
+// bst2.insert(6)
 
 // console.log(bst.search(bst.root,20))
 // console.log('isBinarySearchtree is null ?',bst.isEmpty())
 
-bst.preOrder(bst.root)
-console.log("_______________")
-bst2.preOrder(bst2.root)
+bst.postOrder(bst.root)
+// console.log("_______________")
+// bst2.preOrder(bst2.root)
 
 
 // console.log("_____________")
@@ -284,8 +284,8 @@ bst2.preOrder(bst2.root)
 // bst.delete(7)
 // bst.postOrder(bst.root)
 
-console.log("is valid"+bst.isBst())
-console.log("Are BSTs identical? ", bst.areIdentical(bst2));
+// console.log("is valid"+bst.isBst())
+// console.log("Are BSTs identical? ", bst.areIdentical(bst2));
 
 
 

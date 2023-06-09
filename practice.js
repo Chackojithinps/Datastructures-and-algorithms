@@ -2340,51 +2340,237 @@
 // trie.insert("jithin");
 // trie.insert("kiran");
 
-class TrieNode{
-  constructor() {
-    this.children=new Map()
-    this.isEndofWord=false;
+// class TrieNode{
+//   constructor() {
+//     this.children=new Map()
+//     this.isEndofWord=false;
+//   }
+// }
+// class Trie{
+//   constructor(){
+//     this.root=new TrieNode()
+//   }
+//   insert(word){
+//     var curr=this.root;
+//     for(var i=0;i<word.length;i++){
+//       var char=word[i];
+//       if(!curr.children.has(char)){
+//         curr.children.set(char,new TrieNode())
+//       }
+//       curr=curr.children.get(char)
+//     }
+//     curr.isEndOfWord=true;
+//   }
+//   search(word) {
+//     let current = this.root;
+//     for (let i = 0; i < word.length; i++) {
+//       const char = word[i];
+//       if (!current.children.has(char)) {
+//         return false;
+//       }
+//       current = current.children.get(char);
+//     }
+//     return current.isEndOfWord;
+//   }
+//   startsWith(word) {
+//     let current = this.root;
+//     for (let i = 0; i < word.length; i++) {
+//       const char = word[i];
+//       if (!current.children.has(char)) {
+//         return false;
+//       }
+//       current = current.children.get(char);
+//     }
+//     return true;
+//   }
+// }
+// const trie=new Trie();
+// trie.insert("helo");
+// // console.log(trie.search("hel"))
+// console.log(trie.startsWith("hel"));
+
+
+// Binary SEarch tree-------------------------------------->
+class Node{
+  constructor(data) {
+      this.data=data;
+      this.left=null;
+      this.right=null;
   }
 }
-class Trie{
+class binarySearchTree{
   constructor(){
-    this.root=new TrieNode()
+    this.root=null;
   }
-  insert(word){
-    var curr=this.root;
-    for(var i=0;i<word.length;i++){
-      var char=word[i];
-      if(!curr.children.has(char)){
-        curr.children.set(char,new TrieNode())
-      }
-      curr=curr.children.get(char)
+  insert(data){
+    const newNode=new Node(data)
+    if(this.root==null){
+      this.root=newNode
+      return;
     }
-    curr.isEndOfWord=true;
+    this.insertNode(this.root,newNode)
   }
-  search(word) {
-    let current = this.root;
-    for (let i = 0; i < word.length; i++) {
-      const char = word[i];
-      if (!current.children.has(char)) {
+  insertNode(root,newNode){
+    if(newNode.data<root.data){
+      if(root.left==null){
+        root.left=newNode;
+      }else{
+        this.insertNode(root.left,newNode)
+      }
+    }
+    else{
+      if(root.right==null){
+        root.right=newNode
+      }else{
+        this.insertNode(root.right,newNode);
+      }
+    }
+  }
+
+  // search(root,data){
+  //   if(!root){
+  //     return false;
+  //   }
+  //   if(root.data==data){
+  //     return true;
+  //   }
+  //   else if(data<root.data){
+  //     return this.search(root.left,data)
+  //   }else{
+  //    return this.search(root.right,data)
+  //   }
+  // }
+  search(root,value){
+    if(!root){
         return false;
-      }
-      current = current.children.get(char);
     }
-    return current.isEndOfWord;
-  }
-  startsWith(word) {
-    let current = this.root;
-    for (let i = 0; i < word.length; i++) {
-      const char = word[i];
-      if (!current.children.has(char)) {
-        return false;
-      }
-      current = current.children.get(char);
+    if(value==root.data){
+       return true;
     }
-    return true;
+    else if(value<root.data){
+       return this.search(root.left,value)
+    }
+    else {
+       
+       return this.search(root.right,value)
+    }
   }
+  min(root){
+    if(!root.left){
+       return root.data;
+    }
+    return this.min(root.left)
+  }
+  max(root){
+    if(!root.right){
+      return root.data
+    }
+    return this.max(root.right)
+  }
+  // deleteNode(data){
+  //   this.root =this.delete(this.root,data)
+  // }
+  // delete(root,data){
+  //   if(!root){
+  //     return null
+  //   } 
+  //   if(data<root.data){
+  //     root.left=this.delete(root.left,data)
+  //   }
+  //   else if(data>root.data){
+  //     root.right=this.delete(root.right,data)
+  //   }else{
+  //     if(!root.right && !root.left){
+  //       return null;
+  //     }
+  //     else if(!root.right){
+  //       return root.left
+  //     }else if(!root.left){
+  //       return root.right;
+  //     }
+  //     var minValue=this.min(root.right);
+  //     root.data=minValue;
+  //     root.right=this.delete(root.right,root.data);
+  //   }
+  //   return root
+  // }
+  deleteNode(data){
+    this.root=this.delete(this.root,data);
+  }
+  delete(root,data){
+    if(!root){
+      return null;
+    }
+    if(data<root.data){
+      root.left=this.delete(root.left,data)
+    }
+    else if(data>root.data){
+      root.right=this.delete(root.right,data)
+    }else{
+      if(!root.right && root.left){
+        return null;
+      }else if(!root.left){
+        return root.right
+      }else if(!root.right){
+        return root.left
+      }
+      var minValue=this.min(root.right);
+      root.data=minValue;
+      root.right=this.delete(root.right);
+
+    }
+    return root;
+
+  }
+  isBst(){
+    return this.checkBst(this.root,0,1)
+  }
+   checkBst=(root,min,max)=>{
+       if(!root){
+        return true;
+       }
+       if(root.data<min || root.data >max){
+         return false;
+       }
+       return (
+             (this.checkBst(root.left,min,root.data)) &&
+              (this.checkBst(root.right,root.data,max))
+            );
+   }
+//    isBstHelper(node,min,max){
+//     if(!node){
+//             return true
+//     }
+//     if(node.data<min||node.data>max)
+//             return false;
+//     return (
+//             (this.isBstHelper(node.left, min, node.data)) &&
+//             (this.isBstHelper(node.right, node.data, max))
+//         );
+                    
+// } 
+  postOrder=(root)=>{
+      if(root){
+        this.postOrder(root.left)
+        this.postOrder(root.right)
+        console.log(root.data)
+      }
+  }
+
 }
-const trie=new Trie();
-trie.insert("helo");
-// console.log(trie.search("hel"))
-console.log(trie.startsWith("hel"));
+const bst=new binarySearchTree();
+bst.insert(1);
+bst.insert(5);
+bst.insert(20);
+bst.insert(30);
+bst.insert(12);
+bst.insert(1);
+bst.insert(7);
+// bst.postOrder(bst.root)
+// console.log(bst.search(bst.root,78))
+// console.log(bst.min(bst.root))
+// console.log(bst.max(bst.root))
+// bst.deleteNode(20);
+var res=bst.isBst();
+console.log(res)
+// bst.postOrder(bst.root)
