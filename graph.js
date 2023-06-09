@@ -126,12 +126,21 @@ class Graph{
             console.log(vertex, temp);
         }
     }
+    // display() {
+    //     for (let vertex of this.map.keys()) {
+    //         if(this.map.get(vertex).length!=0){
+    //             let temp = this.map.get(vertex);
+
+    //             console.log(vertex,temp)
+    //         }
+    //     }
+    // }
 }
 const graph=new Graph();
-graph.insert("A",1);
+graph.insert("A",1,true);
 graph.insert("B",2);
 graph.insert("c",1,true)
-// graph.display()
+graph.display()
 console.log("__________________")
 // graph.deleteVertex(1)
 // graph.display()
