@@ -35,7 +35,7 @@ class Graph{
           return edges.includes(vertex2);
         }
         return false;
-      }
+    }
     // Disconnected dont get in this method-----------------------------------
 
     // bfs(startVertex) {
@@ -124,15 +124,18 @@ class Graph{
 
     display() {
         for (let vertex of this.map.keys()) {
-            let temp = this.map.get(vertex);
-            console.log(vertex, temp);
+          let temp = this.map.get(vertex);
+
+            if(temp.length!=0){
+
+              console.log(vertex, temp);
+            }
         }
     }
     // display() {
     //     for (let vertex of this.map.keys()) {
     //         if(this.map.get(vertex).length!=0){
     //             let temp = this.map.get(vertex);
-
     //             console.log(vertex,temp)
     //         }
     //     }
@@ -149,7 +152,7 @@ graph.insert("C",1,true)
 graph.insert("K","L",true)
 
 graph.display()
-console.log("__________________")
+console.log("__________________");
 // graph.deleteVertex(1)
 // graph.display()
 

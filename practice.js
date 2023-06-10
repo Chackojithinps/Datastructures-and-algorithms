@@ -2895,6 +2895,15 @@ class Graph{
        this.map.set(vertex,edges.filter(edge => edge !== target))
     }
   }
+  hasEdges=(vertex1,vertex2)=>{
+    if(this.map.has(vertex1)){
+      var k=this.map.get(vertex1).indexOf(vertex2);
+      if(k!=-1){
+        return true;
+      }
+    }
+    return false;
+  }
   dfs(){
     var visited=new Set();
     for(let vertex of this.map.keys()){
@@ -2917,25 +2926,26 @@ class Graph{
   display(){
     for(var vertex of this.map.keys()){
       var temp=this.map.get(vertex);
-      console.log(vertex,temp)
+      console.log(vertex,temp);
     }
   }
   getSize(){
-    console.log(this.size)
+    console.log(this.size);
   }
 }
-const graph=new Graph()
+const graph=new Graph();
 graph.insert("A",1);
 graph.insert("A","B");
 graph.insert("A","C");
 graph.insert("B","D");
-graph.insert("C","D")
-graph.insert("C","B")
-graph.insert("C",1,true)
-graph.insert("K","L",true)
+graph.insert("C","D");
+graph.insert("C","B");
+graph.insert("C",1,true);
+graph.insert("K","L",true);
 // graph.removeEdges("A",1);
-graph.removeVertex("D")
-graph.display()
-
+// graph.removeVertex("D")
+graph.display();
+var res=graph.hasEdges("K","L")
+console.log(res);
 // graph.dfs()
 // graph.getSize()
