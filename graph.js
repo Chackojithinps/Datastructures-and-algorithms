@@ -60,7 +60,6 @@ class Graph{
 
     bfs() {
         const visited = new Set();
-      
         for (let vertex of this.map.keys()) {
           if (!visited.has(vertex)) {
             visited.add(vertex);
@@ -137,9 +136,15 @@ class Graph{
     // }
 }
 const graph=new Graph();
-graph.insert("A",1,true);
-graph.insert("B",2);
-graph.insert("c",1,true)
+graph.insert("A",1);
+graph.insert("A","B");
+graph.insert("A","C");
+graph.insert("B","D");
+graph.insert("C","D")
+graph.insert("C","B")
+graph.insert("C",1,true)
+graph.insert("K","L",true)
+
 graph.display()
 console.log("__________________")
 // graph.deleteVertex(1)
@@ -152,6 +157,6 @@ console.log("__________________")
 // graph.bfsTraversal("A")
 // console.log(res)
 // graph.bfs()
-graph.dfs()
+// graph.dfs();
 // graph.display()
 // console.log(res)
