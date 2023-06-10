@@ -2884,6 +2884,17 @@ class Graph{
       this.map.get(edge).push(vertex)
     }
   }
+  removeEdges=(node1,node2)=>{
+      if(this.map.has(node1)){
+        this.map.get(node1).splice(this.map.get(node1).indexOf(node2),1)
+      }
+  }
+  removeVertex=(target)=>{
+    this.map.delete(target)
+    for(let [vertex,edges] of this.map){
+       this.map.set(vertex,edges.filter(edge => edge !== target))
+    }
+  }
   dfs(){
     var visited=new Set();
     for(let vertex of this.map.keys()){
@@ -2922,6 +2933,9 @@ graph.insert("C","D")
 graph.insert("C","B")
 graph.insert("C",1,true)
 graph.insert("K","L",true)
-// graph.display()
-graph.dfs()
-graph.getSize()
+// graph.removeEdges("A",1);
+graph.removeVertex("D")
+graph.display()
+
+// graph.dfs()
+// graph.getSize()
