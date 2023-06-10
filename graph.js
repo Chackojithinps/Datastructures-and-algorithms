@@ -1,6 +1,7 @@
 class Graph{
     constructor(){
         this.map=new Map();
+        this.size=0;
     }
     addVertex(vertex){
         this.map.set(vertex,[]);
@@ -109,7 +110,7 @@ class Graph{
       dfsTraversal(vertex, visited) {
         visited.add(vertex);
         console.log(vertex);
-      
+        this.size++
         const edges = this.map.get(vertex);
         for (let edge of edges) {
           if (!visited.has(edge)) {
@@ -117,7 +118,9 @@ class Graph{
           }
         }
       }
-      
+      getSize(){
+        console.log(this.size);
+      }
 
     display() {
         for (let vertex of this.map.keys()) {

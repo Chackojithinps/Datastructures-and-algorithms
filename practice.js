@@ -2867,6 +2867,7 @@
 class Graph{
   constructor(){
     this.map=new Map()
+    this.size=0
   }
   addVertex(vertex){
     this.map.set(vertex,[])
@@ -2883,15 +2884,44 @@ class Graph{
       this.map.get(edge).push(vertex)
     }
   }
+  dfs(){
+    var visited=new Set();
+    for(let vertex of this.map.keys()){
+      if(!visited.has(vertex)){
+        this.dfsTraversal(vertex,visited)
+      }
+    }
+  }
+  dfsTraversal(vertex,visited){
+    visited.add(vertex);
+    console.log(vertex);
+    this.size++;
+    var edges=this.map.get(vertex);
+    for(let edge of edges){
+      if(!visited.has(edge)){
+        this.dfsTraversal(edge,visited)
+      }
+    }
+  }
   display(){
     for(var vertex of this.map.keys()){
       var temp=this.map.get(vertex);
       console.log(vertex,temp)
     }
   }
+  getSize(){
+    console.log(this.size)
+  }
 }
 const graph=new Graph()
-graph.insert("A",1)
-graph.insert("B",2)
-graph.insert("C","A",true)
-graph.display()
+graph.insert("A",1);
+graph.insert("A","B");
+graph.insert("A","C");
+graph.insert("B","D");
+graph.insert("C","D")
+graph.insert("C","B")
+graph.insert("C",1,true)
+graph.insert("K","L",true)
+// graph.display()
+graph.dfs()
+graph.getSize()
