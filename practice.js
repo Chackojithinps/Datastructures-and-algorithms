@@ -2598,28 +2598,143 @@
 // console.log(bst.identical(bst.root,bst2.root))
 // bst.postOrder(bst.root)
 
-class Node{
-  constructor(data){
-    this.data=data;
-    this.left=null;
-    this.right=null;
-  }
+// class Node{
+//   constructor(data){
+//     this.data=data;
+//     this.left=null;
+//     this.right=null;
+//   }
   
+// }
+
+// class Bst{
+//   constructor(){
+//     this.root=null;
+//   }
+//   insert=(data)=>{
+//     const newNode=new Node(data)
+//     if(this.root==null){
+//       this.root=newNode
+//     }else{
+//       this.insertNode(this.root,newNode)
+//     }
+//   }
+
+//   insertNode(root,newNode){
+//     if(newNode.data<root.data){
+//       if(!root.left){
+//         root.left=newNode
+//       }else{
+//         this.insertNode(root.left,newNode)
+//       }
+//     }else{
+//       if(!root.right){
+//         root.right=newNode;
+
+//       }else{
+//         this.insertNode(root.right,newNode)
+//       }
+//     }
+//   }
+ 
+//   min(root){
+//     if(!root.left){
+//       return root.data
+//     }
+//     return this.min(root.left)
+//   }
+
+//   max(root){
+//     if(!root.right){
+//       return root.data
+//     }
+//     return this.max(root.right)
+//   }
+//   search(root,data){
+//     if(!root){
+//       return false;
+//     }
+//     if(root.data==data){
+//       return true;
+//     }
+//     if(data<root.data){
+//       return this.search(root.left,data)
+//     }else 
+//       return this.search(root.right,data)
+//     }
+//   delete(value){
+//     this.root=this.deleteNode(this.root,value)
+//   }
+//   deleteNode(root,data){
+//     if(root==null){
+//       return root;
+//     }
+//     if(data<root.data){
+//       root.left=this.deleteNode(root.left,data)
+//     }else if(data>root.data){
+//      root.right= this.deleteNode(root.right,data)
+//     }
+//     else {
+//       if(!root.right && !root.left){
+//         return null
+//       }else if(!root.right){
+//         return root.left
+//       }else if(!root.left){
+//         return root.right
+//       }
+//       var minValue=this.min(root.right);
+//       root.data=minValue;
+//       root.right=this.deleteNode(root.right,root.data);
+//     }
+//     return root;
+//   }
+//   postOrder=(root)=>{
+//     if(root){
+//       this.postOrder(root.left);
+//       this.postOrder(root.right)
+//       console.log(root.data)
+//     }
+//   }
+// }
+
+// const bst=new Bst();
+// bst.insert(5)
+// bst.insert(15)
+// bst.insert(35)
+// bst.insert(254)
+// bst.insert(6)
+// bst.insert(8)
+// bst.insert(80);
+// bst.delete(254)
+// bst.postOrder(bst.root);
+// console.log("+++++++++++++++++++")
+// // var res=bst.min(bst.root)
+// // console.log(res)
+
+// console.log(bst.search(bst.root,254))
+
+
+
+class Node{
+   constructor(data){
+     this.data=data;
+     this.left=null;
+     this.right=null;
+   }
 }
 
 class Bst{
   constructor(){
-    this.root=null;
+    this.root=null
   }
-  insert=(data)=>{
+  insert(data){
     const newNode=new Node(data)
-    if(this.root==null){
-      this.root=newNode
-    }else{
+     if(this.root==null){
+       this.root=newNode
+     }else{
       this.insertNode(this.root,newNode)
-    }
+     }
   }
-
   insertNode(root,newNode){
     if(newNode.data<root.data){
       if(!root.left){
@@ -2629,86 +2744,121 @@ class Bst{
       }
     }else{
       if(!root.right){
-        root.right=newNode;
-
+        root.right=newNode
       }else{
         this.insertNode(root.right,newNode)
       }
     }
   }
- 
+  search=(root,value)=>{
+      if(!root){
+        return false;
+      }
+      if(value==root.data){
+        return true;
+      }
+      if(value<root.data){
+        return this.search(root.left,value)
+      }
+      if(value>root.data){
+        return this.search(root.right,value)
+      }
+  }
   min(root){
     if(!root.left){
-      return root.data
-    }
-    return this.min(root.left)
+      return root.data;
+    };
+    return this.min(root.left);
+   
   }
-
   max(root){
     if(!root.right){
-      return root.data
-    }
-    return this.max(root.right)
+      return root.data;
+    };
+    return this.max(root.right);
   }
-  search(root,data){
-    if(!root){
-      return false;
-    }
-    if(root.data==data){
-      return true;
-    }
-    if(data<root.data){
-      return this.search(root.left,data)
-    }else 
-      return this.search(root.right,data)
-    }
   delete(value){
     this.root=this.deleteNode(this.root,value)
   }
   deleteNode(root,data){
-    if(root==null){
-      return root;
-    }
     if(data<root.data){
       root.left=this.deleteNode(root.left,data)
     }else if(data>root.data){
-     root.right= this.deleteNode(root.right,data)
-    }
-    else {
-      if(!root.right && !root.left){
+      root.right=this.deleteNode(root.right,data)
+    }else{
+      if(!root.left && !root.right){
         return null
-      }else if(!root.right){
-        return root.left
       }else if(!root.left){
-        return root.right
+        return root.right;
+
+      }else if(!root.right){
+        return root.left;
       }
       var minValue=this.min(root.right);
       root.data=minValue;
-      root.right=this.deleteNode(root.right,root.data);
+      root.right=this.deleteNode(root.right,root.data)
     }
     return root;
   }
-  postOrder=(root)=>{
-    if(root){
-      this.postOrder(root.left);
-      this.postOrder(root.right)
-      console.log(root.data)
+  isIdentical(root1,root2){
+    if(!root1 && !root2){
+      return true;
     }
+    if(!root1 || !root2){
+      return false;
+    }
+    if(root1.data!=root2.data){
+      return false;
+    }
+    return this.isIdentical(root1.left ,root2.left) && this.isIdentical(root1.right , root2.right );
+  }
+  isValid(){
+    return  this.checkValid(this.root,0,1000)
+  }
+  checkValid(root,min,max){
+    if(!root){
+      return true
+    }
+    if(root.data<min || root.data>max){
+      return false;
+    }
+    return this.checkValid(root.left,min,root.data) && this.checkValid (root.right,root.data,max)
+  }
+  preOrder=(root)=>{
+     if(root){
+        console.log(root.data);
+        this.preOrder(root.left);
+        this.preOrder(root.right);
+     }
   }
 }
-
 const bst=new Bst();
-bst.insert(5)
-bst.insert(15)
-bst.insert(35)
-bst.insert(254)
-bst.insert(6)
-bst.insert(8)
-bst.insert(80);
-bst.delete(254)
-bst.postOrder(bst.root);
-console.log("+++++++++++++++++++")
-// var res=bst.min(bst.root)
-// console.log(res)
+const bst2=new Bst();
+bst.insert(15);
+bst.insert(1);
+bst.insert(5);
+bst.insert(3);
+bst.insert(12);
+bst.insert(32);
+bst.insert(22);
+bst.insert(111);
 
-console.log(bst.search(bst.root,254))
+
+bst2.insert(15);
+bst2.insert(1);
+bst2.insert(5);
+bst2.insert(3);
+bst2.insert(12);
+bst2.insert(32);
+bst2.insert(22);
+bst2.insert(111);
+bst2.preOrder(bst.root);
+console.log("_________________________________")
+// bst.delete(111)
+
+bst.preOrder(bst.root);
+// console.log(bst.isIdentical(bst.root,bst2.root))
+// console.log(bst.search(bst.root,111));
+// console.log(bst.min(bst.root));
+// console.log(bst.max(bst.root));
+console.log(bst.isValid())

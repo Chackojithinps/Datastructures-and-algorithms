@@ -82,9 +82,7 @@ class binarySearchTree{
         }
     }
     preOrder(root){
-        // if(this.isEmpty()){
-        //     return false;
-        // }
+      
         if(root){
             console.log(root.data)
             this.preOrder(root.left)
@@ -106,20 +104,7 @@ class binarySearchTree{
         console.log(root.data)
     }
    }
-//    Bfs(root){
-//       const queue=[];
-//       queue.push(root)
-//       while(queue.length){
-//         var curr=queue.shift()
-//         console.log(curr.data)
-//         if(curr.left){
-//             queue.push(curr.left)
-//         }
-//         if(curr.right){
-//             queue.push(curr.right)
-//         }
-//       }
-//    }
+
    min(root){
      if(!root.left){
         return root.data
@@ -166,10 +151,60 @@ class binarySearchTree{
     return root;
    }
 
+   printAllLeaves=(root)=>{
+      if(root==null){
+        return null;
+      }
+      if(!root.left && !root.right){
+        console.log(root.data)
+        return 
+      }
+      if(root.left){
+        this.printAllLeaves(root.left)
+      }
+      if(root.right){
+        this.printAllLeaves(root.right)
+      }
+    
+   }
+
+   printNonLeaves=(root) => {
+    if (!root || (!root.left && !root.right)) {
+      return;
+    }
+    if (root.left || root.right) {
+      console.log(root.data);
+    }
+    if (root.left) {
+      this.printNonLeaves(root.left);
+    }
+    if (root.right) {
+      this.printNonLeaves(root.right);
+    }
+  }
+
    isBst(){
     return this.isBstHelper(this.root,0,Infinity)
 
 }
+getHeight(node) {
+    if (node === null) {
+      return -1; // Height of an empty tree is -1
+    }
+
+    const leftHeight = this.getHeight(node.left);
+    const rightHeight = this.getHeight(node.right);
+
+    return Math.max(leftHeight, rightHeight) + 1;
+  }
+  rootCount=(root)=>{
+     if(root==null){
+        return 0
+     }
+     var leftcount=this.rootCount(root.left);
+     var rightcount=this.rootCount(root.right)
+     return leftcount+rightcount+1;
+  }
 isBstHelper(node,min,max){
     if(!node){
             return true
@@ -182,19 +217,6 @@ isBstHelper(node,min,max){
         );
                     
 } 
-
-// identical=(root1,root2)=>{
-//    if(!root1 && !root2){
-//       return true
-//    }
-//    if(!root1 || !root2){
-//      return false
-//    }
-//    if(root1.data!=root2.data){
-//     return false;
-//    }
-//    return this.identical(root1.left,root2.left) && this.identical(root1.right,root2.right)
-// }
 
 areIdentical(bst2) {
     return this.areIdenticalHelper(this.root, bst2.root);
@@ -215,32 +237,6 @@ areIdenticalHelper(node1, node2) {
     );
   }
 
-//    delete(value){
-//      this.root=this.deleteNode(this.root,value)
-//    }
-//    deleteNode(root,value){
-//      if(root==null){
-//         return root
-//      }
-//      if(value<root.data){
-//         root.left=this.deleteNode(root.left,value)
-//      }else if(value>root.data){
-//         root.right=this.deleteNode(root.right,value)
-//      }else{
-//         if(!root.right && !root.left){
-//             return null;
-//         }
-//         if(!root.right){
-//             return root.left
-//         }
-//         else if(!root.left){
-//             return root.right
-//         }
-//         root.value=this.min(root.right)
-//         root.right=this.deleteNode(root.right,root.value);
-//      }
-//      return root;
-//    }
 
 
 }
@@ -249,8 +245,10 @@ const bst2=new binarySearchTree()
 bst.insert(8)
 bst.insert(5)
 bst.insert(4)
-bst.insert(6)
-// bst.insert(5)
+bst.insert(1)
+bst.insert(2)
+bst.insert(3)
+bst.insert(5)
 bst.insert(12)
 bst.insert(9)
 bst.insert(16)
@@ -268,9 +266,12 @@ bst.insert(16)
 // console.log('isBinarySearchtree is null ?',bst.isEmpty())
 
 bst.postOrder(bst.root)
-// console.log("_______________")
+console.log("_______________")
 // bst2.preOrder(bst2.root)
-
+// bst.printAllLeaves(bst.root)
+// bst.printNonLeaves(bst.root)
+// console.log(bst.getHeight(bst.root))
+console.log(bst.rootCount(bst.root))
 
 // console.log("_____________")
 // bst.inOrder(bst.root)
