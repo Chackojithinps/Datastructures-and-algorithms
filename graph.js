@@ -110,7 +110,7 @@ class Graph{
       dfsTraversal(vertex, visited) {
         visited.add(vertex);
         console.log(vertex);
-        this.size++
+        this.size++;
         const edges = this.map.get(vertex);
         for (let edge of edges) {
           if (!visited.has(edge)) {

@@ -3123,46 +3123,514 @@
 
 // suffix__________________
 
-class TrieNode{
+// class TrieNode{
+//   constructor(){
+//     this.children=new Map()
+//     this.isWordEnd=false;
+//   }
+// }
+// class Tries{
+//   constructor(){
+//     this.root=new TrieNode()
+//   }
+//   insertNode=(word)=>{
+//     for(var i=0;i<word.length;i++){
+//       var suffix=word.slice(i)
+//       // console.log(suffix)
+//        this.insert(suffix)
+//     }
+//   }
+//   insert(word){
+//     var curr=this.root;
+//     for(var i=0;i<word.length;i++){
+//        var char=word[i];
+//        if(!curr.children.has(char)){
+//          curr.children.set(char,new TrieNode())
+//        }
+//        curr=curr.children.get(char)
+//     }
+//     curr.isWordEnd=true;
+//   }
+//   search(word){
+//     var curr=this.root;
+//     for(var i=0;i<word.lenght;i++){
+//        var char=word[i];
+//        if(!curr.children.has(char)){
+//          return false;
+//        }
+//        curr=curr.children.get(char)
+//     }
+//    return true;
+//   }
+// }
+// const tries=new Tries();
+// tries.insertNode("Hello")
+// console.log(tries.search("lll"))
+
+
+// class Node{
+//   constructor(data){
+//     this.data=data;
+//     this.left=null;
+//     this.right=null;
+//   }
+// }
+// class Bst {
+//   constructor(){
+//     this.root=null;
+//   }
+//   insert(data){
+//     const newNode=new Node(data);
+//     if(!this.root){
+//       this.root=newNode;
+//     }else{
+//       this.insertNode(this.root,newNode)
+//     }
+//   }
+//   insertNode(root,newNode){
+//     if(newNode.data<root.data){
+//       if(!root.left){
+//         root.left=newNode;
+//       }else{
+//         this.insertNode(root.left,newNode)
+//       }
+//     }else{
+//       if(!root.right){
+//         root.right=newNode
+//       }else{
+//         this.insertNode(root.right,newNode)
+//       }
+//     }
+//   }
+//   search(root,data){
+//     if(!root){
+//       return false;
+//     }
+//     if(data==root.data){
+//       return true;
+//     }
+//     else if(data<root.data){
+//       return this.search(root.left,data)
+//     }
+//     else {
+//       return this.search(root.right,data)
+//     }
+
+//   }
+//   min(root){
+//     if(!root.left){
+//       return root.data
+//     }else{
+//       return this.min(root.left)
+//     }
+//   }
+  
+//   preOrder=(root)=>{
+//     if(root){
+//       console.log(root.data);
+//       this.preOrder(root.left);
+//       this.preOrder(root.right)
+//     }
+//   }
+//   printAllLeaves=(root)=>{
+//     if(!root){
+//       return null;
+//     }
+//     if(!root.right && !root.left){
+//       console.log(root.data);
+//       return ;
+//     }
+//     if(root.left){
+//       this.printAllLeaves(root.left)
+//     }
+//     if(root.right){
+//       this.printAllLeaves(root.right)
+//     }
+//   }
+//   printNonLeaves=(root) => {
+//     if (!root || (!root.left && !root.right)) {
+//       return;
+//     }
+//     if (root.left || root.right) {
+//       console.log(root.data);
+//     }
+//     if (root.left) {
+//       this.printNonLeaves(root.left);
+//     }
+//     if (root.right) {
+//       this.printNonLeaves(root.right);
+//     }
+//   }
+//   getHeight(root){
+//     if(!root){
+//       return -1
+//     }
+//     var leftNode=this.getHeight(root.left);
+//     var rightNode=this.getHeight(root.right);
+
+//    return Math.max(leftNode,rightNode)+1
+//   }
+
+//   identical(root1,root2){
+//     if(!root1 && !root2){
+//       return true;
+//     }
+//     if(!root1 || !root2){
+//       return false;
+//     }else if(root1.data !=root2.data){
+//       return false;
+//     }
+//     else{
+//       return this.identical(root1.left,root2.left) && this.identical(root1.right,root2.right)
+//     }
+//   }
+
+//   isbst(){
+//      return this.isbstHelper(this.root,0,Infinity)
+//   }
+//   isbstHelper(root,min,max){
+//     if(!root){
+//       return true;
+//     }
+//     if(root.data<min || root.data>max){
+//       return false;
+//     }
+//     return this.isbstHelper(root.left,min,root.data) && this.isbstHelper( root.right ,root.data,max)
+//   }
+//   delete(value){
+//     this.root=this.deleteNode(this.root,value)
+//   }
+//   deleteNode(root,value){
+//     if(!root){
+//       return null;
+//     }
+//     if(value<root.data){
+//       root.left=this.deleteNode(root.left,value)
+//     }else if(value>root.data){
+//       root.right=this.deleteNode(root.right,value);
+//     }else{
+//       if(!root.left && root.right ){
+//         return null;
+//       }
+//       else if(!root.left){
+//         return root.right;
+//       }
+//       else if(!root.right){
+//         return root.left;
+
+//       }
+//       var minValue=this.min(root.right);
+//       root.data=minValue;
+//       root.right=this.deleteNode(root.right,root.data);
+//     }
+//     return root;
+//   }
+
+// }
+// const bst=new Bst();
+// const bst2=new Bst();
+// bst.insert(8)
+// bst.insert(5)
+// bst.insert(4)
+// bst.insert(1)
+// bst.insert(2)
+// bst.insert(3)
+// // bst.insert(5)
+// bst.insert(12)
+// bst.insert(9)
+// bst.insert(16)
+
+// bst2.insert(8)
+// bst2.insert(5)
+// bst2.insert(4)
+// bst2.insert(1)
+// bst2.insert(2)
+// bst2.insert(3)
+// bst2.insert(5)
+// bst2.insert(12)
+// bst2.insert(9)
+// bst2.insert(16)
+// // bst.preOrder(bst.root)
+// // console.log(bst.search(bst.root,10))
+// // console.log(bst.min(bst.root))
+// bst.printAllLeaves(bst.root)
+// console.log("______________________")
+// bst.printNonLeaves(bst.root)
+// console.log("______________________")
+// console.log(bst.getHeight(bst.root))
+// console.log("______________________")
+// console.log(bst.identical(bst.root,bst2.root))
+// console.log("______________________")
+
+// console.log(bst.isbst())
+// console.log("______________________")
+// bst.delete(5)
+// bst.preOrder(bst.root)
+
+// class Node{
+//   constructor(data){
+//      this.data=data;
+//      this.left=null;
+//      this.right=null;
+//   }
+// }
+
+// class Bst{
+
+//   constructor() {
+//     this.root=null;
+//   }
+//   insert(data){
+//     const newNode=new Node(data);
+//     if(this.root==null){
+//       this.root=newNode
+//     }
+//     else{
+//       this.insertNode(this.root,newNode)
+//     }
+//   }
+//   insertNode(root,newNode){
+//     if(newNode.data<root.data){
+//       if(!root.left){
+//         root.left=newNode;
+//       }else{
+//         this.insertNode(root.left,newNode);
+//       }
+//     }
+//     else{
+//       if(!root.right){
+//         root.right=newNode
+//       }else{
+//         this.insertNode(root.right,newNode);
+//       }
+//     }
+//   }
+//   preOrder=(root)=>{
+//     if(root){
+//       console.log(root.data);
+//       this.preOrder(root.left)
+//       this.preOrder(root.right)
+//     }
+//   }
+//   search(root,value){
+//     if(!root){
+//       return false;
+//     }
+//     if(value==root.data){
+//       return true;
+//     }
+//     else if(value<root.data){
+//       return this.search(root.left,value)
+//     }
+//     else{
+//       return this.search(root.right,value)
+//     }
+//   }
+//   findHeight=(root)=>{
+//       if(!root){
+//         return -1
+//       }
+//       var left=this.findHeight(root.left);
+//       var right=this.findHeight(root.right);
+
+//       return Math.max(left,right)+1;
+//   }
+//   min(root){
+//     if(!root.left){
+//       return root.data;
+//     }
+//     return this.min(root.left)
+//   }
+
+//   printAllLeaves=(root)=>{
+//      if(!root){
+//        return null;
+//      }
+//      if(!root.left && !root.right){
+//       console.log(root.data);
+//       return;
+//      }
+//      if(root.left){
+//        this.printAllLeaves(root.left)
+//      }
+//      if(root.right){
+//       this.printAllLeaves(root.right)
+//      }
+//   }
+
+//   printNonLeaves=(root) => {
+//         if (!root || (!root.left && !root.right)) {
+//           return;
+//         }
+//         if (root.left || root.right) {
+//           console.log(root.data);
+//         }
+//         if (root.left) {
+//           this.printNonLeaves(root.left);
+//         }
+//         if (root.right) {
+//           this.printNonLeaves(root.right);
+//         }
+//       }
+
+//     isbst(){
+//       return this.isBstValid(this.root,0,Infinity)
+//     }
+//     isBstValid(root,min,max){
+//       if(!root){
+//         return true;
+//       }
+//       if(root.data<min || root.data>max){
+//         return false;
+//       }
+//       return this.isBstValid(root.left,min,root.data) && this.isBstValid(root.right,root.data,max)
+//     }
+//     identical=(root1,root2)=>{
+//       if(!root1 && !root2){
+//         return true;
+//       }
+//       if(root1.data!=root2.data){
+//         return false;
+//       }
+//       return this.identical(root1.left,root2.left) && this.identical(root1.right,root2.right)
+//     }
+// }
+// const bst=new Bst()
+// const bst2=new Bst()
+// bst.insert(8)
+// bst.insert(5)
+// bst.insert(4)
+// bst.insert(1)
+// bst.insert(2)
+// bst.insert(3)
+// bst.insert(12)
+// bst.insert(9)
+// bst.insert(16)
+
+// bst2.insert(8)
+// bst2.insert(5)
+// bst2.insert(4)
+// bst2.insert(1)
+// bst2.insert(2)
+// bst2.insert(3)
+// bst2.insert(162)
+// bst2.insert(9)
+// bst2.insert(16)
+// bst2.preOrder(bst.root);
+// // console.log(bst.search(bst.root,12));
+// // console.log(bst.findHeight(bst.root));
+
+// // console.log(bst.min(bst.root))
+// // bst.printAllLeaves(bst.root)
+// console.log("_____________________")
+// // bst.printNonLeaves(bst.root)
+// // console.log(bst.isbst())
+// console.log(bst.identical(bst.root,bst2.root))
+
+
+
+class Graph{
   constructor(){
-    this.children=new Map()
-    this.isWordEnd=false;
+    this.map=new Map()
+  }
+  //  visited=new Set()
+  addVertex(vertex){
+       this.map.set(vertex,[])
+  }
+  insert(vertex,edge,isBoolean=false){
+     if(!this.map.has(vertex)){
+        this.addVertex(vertex)
+     }
+     if(!this.map.has(edge)){
+      this.addVertex(edge)
+     }
+     this.map.get(vertex).push(edge)
+     if(isBoolean){
+      this.map.get(edge).push(vertex);
+     }
+  }
+  removeEdge=(vertex1,vertex2)=>{
+    if(this.map.has(vertex1)){
+       this.map.get(vertex1).splice(this.map.get(vertex1).indexOf(vertex2),1)
+    }
+  }
+  removeVertex=(target)=>{
+    this.map.delete(target)
+    for(let [vertex,edges] of this.map){
+      this.map.set(vertex,edges.filter(edge=>edge!=target))
+    }
+  }
+  hasEdge=(vertex1,vertex2)=>{
+    if(this.map.has(vertex1)){
+        var temp=this.map.get(vertex1).indexOf(vertex2)
+        if(temp==-1){
+          return false;
+        }
+    }
+      return true
+  }
+  Bfs(){
+    var visited=new Set()
+    for(let vertex of this.map.keys()){
+      if(!visited.has(vertex)){
+        visited.add(vertex)
+        var queue=[vertex]
+      }
+      while(queue.length!=0){
+        var currentVertex=queue.shift();
+        console.log(currentVertex);
+
+        var edges=this.map.get(currentVertex);
+        for(var edge of edges){
+          if(!visited.has(edge)){
+            visited.add(edge);
+            queue.push(edge)
+          }
+        }
+      }
+    }
+  }
+
+  Dfs(){
+    var visited=new Set()
+    for(let vertex of this.map.keys()){
+      if(!visited.has(vertex)){
+        this.dfsTraversal(vertex,visited)
+      }
+    } 
+  }
+  dfsTraversal(vertex,visited){
+    visited.add(vertex)
+    console.log(vertex)
+
+    var edges=this.map.get(vertex)
+    for(var edge of edges){
+      if(!visited.has(edge)){
+        this.dfsTraversal(edge,visited)
+      }
+    }
+  }
+  display(){
+    for(let vertex of this.map.keys()){
+      var temp=this.map.get(vertex);
+      console.log(vertex,temp)
+    }
   }
 }
-class Tries{
-  constructor(){
-    this.root=new TrieNode()
-  }
-  insertNode=(word)=>{
-    for(var i=0;i<word.length;i++){
-      var suffix=word.slice(i)
-      // console.log(suffix)
-       this.insert(suffix)
-    }
-  }
-  insert(word){
-    var curr=this.root;
-    for(var i=0;i<word.length;i++){
-       var char=word[i];
-       if(!curr.children.has(char)){
-         curr.children.set(char,new TrieNode())
-       }
-       curr=curr.children.get(char)
-    }
-    curr.isWordEnd=true;
-  }
-  search(word){
-    var curr=this.root;
-    for(var i=0;i<word.lenght;i++){
-       var char=word[i];
-       if(!curr.children.has(char)){
-         return false;
-       }
-       curr=curr.children.get(char)
-    }
-   return true;
-  }
-}
-const tries=new Tries();
-tries.insertNode("Hello")
-console.log(tries.search("lll"))
+const graph=new Graph();
+graph.insert("A",1);
+graph.insert("A","B");
+graph.insert("A","C");
+graph.insert("B","D");
+graph.insert("C","D")
+graph.insert("C","B")
+graph.insert("C",1,true)
+graph.insert("K","L",true)
+// graph.removeEdge("A",1)
+graph.display()
+console.log("_______________")
+// graph.Bfs()
+graph.Dfs()
+// console.log(graph.hasEdge("K","L"))
+// graph.removeVertex("A")
+// graph.display()

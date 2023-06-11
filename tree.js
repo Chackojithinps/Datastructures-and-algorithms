@@ -81,6 +81,7 @@ class binarySearchTree{
            return this.search(root.right,value)
         }
     }
+    
     preOrder(root){
       
         if(root){
@@ -183,7 +184,7 @@ class binarySearchTree{
     }
   }
 
-   isBst(){
+isBst(){
     return this.isBstHelper(this.root,0,Infinity)
 
 }
@@ -194,9 +195,10 @@ getHeight(node) {
 
     const leftHeight = this.getHeight(node.left);
     const rightHeight = this.getHeight(node.right);
-
-    return Math.max(leftHeight, rightHeight) + 1;
-  }
+    console.log(leftHeight)
+    console.log(rightHeight)
+    return Math.max(leftHeight, rightHeight)+1;
+}
   rootCount=(root)=>{
      if(root==null){
         return 0
@@ -220,8 +222,9 @@ isBstHelper(node,min,max){
 
 areIdentical(bst2) {
     return this.areIdenticalHelper(this.root, bst2.root);
-  }
-areIdenticalHelper(node1, node2) {
+}
+areIdenticalHelper(node1, node2){
+
     if (!node1 && !node2) {
       return true;
     }
@@ -235,7 +238,10 @@ areIdenticalHelper(node1, node2) {
       this.areIdenticalHelper(node1.left, node2.left) &&
       this.areIdenticalHelper(node1.right, node2.right)
     );
-  }
+}
+delete(data){
+
+}
 
 
 
@@ -262,16 +268,17 @@ bst.insert(16)
 // bst2.insert(9)
 // bst2.insert(6)
 
-// console.log(bst.search(bst.root,20))
+console.log(bst.search(bst.root,9))
 // console.log('isBinarySearchtree is null ?',bst.isEmpty())
 
-bst.postOrder(bst.root)
+// bst.postOrder(bst.root)
 console.log("_______________")
 // bst2.preOrder(bst2.root)
 // bst.printAllLeaves(bst.root)
 // bst.printNonLeaves(bst.root)
 // console.log(bst.getHeight(bst.root))
-console.log(bst.rootCount(bst.root))
+// bst.printAllLeaves(bst.root)
+// console.log(bst.rootCount(bst.root))
 
 // console.log("_____________")
 // bst.inOrder(bst.root)
