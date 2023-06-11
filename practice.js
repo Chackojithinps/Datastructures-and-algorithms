@@ -2950,27 +2950,27 @@
 // graph.dfs()
 // graph.getSize()
 
-class TrieNode{
-  constructor(){
-    this.children=new Map()
-    this.isEndOfTree=false;
-  }
-}
-class Trie{
-  constructor(){
-    this.root=new TrieNode()
-  }
-  insert(word){
-    var current=this.root;
-    for(var i=0;i<word.length;i++){
-      var char=word[i]
-      if(!current.children.has()){
-        current.children.set(char,new TrieNode())
-      }
-      current=current.children.get(char)
-    }
-    current.isEndOfTree;
-  }
+// class TrieNode{
+//   constructor(){
+//     this.children=new Map()
+//     this.isEndOfTree=false;
+//   }
+// }
+// class Trie{
+//   constructor(){
+//     this.root=new TrieNode()
+//   }
+//   insert(word){
+//     var current=this.root;
+//     for(var i=0;i<word.length;i++){
+//       var char=word[i]
+//       if(!current.children.has()){
+//         current.children.set(char,new TrieNode())
+//       }
+//       current=current.children.get(char)
+//     }
+//     current.isEndOfTree;
+//   }
   // search(word){
   //   var current=this.root;
   //   for(var i=0;i<word.length;i++){
@@ -2982,20 +2982,187 @@ class Trie{
   //   }
   //   return current.isEndOfTree;
   // }
-  search(word) {
-    let current = this.root;
-    for (let i = 0; i < word.length; i++) {
-      const char = word[i];
-      if (!current.children.has(char)) {
-        return false;
-      }
-      current = current.children.get(char);
-    }
-    return true;
+//   search(word) {
+//     let current = this.root;
+//     for (let i = 0; i < word.length; i++) {
+//       const char = word[i];
+//       if (!current.children.has(char)) {
+//         return false;
+//       }
+//       current = current.children.get(char);
+//     }
+//     return true;
+//   }
+// }
+// const trie =new Trie()
+// trie.insert("Hello")
+// trie.insert("jithin")
+// var res=trie.search("H")
+// console.log(res)
+// class TrieNode{
+//   constructor(){
+//     this.children=new Map()
+//     this.isWordEnd=false
+//   }
+// }
+
+// class Tries{
+  // constructor(){
+  //   this.root=new TrieNode()
+  // }
+  // insert(word){
+  //   var current =this.root;
+  //   for(let i=0;i<word.length;i++){
+  //     const char=word[i]
+  //     if(!current.children.has(char)){
+  //       current.children.set(char,new TrieNode())
+  //     }
+  //     current=current.children.get(char);
+  //   }
+  //   current.isWordEnd=true;
+  // }
+  // search(word){
+  //   var current=this.root;
+  //   for(var i=0;i<word.length;i++){
+  //     var letter=word[i]
+  //     if(!current.children.has(letter)){
+  //       return false;
+
+  //     }
+  //     current=current.children.get(letter);
+
+  //   }
+  //   return current.isEndOfWord;
+  // }
+  // insert(word) {
+  //   let current = this.root;
+  //   for (let i = 0; i < word.length; i++) {
+  //     const char = word[i];
+  //     if (!current.children.has(char)) {
+  //       current.children.set(char, new TrieNode());
+  //     }
+  //     current = current.children.get(char);
+  //   }
+  //   current.isEndOfWord = true;
+  // }
+  // search(word) {
+  //   let current = this.root;
+  //   for (let i = 0; i < word.length; i++) {
+  //     const char = word[i];
+  //     if (!current.children.has(char)) {
+  //       return false;
+  //     }
+  //     current = current.children.get(char);
+  //   }
+  //   return current.isEndOfWord;
+  // }
+
+// }
+// const tries=new Tries();
+// tries.insert("Hello")
+// tries.insert("orange")
+// console.log(tries.search("Hello"))
+
+
+
+// class TrieNode {
+//   constructor() {
+//     this.children = new Map();
+//     this.isWordEnd = false;
+//   }
+// }
+
+// class Trie {
+//   constructor() {
+//     this.root = new TrieNode();
+//   }
+
+//   // insert(word) {
+//   //   let current = this.root;
+//   //   for (let i = 0; i < word.length; i++) {
+//   //     const char = word[i];
+//   //     if (!current.children.has(char)) {
+//   //       current.children.set(char, new TrieNode());
+//   //     }
+//   //     current = current.children.get(char);
+//   //   }
+//   //   current.isWordEnd = true;
+//   // }
+//   insert(word){
+//     let current=this.root;
+//     for(var i=0;i<word.length;i++){
+//       var char=word[i];
+//       if(!current.children.has(char)){
+//         current.children.set(char,new TrieNode())
+//       }
+//       current=current.children.get(char)
+
+//     }
+//     current.isWordEnd=true;
+//   }
+//   search(word) {
+//     let current = this.root;
+//     for (let i = 0; i < word.length; i++) {
+//       const letter = word[i];
+//       if (!current.children.has(letter)) {
+//         return false;
+//       }
+//       current = current.children.get(letter);
+//     }
+//     return current.isWordEnd;
+//   }
+// }
+
+// const trie = new Trie();
+// trie.insert("Hello");
+// trie.insert("orange");
+// const result = trie.search("Hel");
+// console.log(result);
+
+
+
+// suffix__________________
+
+class TrieNode{
+  constructor(){
+    this.children=new Map()
+    this.isWordEnd=false;
   }
 }
-const trie =new Trie()
-trie.insert("Hello")
-trie.insert("jithin")
-var res=trie.search("H")
-console.log(res)
+class Tries{
+  constructor(){
+    this.root=new TrieNode()
+  }
+  insertNode=(word)=>{
+    for(var i=0;i<word.length;i++){
+      var suffix=word.slice(i)
+      // console.log(suffix)
+       this.insert(suffix)
+    }
+  }
+  insert(word){
+    var curr=this.root;
+    for(var i=0;i<word.length;i++){
+       var char=word[i];
+       if(!curr.children.has(char)){
+         curr.children.set(char,new TrieNode())
+       }
+       curr=curr.children.get(char)
+    }
+    curr.isWordEnd=true;
+  }
+  search(word){
+    var curr=this.root;
+    for(var i=0;i<word.lenght;i++){
+       var char=word[i];
+       if(!curr.children.has(char)){
+         return false;
+       }
+       curr=curr.children.get(char)
+    }
+   return true;
+  }
+}
+const tries=new Tries();
+tries.insertNode("Hello")
+console.log(tries.search("lll"))

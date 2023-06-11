@@ -349,8 +349,8 @@ Binary search
 Treee
 
 
-.A tree data structure is a hierarchical structure that is used to represent and organize data in a way that is easy to navigate and search. 
-It is a collection of nodes that are connected by edges and has a hierarchical relationship between the nodes. 
+Tree : .A tree data structure is a hierarchical structure that is used to represent and organize data in a way that is easy to navigate and search. 
+       It is a collection of nodes that are connected by edges and has a hierarchical relationship between the nodes. 
 
 Nodes: Nodes are the fundamental building blocks of a tree. Each node represents an element or a data point in the tree structure.
        it is a colleciton of data .or we can say in tree data structures the place where data is storing is called Nodes.
@@ -361,3 +361,34 @@ Edges: Edges are the connections or links between nodes in a tree. An edge repre
 parent: A node in which have a branch to other node from it is called parent.
 
 child : A node which have a link from its parent are called child nodes
+
+Degree: The degree of a node is total number of child nodes it have.
+
+Depth : The total number of edges from root node to a particular node is called the Depth of a node
+
+Depth of a tree : The total number of edges from root node to the leaft node in the longest path is called Depth of a tree;
+
+Level : In a tree each step from top to bottom are called Level.
+
+height: The total number of edges from leaf node to a particular node is called the height of node.
+
+height of tree: height of a root node is the height of a tree;
+
+path : The sequence of Nodes and edges from one node to another node is called path between two nodes.
+
+subtree: in a tree each child creates a subtree . it is called subtree.
+
+Binary Tree : maximum have two children for each node.
+
+---> Types of Binary Tree
+
+strict or full Binary Tree : either zero children or two children is called full binary tree.
+
+complete Binary tree : All the levels are filled entirely with nodes except the lowest level of the tree.Also in the last or lowest level of this binary tree 
+                       every node should possibley filled from left
+
+perfect Tree : A binary tree is said to perfect if all internal nodes have strictly two children and every leaf node is at the same level 
+
+Balenced tree : 
+
+Degenerate Binary tree : 
