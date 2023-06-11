@@ -2864,88 +2864,138 @@
 // console.log(bst.isValid())
 
 
-class Graph{
-  constructor(){
-    this.map=new Map()
-    this.size=0
-  }
-  addVertex(vertex){
-    this.map.set(vertex,[])
-  }
-  insert(vertex,edge,isBoolean=false){
-    if(!this.map.has(vertex)){
-      this.addVertex(vertex)
-    }
-    if(!this.map.has(edge)){
-      this.addVertex(edge);
-    }
-    this.map.get(vertex).push(edge)
-    if(isBoolean){
-      this.map.get(edge).push(vertex)
-    }
-  }
-  removeEdges=(node1,node2)=>{
-      if(this.map.has(node1)){
-        this.map.get(node1).splice(this.map.get(node1).indexOf(node2),1)
-      }
-  }
-  removeVertex=(target)=>{
-    this.map.delete(target)
-    for(let [vertex,edges] of this.map){
-       this.map.set(vertex,edges.filter(edge => edge !== target))
-    }
-  }
-  hasEdges=(vertex1,vertex2)=>{
-    if(this.map.has(vertex1)){
-      var k=this.map.get(vertex1).indexOf(vertex2);
-      if(k!=-1){
-        return true;
-      }
-    }
-    return false;
-  }
-  dfs(){
-    var visited=new Set();
-    for(let vertex of this.map.keys()){
-      if(!visited.has(vertex)){
-        this.dfsTraversal(vertex,visited)
-      }
-    }
-  }
-  dfsTraversal(vertex,visited){
-    visited.add(vertex);
-    console.log(vertex);
-    this.size++;
-    var edges=this.map.get(vertex);
-    for(let edge of edges){
-      if(!visited.has(edge)){
-        this.dfsTraversal(edge,visited)
-      }
-    }
-  }
-  display(){
-    for(var vertex of this.map.keys()){
-      var temp=this.map.get(vertex);
-      console.log(vertex,temp);
-    }
-  }
-  getSize(){
-    console.log(this.size);
-  }
-}
-const graph=new Graph();
-graph.insert("A",1);
-graph.insert("A","B");
-graph.insert("A","C");
-graph.insert("B","D");
-graph.insert("C","D");
-graph.insert("C","B");
-graph.insert("C",1,true);
-graph.insert("K","L",true);
-// graph.removeEdges("A",1);
-// graph.removeVertex("D")
-graph.display();
-var res=graph.hasEdges("K","L")
-console.log(res);
+// class Graph{
+//   constructor(){
+//     this.map=new Map()
+//     this.size=0
+//   }
+//   addVertex(vertex){
+//     this.map.set(vertex,[])
+//   }
+//   insert(vertex,edge,isBoolean=false){
+//     if(!this.map.has(vertex)){
+//       this.addVertex(vertex)
+//     }
+//     if(!this.map.has(edge)){
+//       this.addVertex(edge);
+//     }
+//     this.map.get(vertex).push(edge)
+//     if(isBoolean){
+//       this.map.get(edge).push(vertex)
+//     }
+//   }
+//   removeEdges=(node1,node2)=>{
+//       if(this.map.has(node1)){
+//         this.map.get(node1).splice(this.map.get(node1).indexOf(node2),1)
+//       }
+//   }
+//   removeVertex=(target)=>{
+//     this.map.delete(target)
+//     for(let [vertex,edges] of this.map){
+//        this.map.set(vertex,edges.filter(edge => edge !== target))
+//     }
+//   }
+//   hasEdges=(vertex1,vertex2)=>{
+//     if(this.map.has(vertex1)){
+//       var k=this.map.get(vertex1).indexOf(vertex2);
+//       if(k!=-1){
+//         return true;
+//       }
+//     }
+//     return false;
+//   }
+//   dfs(){
+//     var visited=new Set();
+//     for(let vertex of this.map.keys()){
+//       if(!visited.has(vertex)){
+//         this.dfsTraversal(vertex,visited)
+//       }
+//     }
+//   }
+//   dfsTraversal(vertex,visited){
+//     visited.add(vertex);
+//     console.log(vertex);
+//     this.size++;
+//     var edges=this.map.get(vertex);
+//     for(let edge of edges){
+//       if(!visited.has(edge)){
+//         this.dfsTraversal(edge,visited)
+//       }
+//     }
+//   }
+//   display(){
+//     for(var vertex of this.map.keys()){
+//       var temp=this.map.get(vertex);
+//       console.log(vertex,temp);
+//     }
+//   }
+//   getSize(){
+//     console.log(this.size);
+//   }
+// }
+// const graph=new Graph();
+// graph.insert("A",1);
+// graph.insert("A","B");
+// graph.insert("A","C");
+// graph.insert("B","D");
+// graph.insert("C","D");
+// graph.insert("C","B");
+// graph.insert("C",1,true);
+// graph.insert("K","L",true);
+// // graph.removeEdges("A",1);
+// // graph.removeVertex("D")
+// graph.display();
+// var res=graph.hasEdges("K","L")
+// console.log(res);
 // graph.dfs()
 // graph.getSize()
+
+class TrieNode{
+  constructor(){
+    this.children=new Map()
+    this.isEndOfTree=false;
+  }
+}
+class Trie{
+  constructor(){
+    this.root=new TrieNode()
+  }
+  insert(word){
+    var current=this.root;
+    for(var i=0;i<word.length;i++){
+      var char=word[i]
+      if(!current.children.has()){
+        current.children.set(char,new TrieNode())
+      }
+      current=current.children.get(char)
+    }
+    current.isEndOfTree;
+  }
+  // search(word){
+  //   var current=this.root;
+  //   for(var i=0;i<word.length;i++){
+  //     var char=word[i]
+  //     if(!current.children.has(char)){
+  //       return false;
+  //     }
+  //     current=current.children.get(char)
+  //   }
+  //   return current.isEndOfTree;
+  // }
+  search(word) {
+    let current = this.root;
+    for (let i = 0; i < word.length; i++) {
+      const char = word[i];
+      if (!current.children.has(char)) {
+        return false;
+      }
+      current = current.children.get(char);
+    }
+    return true;
+  }
+}
+const trie =new Trie()
+trie.insert("Hello")
+trie.insert("jithin")
+var res=trie.search("H")
+console.log(res)

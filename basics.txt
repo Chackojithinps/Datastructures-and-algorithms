@@ -346,3 +346,18 @@ Binary search
   has no children.
 
 
+Treee
+
+
+.A tree data structure is a hierarchical structure that is used to represent and organize data in a way that is easy to navigate and search. 
+It is a collection of nodes that are connected by edges and has a hierarchical relationship between the nodes. 
+
+Nodes: Nodes are the fundamental building blocks of a tree. Each node represents an element or a data point in the tree structure.
+       it is a colleciton of data .or we can say in tree data structures the place where data is storing is called Nodes.
+
+Edges: Edges are the connections or links between nodes in a tree. An edge represents a relationship between a parent node and its child nodes. 
+       the connectiong link between any two nodes are called Edges.
+
+parent: A node in which have a branch to other node from it is called parent.
+
+child : A node which have a link from its parent are called child nodes

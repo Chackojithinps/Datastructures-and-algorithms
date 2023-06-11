@@ -50,7 +50,7 @@ const trie = new Trie();
 trie.insert("apple");
 trie.insert("banana");
 trie.insert("orange");
-const res=trie.search("orange")
+const res=trie.search("orang")
 console.log(res)
 
   
