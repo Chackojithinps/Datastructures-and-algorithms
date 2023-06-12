@@ -3857,6 +3857,18 @@ class Tree{
       }
     }
   }
+  isBst(){
+    return this.checkValid(this.root,0,Infinity);
+  }
+  checkValid(root,min,max){
+    if(!root){
+      return true
+    }
+    if(root.data<min || root.data>max){
+      return false
+    }
+    return this.checkValid(root.left,min,root.data) && this.checkValid(root.right,root.data,max);
+  }
   preOrder=(root)=>{
     if(root){
       console.log(root.data);
@@ -3877,3 +3889,5 @@ bst.insert(12)
 bst.insert(9)
 bst.insert(16)
 bst.preOrder(bst.root)
+console.log("_________________")
+console.log(bst.isBst())
