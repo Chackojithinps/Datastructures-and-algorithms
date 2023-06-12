@@ -3809,17 +3809,71 @@
 // var res=heap.heapSort(arr);
 // console.log(res);
 
-class TrieNode{
+// class TrieNode{
+//   constructor(){
+//     this.children=this.Map();
+//     this.isWordEnd=false;
+//   }
+// }
+// class Trie{
+//   constructor() {
+//     this.root=new TrieNode()
+//   }
+//   insert(value){
+//     var curr=this.root
+//   }
+// }
+class Node{
+  constructor(data) {
+    this.data=data;
+    this.left=null;
+    this.right=null;
+  }
+}
+class Tree{
   constructor(){
-    this.children=this.Map();
-    this.isWordEnd=false;
+    this.root=null;
+  }
+  insert(data){
+    const newNode=new Node(data)
+    if(this.root==null){
+      this.root=newNode;
+    }else{
+      this.insertNod(this.root,newNode);
+    }
+  }
+  insertNod(root,newNode){
+    if(newNode.data<root.data){
+      if(!root.left){
+        root.left=newNode;
+      }else{
+        this.insertNod(root.left,newNode)
+      }
+    }else{
+      if(!root.right){
+        root.right=newNode;
+      }else{
+        this.insertNod(root.right,newNode)
+      }
+    }
+  }
+  preOrder=(root)=>{
+    if(root){
+      console.log(root.data);
+      this.preOrder(root.left);
+      this.preOrder(root.right);
+    }
   }
 }
-class Trie{
-  constructor() {
-    this.root=new TrieNode()
-  }
-  insert(value){
-    var curr=this.root
-  }
-}
+const bst=new Tree();
+bst.insert(8)
+bst.insert(5)
+bst.insert(4)
+bst.insert(1)
+bst.insert(2)
+bst.insert(3)
+bst.insert(5)
+bst.insert(12)
+bst.insert(9)
+bst.insert(16)
+bst.preOrder(bst.root)
