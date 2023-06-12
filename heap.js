@@ -76,7 +76,7 @@
 
 
 
-// ---------------------------------------------------Heapify--------------------------
+// ---------------------------------------------------Heapify---------------------------
 
 // class MaxHeap {
 //     constructor() {
@@ -138,7 +138,7 @@
 //   }
 //   const heap=new MaxHeap();
 //   const arr=[33,24,8,7,9,1,2]
-//   const res=heap.heapify(arr)
+//   const res=heap.heapify(arr);
 //   console.log(res);
 
 
