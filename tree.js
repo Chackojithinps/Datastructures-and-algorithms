@@ -239,9 +239,6 @@ areIdenticalHelper(node1, node2){
       this.areIdenticalHelper(node1.right, node2.right)
     );
 }
-delete(data){
-
-}
 
 
 

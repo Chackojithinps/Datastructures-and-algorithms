@@ -23,6 +23,7 @@ class Graph{
             this.map.get(edge).push(vertex);
         }
     }
+    
     deleteVertex(target) {
         this.map.delete(target)
         for (let [vertex, edges] of this.map) {

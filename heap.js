@@ -140,9 +140,6 @@
 //   const arr=[33,24,8,7,9,1,2]
 //   const res=heap.heapify(arr);
 //   console.log(res);
-
-
-
 // ----------------------------------------------------Heap sort--------------
 
 
@@ -216,7 +213,7 @@
 //   const res=heap.heapSort(arr)
 //   console.log(res);
 
-// ---------------------------------------Heap sort-----------------
+// ---------------------------------------Heap sort---------------------------------
 function heapify(arr, n, i) {
     let largest = i;
     let leftChild = 2 * i + 1;

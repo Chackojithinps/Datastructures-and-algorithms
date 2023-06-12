@@ -3529,108 +3529,297 @@
 
 
 
-class Graph{
+// class Graph{
+//   constructor(){
+//     this.map=new Map()
+//   }
+//   //  visited=new Set()
+//   addVertex(vertex){
+//        this.map.set(vertex,[])
+//   }
+//   insert(vertex,edge,isBoolean=false){
+//      if(!this.map.has(vertex)){
+//         this.addVertex(vertex)
+//      }
+//      if(!this.map.has(edge)){
+//       this.addVertex(edge)
+//      }
+//      this.map.get(vertex).push(edge)
+//      if(isBoolean){
+//       this.map.get(edge).push(vertex);
+//      }
+//   }
+//   removeEdge=(vertex1,vertex2)=>{
+//     if(this.map.has(vertex1)){
+//        this.map.get(vertex1).splice(this.map.get(vertex1).indexOf(vertex2),1)
+//     }
+//   }
+//   removeVertex=(target)=>{
+//     this.map.delete(target)
+//     for(let [vertex,edges] of this.map){
+//       this.map.set(vertex,edges.filter(edge=>edge!=target))
+//     }
+//   }
+//   hasEdge=(vertex1,vertex2)=>{
+//     if(this.map.has(vertex1)){
+//         var temp=this.map.get(vertex1).indexOf(vertex2)
+//         if(temp==-1){
+//           return false;
+//         }
+//     }
+//       return true
+//   }
+//   Bfs(){
+//     var visited=new Set()
+//     for(let vertex of this.map.keys()){
+//       if(!visited.has(vertex)){
+//         visited.add(vertex)
+//         var queue=[vertex]
+//       }
+//       while(queue.length!=0){
+//         var currentVertex=queue.shift();
+//         console.log(currentVertex);
+
+//         var edges=this.map.get(currentVertex);
+//         for(var edge of edges){
+//           if(!visited.has(edge)){
+//             visited.add(edge);
+//             queue.push(edge)
+//           }
+//         }
+//       }
+//     }
+//   }
+
+//   Dfs(){
+//     var visited=new Set()
+//     for(let vertex of this.map.keys()){
+//       if(!visited.has(vertex)){
+//         this.dfsTraversal(vertex,visited)
+//       }
+//     } 
+//   }
+//   dfsTraversal(vertex,visited){
+//     visited.add(vertex)
+//     console.log(vertex)
+
+//     var edges=this.map.get(vertex)
+//     for(var edge of edges){
+//       if(!visited.has(edge)){
+//         this.dfsTraversal(edge,visited)
+//       }
+//     }
+//   }
+//   display(){
+//     for(let vertex of this.map.keys()){
+//       var temp=this.map.get(vertex);
+//       console.log(vertex,temp)
+//     }
+//   }
+// }
+// const graph=new Graph();
+// graph.insert("A",1);
+// graph.insert("A","B");
+// graph.insert("A","C");
+// graph.insert("B","D");
+// graph.insert("C","D")
+// graph.insert("C","B")
+// graph.insert("C",1,true)
+// graph.insert("K","L",true)
+// // graph.removeEdge("A",1)
+// graph.display()
+// console.log("_______________")
+// // graph.Bfs()
+// graph.Dfs()
+// // console.log(graph.hasEdge("K","L"))
+// // graph.removeVertex("A")
+// // graph.display()
+
+
+// class Graph{
+//   constructor(){
+//       this.map=new Map()
+//   }
+//   addVertex(vertex){
+//     this.map.set(vertex,[])
+//   }
+//   insert(vertex,edges,isBoolen=false){
+//       if(!this.map.has(vertex)){
+//         this.addVertex(vertex)
+//       }
+//       if(!this.map.has(edges)){
+//         this.addVertex(edges)
+//       }
+//       this.map.get(vertex).push(edges)
+//       if(isBoolen){
+//         this.map.get(edges).push(vertex)
+//       }
+//   }
+//   Bfs(){
+//     var visited=new Set();
+//     for(let vertex of this.map.keys()){
+//       if(!visited.has(vertex)){
+//         visited.add(vertex)
+//         var queue=[vertex]
+//       }
+//       while(queue.length!=0){
+//           var current=queue.shift();
+//           console.log(current)
+
+//           var edges=this.map.get(current)
+//           for(let edge of edges){
+//             if(!visited.has(edge)){
+//               visited.add(edge);
+//               queue.push(edge)
+//             }
+//           }
+//       }
+//     }
+//   }
+//   Dfs(){
+//     var visited=new Set();
+//     for(let vertex of this.map.keys()){
+//       if(!visited.has(vertex)){
+//         this.DfsTraversal(vertex,visited)
+//       }
+//     }
+//   }
+//   DfsTraversal(vertex,visited){
+//     visited.add(vertex);
+//     console.log(vertex)
+     
+//     var edges=this.map.get(vertex);
+//     for(var edge of edges){
+//        if(!visited.has(edge)){
+//          this.DfsTraversal(edge,visited)
+//        }
+//     }
+//   }
+//   display(){
+//     for(var vertex of this.map.keys()){
+//       var temp=this.map.get(vertex)
+//       console.log(vertex,temp)
+//     }
+//   }
+// }
+// const graph=new Graph();
+// graph.insert("A",1);
+// graph.insert("A","B");
+// graph.insert("A","C");
+// graph.insert("B","D");
+// graph.insert("C","D")
+// graph.insert("C","B")
+// graph.insert("C",1,true)
+// graph.insert("K","L",true)
+// // graph.display()
+// // graph.Bfs()
+// graph.Dfs();
+
+
+// class Heap{
+//   constructor(){
+//     this.heap=[]
+//   }
+//   swap(index1,index2){
+//     [this.heap[index1],this.heap[index2]]=[this.heap[index2],this.heap[index1]]
+
+//   }
+//   // heapifyUp(index){
+//   //   var parentIndex=Math.floor((index-1)/1)
+//   //   if(parentIndex>=0 && this.heap[parentIndex]<this.heap[index]){
+//   //     [this.heap[index],this.heap[parentIndex]]=[this.heap[parentIndex],this.heap[index]]
+//   //     this.heapifyUp(parentIndex)
+//   //   }
+//   // }
+//   heapifyDown(index){
+//       var largeIndex=index;
+//       var leftIndex=Math.floor((2*index) +1)
+//       var rightIndex=Math.floor((2*index) +2);
+//       if(leftIndex<this.heap.length && this.heap[leftIndex]>this.heap[largeIndex]){
+//         largeIndex=leftIndex;
+//       }
+//       if(rightIndex<this.heap.length && this.heap[rightIndex]>this.heap[largeIndex]){
+//         largeIndex=rightIndex;
+//       }
+//       if(largeIndex!=index){
+//         this.swap(largeIndex,index);
+//         this.heapifyDown(largeIndex)
+//       }
+    
+//   }
+//   deleteMax() {
+//     if (this.heap.length === 0) {
+//       return null;
+//     }
+//     if (this.heap.length === 1) {
+//       return this.heap.pop();
+//     }
+  
+//     const maxValue = this.heap[0];
+//     this.heap[0] = this.heap.pop();
+//     this.heapifyDown(0);
+  
+//     return maxValue;
+//   }
+  
+//   // insert(value){
+//   //   this.heap.push(value);
+//   //   var index=this.heap.length-1;
+//   //   this.heapifyUp(index)
+//   // }
+
+//   // heapify(arr){
+//   //   this.heap=arr;
+//   //   var startIndex=Math.floor((arr.length/2)-1);
+//   //   for(var i=startIndex;i>=0;i--){
+//   //     this.heapifyDown(i)
+//   //   }
+//   // }
+//   heapSort(arr){
+//     this.heap=arr;
+//     var startIndex=Math.floor((arr.length/2)-1);
+//     for(var i=startIndex;i>=0;i--){
+//       this.heapifyDown(i)
+//     }
+
+//     var sortedArray=[];
+//     for(var i=this.heap.length-1;i>=0;i--){
+//        this.swap(0,i);
+//        sortedArray.unshift(this.heap.pop());
+//        this.heapifyDown(0)
+//     }
+//     return sortedArray;
+//   }
+//   display(){
+//     console.log(this.heap);
+//   }
+// }
+// const heap=new Heap();
+// // heap.insert(15)
+// // heap.insert(5)
+// // heap.insert(21)
+// // heap.insert(45)
+// // heap.insert(14)
+// // heap.insert(25)
+// // heap.insert(12)
+// // heap.display()
+// const arr=[15,5,21,45,14,25,12];
+// // heap.heapify(arr);
+// // heap.display();
+// var res=heap.heapSort(arr);
+// console.log(res);
+
+class TrieNode{
   constructor(){
-    this.map=new Map()
-  }
-  //  visited=new Set()
-  addVertex(vertex){
-       this.map.set(vertex,[])
-  }
-  insert(vertex,edge,isBoolean=false){
-     if(!this.map.has(vertex)){
-        this.addVertex(vertex)
-     }
-     if(!this.map.has(edge)){
-      this.addVertex(edge)
-     }
-     this.map.get(vertex).push(edge)
-     if(isBoolean){
-      this.map.get(edge).push(vertex);
-     }
-  }
-  removeEdge=(vertex1,vertex2)=>{
-    if(this.map.has(vertex1)){
-       this.map.get(vertex1).splice(this.map.get(vertex1).indexOf(vertex2),1)
-    }
-  }
-  removeVertex=(target)=>{
-    this.map.delete(target)
-    for(let [vertex,edges] of this.map){
-      this.map.set(vertex,edges.filter(edge=>edge!=target))
-    }
-  }
-  hasEdge=(vertex1,vertex2)=>{
-    if(this.map.has(vertex1)){
-        var temp=this.map.get(vertex1).indexOf(vertex2)
-        if(temp==-1){
-          return false;
-        }
-    }
-      return true
-  }
-  Bfs(){
-    var visited=new Set()
-    for(let vertex of this.map.keys()){
-      if(!visited.has(vertex)){
-        visited.add(vertex)
-        var queue=[vertex]
-      }
-      while(queue.length!=0){
-        var currentVertex=queue.shift();
-        console.log(currentVertex);
-
-        var edges=this.map.get(currentVertex);
-        for(var edge of edges){
-          if(!visited.has(edge)){
-            visited.add(edge);
-            queue.push(edge)
-          }
-        }
-      }
-    }
-  }
-
-  Dfs(){
-    var visited=new Set()
-    for(let vertex of this.map.keys()){
-      if(!visited.has(vertex)){
-        this.dfsTraversal(vertex,visited)
-      }
-    } 
-  }
-  dfsTraversal(vertex,visited){
-    visited.add(vertex)
-    console.log(vertex)
-
-    var edges=this.map.get(vertex)
-    for(var edge of edges){
-      if(!visited.has(edge)){
-        this.dfsTraversal(edge,visited)
-      }
-    }
-  }
-  display(){
-    for(let vertex of this.map.keys()){
-      var temp=this.map.get(vertex);
-      console.log(vertex,temp)
-    }
+    this.children=this.Map();
+    this.isWordEnd=false;
   }
 }
-const graph=new Graph();
-graph.insert("A",1);
-graph.insert("A","B");
-graph.insert("A","C");
-graph.insert("B","D");
-graph.insert("C","D")
-graph.insert("C","B")
-graph.insert("C",1,true)
-graph.insert("K","L",true)
-// graph.removeEdge("A",1)
-graph.display()
-console.log("_______________")
-// graph.Bfs()
-graph.Dfs()
-// console.log(graph.hasEdge("K","L"))
-// graph.removeVertex("A")
-// graph.display()
+class Trie{
+  constructor() {
+    this.root=new TrieNode()
+  }
+  insert(value){
+    var curr=this.root
+  }
+}
