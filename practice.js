@@ -3823,71 +3823,199 @@
 //     var curr=this.root
 //   }
 // }
-class Node{
-  constructor(data) {
-    this.data=data;
-    this.left=null;
-    this.right=null;
-  }
-}
-class Tree{
-  constructor(){
-    this.root=null;
-  }
-  insert(data){
-    const newNode=new Node(data)
-    if(this.root==null){
-      this.root=newNode;
-    }else{
-      this.insertNod(this.root,newNode);
-    }
-  }
-  insertNod(root,newNode){
-    if(newNode.data<root.data){
-      if(!root.left){
-        root.left=newNode;
-      }else{
-        this.insertNod(root.left,newNode)
-      }
-    }else{
-      if(!root.right){
-        root.right=newNode;
-      }else{
-        this.insertNod(root.right,newNode)
-      }
-    }
-  }
-  isBst(){
-    return this.checkValid(this.root,0,Infinity);
-  }
-  checkValid(root,min,max){
-    if(!root){
-      return true
-    }
-    if(root.data<min || root.data>max){
-      return false
-    }
-    return this.checkValid(root.left,min,root.data) && this.checkValid(root.right,root.data,max);
-  }
-  preOrder=(root)=>{
-    if(root){
-      console.log(root.data);
-      this.preOrder(root.left);
-      this.preOrder(root.right);
-    }
-  }
-}
-const bst=new Tree();
-bst.insert(8)
-bst.insert(5)
-bst.insert(4)
-bst.insert(1)
-bst.insert(2)
-bst.insert(3)
-bst.insert(5)
-bst.insert(12)
-bst.insert(9)
-bst.insert(16)
-bst.preOrder(bst.root)
-console.log("_________________")
-console.log(bst.isBst())
+// class Node{
+//   constructor(data) {
+//     this.data=data;
+//     this.left=null;
+//     this.right=null;
+//   }
+// }
+// class Tree{
+//   constructor(){
+//     this.root=null;
+//   }
+//   insert(data){
+//     const newNode=new Node(data)
+//     if(this.root==null){
+//       this.root=newNode;
+//     }else{
+//       this.insertNod(this.root,newNode);
+//     }
+//   }
+//   insertNod(root,newNode){
+//     if(newNode.data<root.data){
+//       if(!root.left){
+//         root.left=newNode;
+//       }else{
+//         this.insertNod(root.left,newNode)
+//       }
+//     }else{
+//       if(!root.right){
+//         root.right=newNode;
+//       }else{
+//         this.insertNod(root.right,newNode)
+//       }
+//     }
+//   }
+//   isBst(){
+//     return this.checkValid(this.root,0,Infinity);
+//   }
+//   checkValid(root,min,max){
+//     if(!root){
+//       return true
+//     }
+//     if(root.data<min || root.data>max){
+//       return false
+//     }
+//     return this.checkValid(root.left,min,root.data) && this.checkValid(root.right,root.data,max);
+//   }
+//   preOrder=(root)=>{
+//     if(root){
+//       console.log(root.data);
+//       this.preOrder(root.left);
+//       this.preOrder(root.right);
+//     }
+//   }
+// }
+// const bst=new Tree();
+// bst.insert(8)
+// bst.insert(5)
+// bst.insert(4)
+// bst.insert(1)
+// bst.insert(2)
+// bst.insert(3)
+// bst.insert(5)
+// bst.insert(12)
+// bst.insert(9)
+// bst.insert(16)
+// bst.preOrder(bst.root)
+// console.log("_________________")
+// console.log(bst.isBst())
+
+
+// var str2="jithin"
+// var arr=str2.split("");
+// var k=arr.shift();
+// var m=k.toUpperCase();
+// arr.unshift(m);
+// var newarr=arr.join("");
+// console.log(newarr)
+
+// Print "AABBBCCCC" to 2A3B4C---------------------->
+
+// const str="AABBBCCCCCC"
+// var arr=str.split("");
+// // var count=0;
+// var arr1=[]
+// var k=0;
+// for(var i=0;i<arr.length;i++){
+//     var count=1;
+//     if(arr[i]!=0){
+//         for(var j=0;j<arr.length;j++){
+//             if(arr[i]==arr[j] && i!=j){
+//                 arr[j]=0;
+//                 count++;
+//             }
+//         }
+    
+//     }
+//     if(arr[i]!=0){
+//         arr1[k]=count+arr[i];
+//         k++;
+//     }
+    
+// }
+// var k=arr1.join("")
+// console.log(k)
+
+
+//checking palindrome or not.
+
+// var str="ALAYALA";
+// var arr=str.split("").reverse().join("");
+// if(str==arr){
+//     console.log("the string you given is palindrome");
+    
+// }else{
+//     console.log("not a palidrome");
+// }
+
+// change abc to cde-------------------------->
+
+// var x="abc";
+// var y=""
+
+// for(var i=0;i<x.length;i++){
+//    var charcode=x.charCodeAt(i)
+//    console.log("charcode:",charcode)
+
+//    var newchar=charcode+2;
+//    console.log("newchar:",newchar)
+//    var y=y+String.fromCharCode(newchar)
+// }
+// console.log(y)
+
+// converting unicode to STring--------------------------->
+
+// const arr=[97,98,99];
+
+// var y="";
+// for(var i=0;i<arr.length;i++){
+//     y=y+String.fromCharCode(arr[i]);
+// }
+// console.log(y)
+
+
+// String to uppercase
+
+// let name="ajmallannut"
+// let lenth=name.length
+// console.log("length of the string")
+// console.log(lenth)
+
+// console.log("concert to uppercase")
+//  console.log(name.toUpperCase())
+
+// replace all the j to upperCase-------------------------->
+
+// let inputString = "jithnj";
+// let modifiedString = inputString.replace(/j/g,'J');
+
+// console.log(modifiedString); // Output: Jithn
+
+
+// only firstLetterCapital-------------------------->
+
+
+// let inputString = "jithnj";
+
+// let modifiedString = inputString.charAt(0).toUpperCase() + inputString.slice(1);
+
+// console.log(modifiedString); // Output: Jithn
+
+
+// string quiestion 
+
+// var str = "Hello world";
+// var newStr = "";
+
+// for (var i = 0; i < str.length; i++) {
+//   if (str[i] === " ") {
+//     newStr += "_";
+//   } else {
+//     newStr += str[i];
+//   }
+// }
+
+// console.log(newStr);
+
+// var str="Hello world"
+// var k=str.split("")
+// // console.log(k)
+// for(var i=0;i<k.length;i++){
+//     if(k[i]==" "){
+//         k[i]="_"
+//     }
+// }
+// var l=k.join("")
+// console.log(l)

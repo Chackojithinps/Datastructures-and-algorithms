@@ -19,4 +19,4 @@
 . git remote add orgin url(github url)-->inorder to attach the github with the localproject .(remote basically means you are working with urls.origin means
   what is the name of the url that you are going to add)
 
-. git push origin (to push into origin git url)
+. git push origin (to push into origin git url) 
