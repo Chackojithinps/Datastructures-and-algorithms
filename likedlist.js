@@ -768,30 +768,30 @@
 
 // remove all the given values in a singly linkelist
 
-class Node{
-    constructor(data){
-        this.data=data;
-        this.next=null;
-        this.prev=null
-    }
-}
-class LinkedList{
-    head=null;
-    tail=null;
-    prev=null;
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.next=null;
+//         this.prev=null
+//     }
+// }
+// class LinkedList{
+//     head=null;
+//     tail=null;
+//     prev=null;
     // -------------------------  addValue   ----------------------------------
 
-    addValue=(data)=>{
-        const newNode=new Node(data);
-        if(this.head==null){
-            this.head=newNode;
-            this.tail=newNode;
-            return;
-        }
-        this.tail.next=newNode;
-        newNode.prev=this.tail;
-        this.tail=newNode;
-    }
+    // addValue=(data)=>{
+    //     const newNode=new Node(data);
+    //     if(this.head==null){
+    //         this.head=newNode;
+    //         this.tail=newNode;
+    //         return;
+    //     }
+    //     this.tail.next=newNode;
+    //     newNode.prev=this.tail;
+    //     this.tail=newNode;
+    // }
    
     // deleteValue(data){
     //    var temp=this.head;
@@ -846,27 +846,27 @@ class LinkedList{
     //             temp=temp.next;
     //         }
     //       }
-    deleteDuplicates(){
-        var temp=this.head;
-        while(temp){
-            var curr=temp;
-            while(curr.next!=null){
-                if(curr.next==this.tail && temp.data==this.tail.data){
-                      this.tail=curr;
-                }
-                if(temp.data==curr.next.data){
-                    curr.next=curr.next.next;
+    // deleteDuplicates(){
+    //     var temp=this.head;
+    //     while(temp){
+    //         var curr=temp;
+    //         while(curr.next!=null){
+    //             if(curr.next==this.tail && temp.data==this.tail.data){
+    //                   this.tail=curr;
+    //             }
+    //             if(temp.data==curr.next.data){
+    //                 curr.next=curr.next.next;
                     
-                }else{
+    //             }else{
     
-                    curr=curr.next;
-                }
-            }
-            temp=temp.next
+    //                 curr=curr.next;
+    //             }
+    //         }
+    //         temp=temp.next
 
            
-        }
-    }
+    //     }
+    // }
     // reverse(){
     //     var temp=this.head;
     //     while(temp){
@@ -875,49 +875,113 @@ class LinkedList{
     //         temp.next=prev;
     //     }
     // }
-    display(){
-        var temp=this.head;
-        while(temp){
-           console.log(temp.data);
-           temp=temp.next;
-        }
-    }
-    deleteByIndex(index){
-        var temp=this.head;
-        var count=0;
-        while(temp){
-            if(index==0){
-                this.head=this.head.next;
-                return;
-            }
-            if(index==count && temp==this.tail){
-                 this.tail=this.prev;
-                 return;
-            }
-            if(index==count){
-               this.prev.next=temp.next;
-               return;
-            }
-            count++;
-            this.prev=temp;
-            temp=temp.next;
+//     display(){
+//         var temp=this.head;
+//         while(temp){
+//            console.log(temp.data);
+//            temp=temp.next;
+//         }
+//     }
+//     deleteByIndex(index){
+//         var temp=this.head;
+//         var count=0;
+//         while(temp){
+//             if(index==0){
+//                 this.head=this.head.next;
+//                 return;
+//             }
+//             if(index==count && temp==this.tail){
+//                  this.tail=this.prev;
+//                  return;
+//             }
+//             if(index==count){
+//                this.prev.next=temp.next;
+//                return;
+//             }
+//             count++;
+//             this.prev=temp;
+//             temp=temp.next;
             
-        }
-    }
-}
-const linkedList=new LinkedList()
+//         }
+//     }
+// }
+// const linkedList=new LinkedList()
 // linkedList.addValue(30);
 // linkedList.addValue(30);
-linkedList.addValue(2);
-linkedList.addValue(4);
-linkedList.addValue(4);
-linkedList.addValue(8);
-linkedList.addValue(2);
-linkedList.addValue(3);
-linkedList.deleteByIndex(3)
+// linkedList.addValue(2);
+// linkedList.addValue(4);
+// linkedList.addValue(4);
+// linkedList.addValue(8);
+// linkedList.addValue(2);
+// linkedList.addValue(3);
+// linkedList.deleteByIndex(3)
 // linkedList.deleteDuplicates()
 // linkedList.deleteValue(30)
 // linkedList.deleteValue(30);
 // linkedList.deleteDuplicates()
 // linkedList.addBeforeValue(100,30)
-linkedList.display()
+// linkedList.display()
+
+
+// merge linkedList =----------------------------------------------------
+
+class Node{
+    constructor(data){
+        this.data=data;
+        this.next=null;
+        
+    }
+}
+class LinkdedList{
+    constructor(){
+        this.head = null
+        this.tail = null;
+    }
+
+    addValue=(data)=>{
+           const newNode=new Node(data);
+           if(this.head==null){
+               this.head=newNode;
+               this.tail=newNode;
+               return;
+           }
+           this.tail.next=newNode;
+           this.tail=newNode;
+       }
+
+       display(head){
+         let temp = head;
+         while(temp){
+            console.log(temp.data)
+            temp = temp.next
+         }
+       }
+
+}
+
+function merge(list1,list2){
+    let curr1= list1.head;
+    let curr2 = list2.head;
+    let merge  = new LinkdedList()
+    while(curr1){
+       merge.addValue(curr1.data)
+       curr1 = curr1.next
+    }
+    while(curr2){
+      merge.addValue(curr2.data)
+      curr2 = curr2.next;
+    }
+    return merge.head
+ }
+const list1 = new LinkdedList()
+list1.addValue(10)
+list1.addValue(5)
+list1.addValue(145)
+list1.addValue(20)
+const list2 = new LinkdedList()
+list2.addValue(30)
+list2.addValue(45)
+list2.addValue(45)
+list2.addValue(200)
+let mergeFun = merge(list1,list2)
+list1.display(mergeFun)
