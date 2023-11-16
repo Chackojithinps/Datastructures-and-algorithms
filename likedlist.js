@@ -925,6 +925,69 @@
 
 // merge linkedList =----------------------------------------------------
 
+// class Node{
+//     constructor(data){
+//         this.data=data;
+//         this.next=null;
+        
+//     }
+// }
+// class LinkdedList{
+//     constructor(){
+//         this.head = null
+//         this.tail = null;
+//     }
+
+//     addValue=(data)=>{
+//            const newNode=new Node(data);
+//            if(this.head==null){
+//                this.head=newNode;
+//                this.tail=newNode;
+//                return;
+//            }
+//            this.tail.next=newNode;
+//            this.tail=newNode;
+//        }
+
+//        display(head){
+//          let temp = head;
+//          while(temp){
+//             console.log(temp.data)
+//             temp = temp.next
+//          }
+//        }
+
+// }
+
+// function merge(list1,list2){
+//     let curr1= list1.head;
+//     let curr2 = list2.head;
+//     let merge  = new LinkdedList()
+//     while(curr1){
+//        merge.addValue(curr1.data)
+//        curr1 = curr1.next
+//     }
+//     while(curr2){
+//       merge.addValue(curr2.data)
+//       curr2 = curr2.next;
+//     }
+//     return merge.head
+//  }
+// const list1 = new LinkdedList()
+// list1.addValue(10)
+// list1.addValue(5)
+// list1.addValue(145)
+// list1.addValue(20)
+// const list2 = new LinkdedList()
+// list2.addValue(30)
+// list2.addValue(45)
+// list2.addValue(45)
+// list2.addValue(200)
+// let mergeFun = merge(list1,list2)
+// list1.display(mergeFun)
+
+
+
 class Node{
     constructor(data){
         this.data=data;
@@ -958,30 +1021,9 @@ class LinkdedList{
        }
 
 }
-
-function merge(list1,list2){
-    let curr1= list1.head;
-    let curr2 = list2.head;
-    let merge  = new LinkdedList()
-    while(curr1){
-       merge.addValue(curr1.data)
-       curr1 = curr1.next
-    }
-    while(curr2){
-      merge.addValue(curr2.data)
-      curr2 = curr2.next;
-    }
-    return merge.head
- }
 const list1 = new LinkdedList()
 list1.addValue(10)
 list1.addValue(5)
 list1.addValue(145)
 list1.addValue(20)
-const list2 = new LinkdedList()
-list2.addValue(30)
-list2.addValue(45)
-list2.addValue(45)
-list2.addValue(200)
-let mergeFun = merge(list1,list2)
-list1.display(mergeFun)
+list1.display()
