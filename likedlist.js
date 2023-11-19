@@ -1020,10 +1020,28 @@ class LinkdedList{
          }
        }
 
+       reveseLinkedList(node,prev = null){
+         if(!node){
+             return prev
+         }
+         const nextNode = node.next;
+         node.next = prev;
+         return this.reveseLinkedList(nextNode,node)
+       }
+       findLastOne(node){
+        if(!node.next){
+            return node.data
+        }
+        const nextNode = node.next;
+        return this.findLastOne(nextNode)
+       }
 }
 const list1 = new LinkdedList()
 list1.addValue(10)
 list1.addValue(5)
 list1.addValue(145)
 list1.addValue(20)
-list1.display()
+// let k = list1.reveseLinkedList(list1.head)
+console.log("_______")
+let k = list1.findLastOne(list1.head)
+console.log(k)
