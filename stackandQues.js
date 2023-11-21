@@ -267,7 +267,6 @@
 
 // reverse the array in stack----------------------------------
 
-
 // class Stack{
 //     constructor() {
 //         this.array=[]
@@ -277,8 +276,7 @@
 //             this.array.push(data)
 //     }
 
-//     pop(){
-            
+//     pop(){    
 //        var k= this.array.pop()  
 //        return k;  
 //     }
@@ -293,7 +291,6 @@
 // const myStack=new Stack();
 
 // let str="KERALA"
-
 
 
 // for(let i=0;i<str.length;i++)
@@ -401,10 +398,8 @@
 //             this.top=null
 //             this.size=0
 //     }
-
 //     push(data){
 //             const newNode=new Node(data)
-
 //             if(!this.top){
 //                     this.top=newNode
 //             }
@@ -412,9 +407,9 @@
 //                     newNode.next=this.top
 //                     this.top=newNode
 //             }
-//             this.size++
-            
+//             this.size++;            
 //     }
+
 //     findLargest=()=>{
 //         var temp=this.top;
 //         var max=0;
@@ -426,6 +421,7 @@
 //         }
 //         console.log(max+" max value")
 //     }
+
 //     findSec=()=>{
 //         var temp=this.top;
 //         var max=0;
@@ -572,8 +568,6 @@
 //     }
 //     stack.display()
 
-
-
 // class Node{
 //         constructor(data) {
 //                 this.data=data
@@ -641,7 +635,6 @@
 // const stack=new Stack()
 // // const stack2=new Stack()
 // let str="KERALA"
-
 
 
 // for(let i=0;i<str.length;i++)
@@ -736,7 +729,6 @@
 //                newNode.next=this.top;
 //                this.top=newNode;
 //                this.size++;
-
 //             }
 //             popValue=()=>{
 //                 if(this.top==null){
@@ -775,6 +767,69 @@
 //         console.log("_______________")
 //         stack1.display()
         // stack.popValue();
+
+// ---------------------------------------------------delete middle in stack-------------------------------------------------
+
+        class Node{               
+                constructor(data){
+                    this.data = data;
+                    this.next = null;
+                 }
+                
+                }
+                class Stack{
+                    constructor(){
+                        this.top = null;
+                        this.size = 0;
+                    }
+                    addValue(data){
+                        const newNode = new Node(data)
+                        if(this.top == null){
+                            this.top = newNode
+                            this.size++;
+                            return;
+                        }
+                        newNode.next = this.top
+                        this.top = newNode
+                        this.size++;
+                    }
+                    pop(){
+                        let val = this.top.data
+                        this.top = this.top.next
+                        return val
+                    }
+                    display(){
+                        let temp = this.top;
+                        while(temp){
+                            console.log(temp.data)
+                            temp = temp.next
+                        }
+                    }
+                    deleteMiddle(){
+                       const stack1 = new Stack() 
+                       let mid = Math.floor(this.size/2)
+                       for(var i=0;i<mid;i++){
+                           let k = this.pop()
+                           stack1.addValue(k)
+                       }
+                       this.pop()
+                       for(var i=0;i<mid;i++){
+                           let k = stack1.pop()
+                           this.addValue(k)
+                       }
+                    }
+                   
+                }
+                const stack = new Stack()
+                
+                stack.addValue(4)
+                stack.addValue(56)
+                stack.addValue(45)
+                stack.addValue(23)
+                stack.addValue(1)
+                stack.deleteMiddle()
+                // stack.deleteMiddle()
+                stack.display()
 
 
         
